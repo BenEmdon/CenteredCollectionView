@@ -12,7 +12,7 @@ class ViewController: UIViewController {
 	
 	let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout())
 	var flowLayout: CarouselCollectionViewFlowLayout!
-	let cellPercentWidth: CGFloat = 0.8
+	let cellPercentWidth: CGFloat = 0.7
 	var currentCenteredPage = 0
 	
 	private var pageWidth: CGFloat {
