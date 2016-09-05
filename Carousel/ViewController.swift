@@ -47,10 +47,10 @@ class ViewController: UIViewController {
 	
 	// MARK: - Helper actions
 	
-	private func scrollTo(pageIndex: Int, animated: Bool) {
-		let pageOffset = CGFloat(pageIndex) * pageWidth - collectionView.contentInset.left
+	private func scrollTo(page: Int, animated: Bool) {
+		let pageOffset = CGFloat(page) * pageWidth - collectionView.contentInset.left
 		collectionView.setContentOffset(CGPoint(x: pageOffset, y: 0), animated: animated)
-		currentCenteredPage = pageIndex
+		currentCenteredPage = page
 	}
 }
 
