@@ -26,15 +26,13 @@ class CollectionCell: UICollectionViewCell {
 		mainView.translatesAutoresizingMaskIntoConstraints = false
 		mainView.addSubview(titleLabel)
 		titleLabel.translatesAutoresizingMaskIntoConstraints = false
-		
-		contentView.layoutMargins = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
 		mainView.layoutMargins = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
 		
 		NSLayoutConstraint.activateConstraints([
-			mainView.leadingAnchor.constraintEqualToAnchor(contentView.layoutMarginsGuide.leadingAnchor),
-			mainView.topAnchor.constraintEqualToAnchor(contentView.layoutMarginsGuide.topAnchor),
-			mainView.trailingAnchor.constraintEqualToAnchor(contentView.layoutMarginsGuide.trailingAnchor),
-			mainView.bottomAnchor.constraintEqualToAnchor(contentView.layoutMarginsGuide.bottomAnchor),
+			mainView.leadingAnchor.constraintEqualToAnchor(contentView.leadingAnchor),
+			mainView.topAnchor.constraintEqualToAnchor(contentView.topAnchor),
+			mainView.trailingAnchor.constraintEqualToAnchor(contentView.trailingAnchor),
+			mainView.bottomAnchor.constraintEqualToAnchor(contentView.bottomAnchor),
 			
 			titleLabel.leadingAnchor.constraintEqualToAnchor(mainView.layoutMarginsGuide.leadingAnchor),
 			titleLabel.bottomAnchor.constraintEqualToAnchor(mainView.layoutMarginsGuide.bottomAnchor)

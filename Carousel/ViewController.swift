@@ -10,9 +10,18 @@ import UIKit
 
 class ViewController: UIViewController {
 	
-	let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewLayout())
-	let flowLayout = CenterCellCollectionViewFlowLayout()
+	let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout())
+	var flowLayout: CarouselCollectionViewFlowLayout!
 	let cellPercentWidth: CGFloat = 0.8
+	var currentCenteredPage = 0
+	
+	private var pageWidth: CGFloat {
+		return flowLayout.itemSize.width + flowLayout.minimumLineSpacing
+	}
+	
+	private var contentOffset: CGFloat {
+		return collectionView.contentOffset.x + collectionView.contentInset.left
+	}
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -25,49 +34,50 @@ class ViewController: UIViewController {
 		
 		// layout subview
 		view.addSubview(collectionView)
-		collectionView.frame = CGRect(x: 0, y: 100, width: view.bounds.width, height: 290 + 140)
+		collectionView.frame = CGRect(x: 0, y: 100, width: view.bounds.width, height: 400)
 		
 		// register collection cells
 		collectionView.registerClass(CollectionCell.self, forCellWithReuseIdentifier: String(CollectionCell))
 		
 		// configure layout
-		flowLayout.scrollDirection = .Horizontal
-		flowLayout.itemSize = CGSize(width: collectionView.bounds.width * cellPercentWidth, height: collectionView.bounds.height)
-		flowLayout.minimumInteritemSpacing = 0
-		collectionView.setCollectionViewLayout(flowLayout, animated: false)
+		flowLayout = CarouselCollectionViewFlowLayout.configureLayout(collectionView: collectionView, itemSize: CGSize(width: collectionView.bounds.width * cellPercentWidth, height: collectionView.bounds.height), minimumLineSpacing: 20)
 		collectionView.showsVerticalScrollIndicator = false
 		collectionView.showsHorizontalScrollIndicator = false
 	}
 	
-	override func viewDidLayoutSubviews() {
-		super.viewDidLayoutSubviews()
-		// give left and right enough space to scroll
-		var insets = collectionView.contentInset
-		let value = (view.frame.size.width - (collectionView.collectionViewLayout as! UICollectionViewFlowLayout).itemSize.width) * 0.5
-		insets.left = value
-		insets.right = value
-		collectionView.contentInset = insets
-		
-		// slow scrolling towards the end
-		collectionView.decelerationRate = UIScrollViewDecelerationRateFast
+	// MARK: - Helper actions
+	
+	private func scrollTo(pageIndex: Int, animated: Bool) {
+		let pageOffset = CGFloat(pageIndex) * pageWidth - collectionView.contentInset.left
+		collectionView.setContentOffset(CGPoint(x: pageOffset, y: 0), animated: animated)
+		currentCenteredPage = pageIndex
 	}
 }
 
 extension ViewController: UICollectionViewDelegate {
 	func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
-		// print the index of the centered cell
-		print("Index selected: \(Int(scrollView.contentOffset.x + scrollView.contentInset.left) / Int(scrollView.bounds.width * cellPercentWidth + 10))")
+		currentCenteredPage = Int(contentOffset / pageWidth)
+		print("Center page index: \(currentCenteredPage)")
 	}
 }
 
 extension ViewController: UICollectionViewDataSource {
 	func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		return 44
+		return 6
 	}
 	
 	func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
 		let cell = collectionView.dequeueReusableCellWithReuseIdentifier(String(CollectionCell), forIndexPath: indexPath) as! CollectionCell
 		cell.titleLabel.text = "Cell #\(indexPath.row)"
 		return cell
+	}
+	
+	func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+		guard !collectionView.dragging && !collectionView.decelerating && !collectionView.tracking else { return }
+		if indexPath.row != currentCenteredPage {
+			scrollTo(indexPath.row, animated: true)
+			print("Center page index: \(currentCenteredPage)")
+		}
+		print("Selected page index: \(indexPath.row)")
 	}
 }
