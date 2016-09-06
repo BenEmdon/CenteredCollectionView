@@ -51,6 +51,7 @@ class ViewController: UIViewController {
 		let pageOffset = CGFloat(page) * pageWidth - collectionView.contentInset.left
 		collectionView.setContentOffset(CGPoint(x: pageOffset, y: 0), animated: animated)
 		currentCenteredPage = page
+		collectionView.userInteractionEnabled = false
 	}
 }
 
@@ -58,6 +59,10 @@ extension ViewController: UICollectionViewDelegate {
 	func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
 		currentCenteredPage = Int(contentOffset / pageWidth)
 		print("Center page index: \(currentCenteredPage)")
+	}
+	
+	func scrollViewDidEndScrollingAnimation(scrollView: UIScrollView) {
+		collectionView.userInteractionEnabled = true
 	}
 }
 
