@@ -100,6 +100,7 @@
 					1D034FEB1D78F4B900634AAA = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = E299TDEV8Z;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -250,6 +251,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.BenEmdon.Carousel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
@@ -261,6 +263,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.BenEmdon.Carousel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};
