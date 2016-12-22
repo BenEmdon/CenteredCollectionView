@@ -17,8 +17,8 @@ class CollectionCell: UICollectionViewCell {
 		super.init(frame: frame)
 		
 		// subview config
-		titleLabel.textAlignment = .Left
-		mainView.backgroundColor = UIColor.whiteColor()
+		titleLabel.textAlignment = .left
+		mainView.backgroundColor = UIColor.white
 		mainView.layer.cornerRadius = 3
 		
 		// prepare subviews for layout
@@ -28,14 +28,14 @@ class CollectionCell: UICollectionViewCell {
 		titleLabel.translatesAutoresizingMaskIntoConstraints = false
 		mainView.layoutMargins = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
 		
-		NSLayoutConstraint.activateConstraints([
-			mainView.leadingAnchor.constraintEqualToAnchor(contentView.leadingAnchor),
-			mainView.topAnchor.constraintEqualToAnchor(contentView.topAnchor),
-			mainView.trailingAnchor.constraintEqualToAnchor(contentView.trailingAnchor),
-			mainView.bottomAnchor.constraintEqualToAnchor(contentView.bottomAnchor),
+		NSLayoutConstraint.activate([
+			mainView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+			mainView.topAnchor.constraint(equalTo: contentView.topAnchor),
+			mainView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+			mainView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
 			
-			titleLabel.leadingAnchor.constraintEqualToAnchor(mainView.layoutMarginsGuide.leadingAnchor),
-			titleLabel.bottomAnchor.constraintEqualToAnchor(mainView.layoutMarginsGuide.bottomAnchor)
+			titleLabel.leadingAnchor.constraint(equalTo: mainView.layoutMarginsGuide.leadingAnchor),
+			titleLabel.bottomAnchor.constraint(equalTo: mainView.layoutMarginsGuide.bottomAnchor)
 			])
 	}
 	

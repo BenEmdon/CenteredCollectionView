@@ -15,18 +15,18 @@ class ViewController: UIViewController {
 	let cellPercentWidth: CGFloat = 0.7
 	var currentCenteredPage = 0
 	
-	private var pageWidth: CGFloat {
+	fileprivate var pageWidth: CGFloat {
 		return flowLayout.itemSize.width + flowLayout.minimumLineSpacing
 	}
 	
-	private var contentOffset: CGFloat {
+	fileprivate var contentOffset: CGFloat {
 		return collectionView.contentOffset.x + collectionView.contentInset.left
 	}
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		view.backgroundColor = UIColor.lightGrayColor()
-		collectionView.backgroundColor = UIColor.clearColor()
+		view.backgroundColor = UIColor.lightGray
+		collectionView.backgroundColor = UIColor.clear
 		
 		// delegate & data source
 		collectionView.delegate = self
@@ -37,7 +37,7 @@ class ViewController: UIViewController {
 		collectionView.frame = CGRect(x: 0, y: 100, width: view.bounds.width, height: 400)
 		
 		// register collection cells
-		collectionView.registerClass(CollectionCell.self, forCellWithReuseIdentifier: String(CollectionCell))
+		collectionView.register(CollectionCell.self, forCellWithReuseIdentifier: String(describing: CollectionCell.self))
 		
 		// configure layout
 		flowLayout = CarouselCollectionViewFlowLayout.configureLayout(collectionView: collectionView, itemSize: CGSize(width: collectionView.bounds.width * cellPercentWidth, height: collectionView.bounds.height), minimumLineSpacing: 20)
@@ -47,38 +47,38 @@ class ViewController: UIViewController {
 	
 	// MARK: - Helper actions
 	
-	private func scrollTo(page: Int, animated: Bool) {
+	fileprivate func scrollTo(_ page: Int, animated: Bool) {
 		let pageOffset = CGFloat(page) * pageWidth - collectionView.contentInset.left
 		collectionView.setContentOffset(CGPoint(x: pageOffset, y: 0), animated: animated)
 		currentCenteredPage = page
-		collectionView.userInteractionEnabled = false
+		collectionView.isUserInteractionEnabled = false
 	}
 }
 
 extension ViewController: UICollectionViewDelegate {
-	func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+	func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
 		currentCenteredPage = Int(contentOffset / pageWidth)
 		print("Center page index: \(currentCenteredPage)")
 	}
 	
-	func scrollViewDidEndScrollingAnimation(scrollView: UIScrollView) {
-		collectionView.userInteractionEnabled = true
+	func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+		collectionView.isUserInteractionEnabled = true
 	}
 }
 
 extension ViewController: UICollectionViewDataSource {
-	func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 		return 6
 	}
 	
-	func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-		let cell = collectionView.dequeueReusableCellWithReuseIdentifier(String(CollectionCell), forIndexPath: indexPath) as! CollectionCell
+	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: CollectionCell.self), for: indexPath) as! CollectionCell
 		cell.titleLabel.text = "Cell #\(indexPath.row)"
 		return cell
 	}
 	
-	func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-		guard !collectionView.dragging && !collectionView.decelerating && !collectionView.tracking else { return }
+	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+		guard !collectionView.isDragging && !collectionView.isDecelerating && !collectionView.isTracking else { return }
 		if indexPath.row != currentCenteredPage {
 			scrollTo(indexPath.row, animated: true)
 			print("Center page index: \(currentCenteredPage)")
