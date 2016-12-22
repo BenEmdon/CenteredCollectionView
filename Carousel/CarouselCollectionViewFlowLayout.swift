@@ -3,7 +3,7 @@
 //  Carousel
 //
 //  Created by Benjamin Emdon on 2016-09-05.
-//  Copyright © 2016 TravelNPlay. All rights reserved.
+//  Copyright © 2016 Benjamin Emdon.
 //
 
 import UIKit

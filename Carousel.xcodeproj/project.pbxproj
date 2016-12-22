@@ -13,6 +13,7 @@
 		1D034FFA1D78F4B900634AAA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D034FF81D78F4B900634AAA /* LaunchScreen.storyboard */; };
 		1D0350021D78FC4100634AAA /* CollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D0350011D78FC4100634AAA /* CollectionCell.swift */; };
 		1D45EDA81D7DC4B0003E7E71 /* CarouselCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D45EDA71D7DC4B0003E7E71 /* CarouselCollectionViewFlowLayout.swift */; };
+		1DE2939D1E0C6EE800C39D45 /* CenteredCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE2939C1E0C6EE800C39D45 /* CenteredCollectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		1D034FFB1D78F4B900634AAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1D0350011D78FC4100634AAA /* CollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionCell.swift; sourceTree = "<group>"; };
 		1D45EDA71D7DC4B0003E7E71 /* CarouselCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarouselCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
+		1DE2939C1E0C6EE800C39D45 /* CenteredCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CenteredCollectionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 				1D034FF11D78F4B900634AAA /* ViewController.swift */,
 				1D0350011D78FC4100634AAA /* CollectionCell.swift */,
 				1D45EDA71D7DC4B0003E7E71 /* CarouselCollectionViewFlowLayout.swift */,
+				1DE2939C1E0C6EE800C39D45 /* CenteredCollectionView.swift */,
 				1D034FF61D78F4B900634AAA /* Assets.xcassets */,
 				1D034FF81D78F4B900634AAA /* LaunchScreen.storyboard */,
 				1D034FFB1D78F4B900634AAA /* Info.plist */,
@@ -141,6 +144,7 @@
 			files = (
 				1D45EDA81D7DC4B0003E7E71 /* CarouselCollectionViewFlowLayout.swift in Sources */,
 				1D034FF21D78F4B900634AAA /* ViewController.swift in Sources */,
+				1DE2939D1E0C6EE800C39D45 /* CenteredCollectionView.swift in Sources */,
 				1D034FF01D78F4B900634AAA /* AppDelegate.swift in Sources */,
 				1D0350021D78FC4100634AAA /* CollectionCell.swift in Sources */,
 			);
