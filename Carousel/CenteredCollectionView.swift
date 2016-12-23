@@ -13,16 +13,16 @@ public class CenteredCollectionView: UICollectionView {
 	let flowLayout = CarouselCollectionViewFlowLayout()
 	var _currentCenteredPage: Int = 0
 
-//	public override var delegate: UICollectionViewDelegate? {
-//		get {
-//			return delegateInterceptor
-//		}
-//		set {
-//			delegateInterceptor = newValue
-//		}
-//	}
-//
-//	weak var delegateInterceptor: UICollectionViewDelegate?
+	public override var delegate: UICollectionViewDelegate? {
+		get {
+			return super.delegate
+		}
+		set {
+			delegateInterceptor = newValue
+		}
+	}
+
+	weak var delegateInterceptor: UICollectionViewDelegate?
 
 	public var currentCenteredPage: Int {
 		return _currentCenteredPage
@@ -70,7 +70,7 @@ public class CenteredCollectionView: UICollectionView {
 		super.init(frame: frame, collectionViewLayout: flowLayout)
 		decelerationRate = UIScrollViewDecelerationRateFast
 		backgroundColor = UIColor.clear
-//		super.delegate = self
+		super.delegate = self
 	}
 	
 	required public init?(coder aDecoder: NSCoder) {
@@ -88,21 +88,21 @@ public class CenteredCollectionView: UICollectionView {
 			setContentOffset(CGPoint(x: 0, y: pageOffset), animated: animated)
 		}
 		_currentCenteredPage = page
-		isUserInteractionEnabled = false
+		isUserInteractionEnabled = !animated
 	}
 }
 
-//extension CenteredCollectionView: UICollectionViewDelegate {
-//
-//	public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//		delegateInterceptor?.collectionView!(collectionView, didSelectItemAt: indexPath)
-//	}
-//
-//	public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-//		_currentCenteredPage = Int(currentContentOffset / pageWidth)
-//	}
-//
-//	public func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
-//		isUserInteractionEnabled = true
-//	}
-//}
+extension CenteredCollectionView: UICollectionViewDelegate {
+
+	public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+		delegateInterceptor?.collectionView!(collectionView, didSelectItemAt: indexPath)
+	}
+
+	public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+		_currentCenteredPage = Int(currentContentOffset / pageWidth)
+	}
+
+	public func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+		isUserInteractionEnabled = true
+	}
+}

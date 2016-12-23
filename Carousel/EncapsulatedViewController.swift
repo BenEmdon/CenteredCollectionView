@@ -41,7 +41,7 @@ extension EncapsulatedViewController: UICollectionViewDelegate {
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 		guard !collectionView.isDragging && !collectionView.isDecelerating && !collectionView.isTracking else { return }
 		if indexPath.row != centeredCollectionView.currentCenteredPage {
-			centeredCollectionView.scrollTo(page: indexPath.row, animated: true)
+			centeredCollectionView.scrollTo(page: indexPath.row, animated: false)
 			print("Center page index: \(centeredCollectionView.currentCenteredPage)")
 		}
 		print("Selected page index: \(indexPath.row)")
