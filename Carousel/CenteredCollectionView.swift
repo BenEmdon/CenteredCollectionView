@@ -66,7 +66,7 @@ public class CenteredCollectionView: UICollectionView {
 
 	// TODO: Add support for .vertical
 	public init(frame: CGRect) {
-		flowLayout.scrollDirection = .horizontal
+		flowLayout.scrollDirection = .vertical
 		super.init(frame: frame, collectionViewLayout: flowLayout)
 		decelerationRate = UIScrollViewDecelerationRateFast
 		backgroundColor = UIColor.clear
@@ -95,14 +95,16 @@ public class CenteredCollectionView: UICollectionView {
 extension CenteredCollectionView: UICollectionViewDelegate {
 
 	public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-		delegateInterceptor?.collectionView!(collectionView, didSelectItemAt: indexPath)
+		delegateInterceptor?.collectionView?(collectionView, didSelectItemAt: indexPath)
 	}
 
 	public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
 		_currentCenteredPage = Int(currentContentOffset / pageWidth)
+		delegateInterceptor?.scrollViewDidEndDecelerating?(scrollView)
 	}
 
 	public func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
 		isUserInteractionEnabled = true
+		delegateInterceptor?.scrollViewDidEndScrollingAnimation?(scrollView)
 	}
 }

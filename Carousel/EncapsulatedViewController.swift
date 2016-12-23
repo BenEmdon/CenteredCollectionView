@@ -30,7 +30,7 @@ class EncapsulatedViewController: UIViewController {
 		centeredCollectionView.register(CollectionCell.self, forCellWithReuseIdentifier: String(describing: CollectionCell.self))
 
 		// configure layout
-		centeredCollectionView.itemSize = CGSize(width: centeredCollectionView.bounds.width * cellPercentWidth, height: centeredCollectionView.bounds.height)
+		centeredCollectionView.itemSize = CGSize(width: centeredCollectionView.bounds.width * cellPercentWidth, height: centeredCollectionView.bounds.height * cellPercentWidth)
 		centeredCollectionView.minimumLineSpacing = 20
 		centeredCollectionView.showsVerticalScrollIndicator = false
 		centeredCollectionView.showsHorizontalScrollIndicator = false
@@ -41,7 +41,7 @@ extension EncapsulatedViewController: UICollectionViewDelegate {
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 		guard !collectionView.isDragging && !collectionView.isDecelerating && !collectionView.isTracking else { return }
 		if indexPath.row != centeredCollectionView.currentCenteredPage {
-			centeredCollectionView.scrollTo(page: indexPath.row, animated: false)
+			centeredCollectionView.scrollTo(page: indexPath.row, animated: true)
 			print("Center page index: \(centeredCollectionView.currentCenteredPage)")
 		}
 		print("Selected page index: \(indexPath.row)")
