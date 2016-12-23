@@ -40,7 +40,12 @@ class ViewController: UIViewController {
 		collectionView.register(CollectionCell.self, forCellWithReuseIdentifier: String(describing: CollectionCell.self))
 		
 		// configure layout
-		flowLayout = CarouselCollectionViewFlowLayout.configureLayout(collectionView: collectionView, itemSize: CGSize(width: collectionView.bounds.width * cellPercentWidth, height: collectionView.bounds.height), minimumLineSpacing: 20)
+		flowLayout = CarouselCollectionViewFlowLayout
+			.configureLayout(
+				collectionView: collectionView,
+				itemSize: CGSize(width: collectionView.bounds.width * cellPercentWidth, height: collectionView.bounds.height),
+				minimumLineSpacing: 20
+		)
 		collectionView.showsVerticalScrollIndicator = false
 		collectionView.showsHorizontalScrollIndicator = false
 	}
