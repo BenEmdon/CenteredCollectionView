@@ -1,6 +1,6 @@
 //
 //  CenteredCollectionView.swift
-//  Carousel
+//  CenteredCollectionView
 //
 //  Created by Benjamin Emdon on 2016-12-22.
 //  Copyright © 2016 Benjamin Emdon.

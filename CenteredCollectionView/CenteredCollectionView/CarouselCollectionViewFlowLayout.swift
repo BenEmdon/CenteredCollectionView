@@ -1,6 +1,6 @@
 //
 //  CarouselCollectionViewFlowLayout.swift
-//  Carousel
+//  CenteredCollectionView
 //
 //  Created by Benjamin Emdon on 2016-09-05.
 //  Copyright © 2016 Benjamin Emdon.
