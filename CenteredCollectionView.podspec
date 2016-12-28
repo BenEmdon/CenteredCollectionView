@@ -15,9 +15,9 @@ Pod::Spec.new do |s|
   #  summary should be tweet-length, and the description more in depth.
   #
 
-  s.name         = "CenteredCollectionView"
-  s.version      = "0.0.1"
-  s.summary      = "A short description of CenteredCollectionView."
+  s.name         = 'CenteredCollectionView'
+  s.version      = '0.0.1'
+  s.summary      = 'A UICollectionView that pages and centeres it\'s cells.'
 
   # This description is used to generate tags and improve search results.
   #   * Think: What does it do? Why did you write it? What is the focus?
@@ -25,10 +25,11 @@ Pod::Spec.new do |s|
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
   s.description  = <<-DESC
+  Temporary description
                    DESC
 
-  s.homepage     = "http://EXAMPLE/CenteredCollectionView"
-  # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
+  s.homepage     = 'https://github.com/BenEmdon/CenteredCollectionView'
+  # s.screenshots  = 'www.example.com/screenshots_1.gif', 'www.example.com/screenshots_2.gif'
 
 
   # ―――  Spec License  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -38,8 +39,8 @@ Pod::Spec.new do |s|
   #  Popular ones are 'MIT', 'BSD' and 'Apache License, Version 2.0'.
   #
 
-  s.license      = "MIT (example)"
-  # s.license      = { :type => "MIT", :file => "FILE_LICENSE" }
+  # s.license      = 'MIT (example)'
+  s.license      = { :type => 'MIT', :file => 'LICENSE' }
 
 
   # ――― Author Metadata  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -52,10 +53,10 @@ Pod::Spec.new do |s|
   #  profile URL.
   #
 
-  s.author             = { "BenEmdon" => "benjaminemdon@gmail.com" }
-  # Or just: s.author    = "BenEmdon"
-  # s.authors            = { "BenEmdon" => "benjaminemdon@gmail.com" }
-  # s.social_media_url   = "http://twitter.com/BenEmdon"
+  s.author             = { 'BenEmdon' => 'benjaminemdon@gmail.com' }
+  # Or just: s.author    = 'BenEmdon'
+  # s.authors            = { 'BenEmdon' => 'benjaminemdon@gmail.com' }
+  s.social_media_url   = 'http://twitter.com/BenEmdon'
 
   # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
@@ -64,13 +65,13 @@ Pod::Spec.new do |s|
   #
 
   # s.platform     = :ios
-  # s.platform     = :ios, "5.0"
+  s.platform     = :ios, '10.0'
 
   #  When using multiple platforms
-  # s.ios.deployment_target = "5.0"
-  # s.osx.deployment_target = "10.7"
-  # s.watchos.deployment_target = "2.0"
-  # s.tvos.deployment_target = "9.0"
+  # s.ios.deployment_target = '5.0'
+  # s.osx.deployment_target = '10.7'
+  # s.watchos.deployment_target = '2.0'
+  # s.tvos.deployment_target = '9.0'
 
 
   # ――― Source Location ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -79,7 +80,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "http://EXAMPLE/CenteredCollectionView.git", :tag => "#{s.version}" }
+  s.source       = { :git => 'https://github.com/BenEmdon/CenteredCollectionView.git', :tag => 'v#{s.version}' }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -90,10 +91,10 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "Classes", "Classes/**/*.{h,m}"
-  s.exclude_files = "Classes/Exclude"
+  s.source_files  = 'CenteredCollectionView/**/*.{swift}'
+  # s.exclude_files = 'Classes/Exclude'
 
-  # s.public_header_files = "Classes/**/*.h"
+  # s.public_header_files = 'Classes/**/*.h'
 
 
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -104,10 +105,10 @@ Pod::Spec.new do |s|
   #  non-essential files like tests, examples and documentation.
   #
 
-  # s.resource  = "icon.png"
-  # s.resources = "Resources/*.png"
+  # s.resource  = 'icon.png'
+  # s.resources = 'Resources/*.png'
 
-  # s.preserve_paths = "FilesToSave", "MoreFilesToSave"
+  # s.preserve_paths = 'FilesToSave', 'MoreFilesToSave'
 
 
   # ――― Project Linking ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -116,11 +117,11 @@ Pod::Spec.new do |s|
   #  the lib prefix of their name.
   #
 
-  # s.framework  = "SomeFramework"
-  # s.frameworks = "SomeFramework", "AnotherFramework"
+  s.framework  = 'UIKit'
+  # s.frameworks = 'SomeFramework', 'AnotherFramework'
 
-  # s.library   = "iconv"
-  # s.libraries = "iconv", "xml2"
+  # s.library   = 'iconv'
+  # s.libraries = 'iconv', 'xml2'
 
 
   # ――― Project Settings ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -131,7 +132,7 @@ Pod::Spec.new do |s|
 
   # s.requires_arc = true
 
-  # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
-  # s.dependency "JSONKit", "~> 1.4"
+  # s.xcconfig = { 'HEADER_SEARCH_PATHS' => '$(SDKROOT)/usr/include/libxml2' }
+  # s.dependency 'JSONKit', '~> 1.4'
 
 end
