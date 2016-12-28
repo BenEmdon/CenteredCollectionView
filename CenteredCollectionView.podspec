@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = 'CenteredCollectionView'
-  s.version      = '0.1.0'
+  s.version      = '0.2.0'
   s.summary      = 'A lightweight CollectionView that pages and centeres it\'s cells.'
 
   # This description is used to generate tags and improve search results.
@@ -65,7 +65,7 @@ Pod::Spec.new do |s|
   #
 
   # s.platform     = :ios
-  s.platform     = :ios, '10.0'
+  s.platform     = :ios, '9.0'
 
   #  When using multiple platforms
   # s.ios.deployment_target = '5.0'
