@@ -1,0 +1,24 @@
+{
+  "name": "CenteredCollectionView",
+  "version": "0.1.0",
+  "summary": "A lightweight CollectionView that pages and centeres it's cells.",
+  "description": "A lightweight CollectionView that pages and centeres it's cells.",
+  "homepage": "https://github.com/BenEmdon/CenteredCollectionView",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "BenEmdon": "benjaminemdon@gmail.com"
+  },
+  "social_media_url": "http://twitter.com/BenEmdon",
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source": {
+    "git": "https://github.com/BenEmdon/CenteredCollectionView.git",
+    "tag": "0.1.0"
+  },
+  "source_files": "CenteredCollectionView/**/*.{swift}",
+  "frameworks": "UIKit"
+}
