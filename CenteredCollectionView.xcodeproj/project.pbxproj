@@ -10,7 +10,7 @@
 		1D4B3BDE1E1383BF00975F87 /* CenteredCollectionView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D4B3BD41E1383BF00975F87 /* CenteredCollectionView.framework */; };
 		1D4B3BE31E1383BF00975F87 /* CenteredCollectionViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4B3BE21E1383BF00975F87 /* CenteredCollectionViewTests.swift */; };
 		1D4B3BE51E1383BF00975F87 /* CenteredCollectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = 1D4B3BD71E1383BF00975F87 /* CenteredCollectionView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1D4B3BF01E13845100975F87 /* CarouselCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4B3BEE1E13845100975F87 /* CarouselCollectionViewFlowLayout.swift */; };
+		1D4B3BF01E13845100975F87 /* CenteredCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4B3BEE1E13845100975F87 /* CenteredCollectionViewFlowLayout.swift */; };
 		1D4B3BF11E13845100975F87 /* CenteredCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4B3BEF1E13845100975F87 /* CenteredCollectionView.swift */; };
 /* End PBXBuildFile section */
 
@@ -31,7 +31,7 @@
 		1D4B3BDD1E1383BF00975F87 /* CenteredCollectionViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CenteredCollectionViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D4B3BE21E1383BF00975F87 /* CenteredCollectionViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenteredCollectionViewTests.swift; sourceTree = "<group>"; };
 		1D4B3BE41E1383BF00975F87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1D4B3BEE1E13845100975F87 /* CarouselCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarouselCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
+		1D4B3BEE1E13845100975F87 /* CenteredCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CenteredCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 		1D4B3BEF1E13845100975F87 /* CenteredCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CenteredCollectionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -76,7 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				1D4B3BD71E1383BF00975F87 /* CenteredCollectionView.h */,
-				1D4B3BEE1E13845100975F87 /* CarouselCollectionViewFlowLayout.swift */,
+				1D4B3BEE1E13845100975F87 /* CenteredCollectionViewFlowLayout.swift */,
 				1D4B3BEF1E13845100975F87 /* CenteredCollectionView.swift */,
 				1D4B3BD81E1383BF00975F87 /* Info.plist */,
 			);
@@ -204,7 +204,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D4B3BF11E13845100975F87 /* CenteredCollectionView.swift in Sources */,
-				1D4B3BF01E13845100975F87 /* CarouselCollectionViewFlowLayout.swift in Sources */,
+				1D4B3BF01E13845100975F87 /* CenteredCollectionViewFlowLayout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

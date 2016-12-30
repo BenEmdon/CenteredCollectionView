@@ -1,5 +1,5 @@
 //
-//  CarouselCollectionViewFlowLayout.swift
+//  CenteredCollectionViewFlowLayout.swift
 //  CenteredCollectionView
 //
 //  Created by Benjamin Emdon on 2016-09-05.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CarouselCollectionViewFlowLayout: UICollectionViewFlowLayout {
+class CenteredCollectionViewFlowLayout: UICollectionViewFlowLayout {
 	
 	fileprivate var lastCollectionViewSize: CGSize = CGSize.zero
 	

@@ -10,7 +10,7 @@ import UIKit
 
 public class CenteredCollectionView: UICollectionView {
 
-	let flowLayout = CarouselCollectionViewFlowLayout()
+	let flowLayout = CenteredCollectionViewFlowLayout()
 	var _currentCenteredPage: Int = 0
 
 	public override weak var delegate: UICollectionViewDelegate? {
