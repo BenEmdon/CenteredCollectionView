@@ -154,11 +154,13 @@
 				TargetAttributes = {
 					1D4B3BD31E1383BE00975F87 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = E299TDEV8Z;
 						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 					1D4B3BDC1E1383BF00975F87 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = E299TDEV8Z;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -332,7 +334,9 @@
 				APPLICATION_EXTENSION_API_ONLY = NO;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = E299TDEV8Z;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -356,6 +360,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = E299TDEV8Z;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -375,6 +380,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = E299TDEV8Z;
 				INFOPLIST_FILE = CenteredCollectionViewTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.BenEmdon.CenteredCollectionViewTests;
@@ -387,6 +393,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = E299TDEV8Z;
 				INFOPLIST_FILE = CenteredCollectionViewTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.BenEmdon.CenteredCollectionViewTests;

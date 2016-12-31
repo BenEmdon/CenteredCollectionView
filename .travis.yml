@@ -1,7 +1,10 @@
 osx_image: xcode8.2
 language: objective-c
-xcode_project: CenteredCollectionView.xcodeproj
-xcode_scheme: CenteredCollectionView
-xcode_sdk: iphonesimulator9.0
 
-script: xcodebuild -workspace CenteredCollectionView.xcodeproj -scheme CenteredCollectionView -sdk iphonesimulator9.0 -configuration Debug build test
+before_install:
+  - brew update
+  - brew outdated xctool || brew upgrade xctool
+
+script:
+  - xcodebuild -project CenteredCollectionView.xcodeproj -scheme CenteredCollectionView build-for-testing -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
+  - xctool -project CenteredCollectionView.xcodeproj -scheme CenteredCollectionView run-tests -test-sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
