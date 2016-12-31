@@ -17,7 +17,7 @@ public class CenteredCollectionView: UICollectionView {
 		get {
 			return super.delegate
 		}
-		set {
+		set(newValue) {
 			delegateInterceptor = newValue
 		}
 	}
@@ -32,7 +32,7 @@ public class CenteredCollectionView: UICollectionView {
 		get {
 			return flowLayout.minimumLineSpacing
 		}
-		set {
+		set(newValue) {
 			flowLayout.minimumLineSpacing = newValue
 		}
 	}
@@ -41,8 +41,17 @@ public class CenteredCollectionView: UICollectionView {
 		get {
 			return flowLayout.itemSize
 		}
-		set {
+		set(newValue)  {
 			flowLayout.itemSize = newValue
+		}
+	}
+
+	public var scrollDirection: UICollectionViewScrollDirection {
+		get {
+			return flowLayout.scrollDirection
+		}
+		set(newValue) {
+			flowLayout.scrollDirection = newValue
 		}
 	}
 
@@ -64,13 +73,15 @@ public class CenteredCollectionView: UICollectionView {
 		}
 	}
 
-	// TODO: Add support for .vertical
 	public init(frame: CGRect) {
-		flowLayout.scrollDirection = .vertical
 		super.init(frame: frame, collectionViewLayout: flowLayout)
 		decelerationRate = UIScrollViewDecelerationRateFast
 		backgroundColor = UIColor.clear
 		super.delegate = self
+	}
+
+	public convenience init() {
+		self.init(frame: CGRect.zero)
 	}
 	
 	required public init?(coder aDecoder: NSCoder) {
