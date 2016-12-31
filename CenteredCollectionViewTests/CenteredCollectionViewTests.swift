@@ -3,7 +3,7 @@
 //  CenteredCollectionViewTests
 //
 //  Created by Benjamin Emdon on 2016-12-28.
-//  Copyright © 2016 Benjamin Emdon. All rights reserved.
+//  Copyright © 2016 Benjamin Emdon.
 //
 
 import XCTest
@@ -63,11 +63,6 @@ class CenteredCollectionViewTests: XCTestCase {
 		XCTAssertTrue(collectionView.delegateInterceptor == nil)
 	}
 
-//	func testExample() {
-//		// This is an example of a functional test case.
-//		// Use XCTAssert and related functions to verify your tests produce the correct results.
-//	}
-//
 //	func testPerformanceExample() {
 //		// This is an example of a performance test case.
 //		self.measure {
