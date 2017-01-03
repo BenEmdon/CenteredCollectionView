@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'CenteredCollectionView_Example' do
+  pod 'CenteredCollectionView', :path => '../'
+
+  target 'CenteredCollectionView_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
