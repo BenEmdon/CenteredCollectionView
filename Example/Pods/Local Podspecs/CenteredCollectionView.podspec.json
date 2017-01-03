@@ -1,9 +1,9 @@
 {
   "name": "CenteredCollectionView",
-  "version": "0.1.0",
-  "summary": "A short description of CenteredCollectionView.",
-  "description": "TODO: Add long description of the pod here.",
-  "homepage": "https://github.com/<GITHUB_USERNAME>/CenteredCollectionView",
+  "version": "0.9.0",
+  "summary": "A lightweight CollectionView that pages and centeres it's cells.",
+  "description": "A lightweight CollectionView that pages and centeres it's cells.",
+  "homepage": "https://github.com/BenEmdon/CenteredCollectionView",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
@@ -11,12 +11,14 @@
   "authors": {
     "BenEmdon": "benjaminemdon@gmail.com"
   },
-  "source": {
-    "git": "https://github.com/<GITHUB_USERNAME>/CenteredCollectionView.git",
-    "tag": "0.1.0"
-  },
+  "social_media_url": "http://twitter.com/BenEmdon",
   "platforms": {
-    "ios": "8.0"
+    "ios": "9.0"
   },
-  "source_files": "CenteredCollectionView/Classes/**/*"
+  "source": {
+    "git": "https://github.com/BenEmdon/CenteredCollectionView.git",
+    "tag": "0.9.0"
+  },
+  "source_files": "CenteredCollectionView/Classes/**/*.{swift}",
+  "frameworks": "UIKit"
 }

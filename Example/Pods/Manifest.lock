@@ -1,5 +1,5 @@
 PODS:
-  - CenteredCollectionView (0.1.0)
+  - CenteredCollectionView (0.9.0)
 
 DEPENDENCIES:
   - CenteredCollectionView (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  CenteredCollectionView: 04f3ab22e64be2a70c3f33ac3825153d40ac27ab
+  CenteredCollectionView: 75a8b1ab084ba3cb19ee9651ed70f84f7ed8d276
 
 PODFILE CHECKSUM: a5e398e5f46bd184487576641db9b99cf71f1d51
 
