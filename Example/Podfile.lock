@@ -1,5 +1,5 @@
 PODS:
-  - CenteredCollectionView (0.2.0)
+  - CenteredCollectionView (0.1.0)
 
 DEPENDENCIES:
   - CenteredCollectionView (from `../`)
@@ -9,8 +9,8 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  CenteredCollectionView: 8205e78e2c300b3d80d1b3dd2ed869f2a953d7b9
+  CenteredCollectionView: 04f3ab22e64be2a70c3f33ac3825153d40ac27ab
 
-PODFILE CHECKSUM: b3f12e2d2cc096779ef9eb8f4c72d25fc3304ea0
+PODFILE CHECKSUM: a5e398e5f46bd184487576641db9b99cf71f1d51
 
 COCOAPODS: 1.1.1

@@ -63,7 +63,7 @@ Pod::Spec.new do |s|
   #
 
   # s.platform     = :ios
-  s.platform     = :ios, '9.0'
+  s.ios.deployment_target = '9.0'
 
   #  When using multiple platforms
   # s.ios.deployment_target = '5.0'
@@ -88,8 +88,7 @@ Pod::Spec.new do |s|
   #  For header files it will include any header in the folder.
   #  Not including the public_header_files will make all headers public.
   #
-
-  s.source_files  = 'CenteredCollectionView/**/*.{swift}'
+  s.source_files = 'CenteredCollectionView/Classes/**/*.{swift}'
   # s.exclude_files = 'Classes/Exclude'
 
   # s.public_header_files = 'Classes/**/*.h'
