@@ -1,0 +1,22 @@
+{
+  "name": "CenteredCollectionView",
+  "version": "0.1.0",
+  "summary": "A short description of CenteredCollectionView.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/<GITHUB_USERNAME>/CenteredCollectionView",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "BenEmdon": "benjaminemdon@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/<GITHUB_USERNAME>/CenteredCollectionView.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "CenteredCollectionView/Classes/**/*"
+}
