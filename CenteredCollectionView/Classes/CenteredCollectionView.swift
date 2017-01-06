@@ -12,6 +12,7 @@ public class CenteredCollectionView: UICollectionView {
 
 	let flowLayout = CenteredCollectionViewFlowLayout()
 	var _currentCenteredPage: Int = 0
+	public var scrollToEdgeEnabled: Bool = false
 
 	public override weak var delegate: UICollectionViewDelegate? {
 		get {
@@ -56,7 +57,7 @@ public class CenteredCollectionView: UICollectionView {
 	}
 
 	var pageWidth: CGFloat {
-		switch flowLayout.scrollDirection {
+		switch scrollDirection {
 		case .horizontal:
 			return flowLayout.itemSize.width + flowLayout.minimumLineSpacing
 		case .vertical:
@@ -65,7 +66,7 @@ public class CenteredCollectionView: UICollectionView {
 	}
 
 	var currentContentOffset: CGFloat {
-		switch flowLayout.scrollDirection {
+		switch scrollDirection {
 		case .horizontal:
 			return contentOffset.x + contentInset.left
 		case .vertical:
@@ -77,6 +78,7 @@ public class CenteredCollectionView: UICollectionView {
 		super.init(frame: frame, collectionViewLayout: flowLayout)
 		decelerationRate = UIScrollViewDecelerationRateFast
 		backgroundColor = UIColor.clear
+		scrollDirection = .horizontal
 		super.delegate = self
 	}
 
@@ -90,7 +92,7 @@ public class CenteredCollectionView: UICollectionView {
 
 	public func scrollTo(page: Int, animated: Bool) {
 		let pageOffset: CGFloat
-		switch flowLayout.scrollDirection {
+		switch scrollDirection {
 		case .horizontal:
 			pageOffset = CGFloat(page) * pageWidth - contentInset.left
 			setContentOffset(CGPoint(x: pageOffset, y: 0), animated: animated)
@@ -107,6 +109,9 @@ extension CenteredCollectionView: UICollectionViewDelegate {
 
 	// MARK: - Utilized delegate methods
 	public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+		if scrollToEdgeEnabled && !collectionView.isDragging && !collectionView.isDecelerating && !collectionView.isTracking && indexPath.row != currentCenteredPage {
+			scrollTo(page: indexPath.row, animated: true)
+		}
 		delegateInterceptor?.collectionView?(collectionView, didSelectItemAt: indexPath)
 	}
 

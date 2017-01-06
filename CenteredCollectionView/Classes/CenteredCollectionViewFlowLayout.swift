@@ -11,6 +11,16 @@ import UIKit
 class CenteredCollectionViewFlowLayout: UICollectionViewFlowLayout {
 	
 	fileprivate var lastCollectionViewSize: CGSize = CGSize.zero
+	fileprivate var lastScrollDirection: UICollectionViewScrollDirection!
+
+	override init() {
+		super.init()
+		lastScrollDirection = scrollDirection
+	}
+	
+	required init?(coder aDecoder: NSCoder) {
+		fatalError("init(coder:) has not been implemented")
+	}
 	
 	override func invalidateLayout(with context: UICollectionViewLayoutInvalidationContext) {
 		super.invalidateLayout(with: context)
@@ -18,7 +28,7 @@ class CenteredCollectionViewFlowLayout: UICollectionViewFlowLayout {
 		// invalidate layout to center first and last
 		
 		let currentCollectionViewSize = collectionView.bounds.size
-		if !currentCollectionViewSize.equalTo(lastCollectionViewSize) {
+		if !currentCollectionViewSize.equalTo(lastCollectionViewSize) || lastScrollDirection != scrollDirection {
 			let inset: CGFloat
 			switch scrollDirection {
 			case .horizontal:
@@ -31,6 +41,7 @@ class CenteredCollectionViewFlowLayout: UICollectionViewFlowLayout {
 				collectionView.contentOffset = CGPoint(x: 0, y: -inset)
 			}
 			lastCollectionViewSize = currentCollectionViewSize
+			lastScrollDirection = scrollDirection
 		}
 	}
 	

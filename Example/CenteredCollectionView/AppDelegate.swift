@@ -3,7 +3,7 @@
 //  Example
 //
 //  Created by Benjamin Emdon on 2016-12-28.
-//  Copyright © 2016 Benjamin Emdon. All rights reserved.
+//  Copyright © 2016 Benjamin Emdon. 
 //
 
 import UIKit
