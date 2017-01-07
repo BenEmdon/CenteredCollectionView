@@ -12,30 +12,27 @@ import CenteredCollectionView
 class ViewController: UIViewController {
 
 	let centeredCollectionView = CenteredCollectionView()
-	let control = UISegmentedControl()
+	let controlCenter = ControlCenterView()
 	let cellPercentWidth: CGFloat = 0.7
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		title = "CenteredCollectionView"
+
 		view.backgroundColor = UIColor.lightGray
 		centeredCollectionView.backgroundColor = UIColor.clear
 
-		control.insertSegment(withTitle: "Horizontal", at: 1, animated: false)
-		control.insertSegment(withTitle: "Vertical", at: 0, animated: false)
-		control.selectedSegmentIndex = 1
-		control.addTarget(self, action: #selector(controlStateDidChange), for: .valueChanged)
-
 		// delegate & data source
+		controlCenter.delegate = self
 		centeredCollectionView.delegate = self
 		centeredCollectionView.dataSource = self
 
 		// layout subviews
 		let stackView = UIStackView()
 		stackView.axis = .vertical
-		stackView.spacing = 15
 
 		stackView.addArrangedSubview(centeredCollectionView)
-		stackView.addArrangedSubview(control)
+		stackView.addArrangedSubview(controlCenter)
 
 		view.addSubview(stackView)
 		stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -44,25 +41,27 @@ class ViewController: UIViewController {
 			stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
 			stackView.topAnchor.constraint(equalTo: view.topAnchor),
 			stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-			stackView.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor),
+			stackView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
 			])
 
 		// register collection cells
 		centeredCollectionView.register(CollectionViewCell.self, forCellWithReuseIdentifier: String(describing: CollectionViewCell.self))
 
 		// configure layout
-		centeredCollectionView.itemSize = CGSize(width: view.bounds.width * cellPercentWidth, height: view.bounds.height * cellPercentWidth)
+		centeredCollectionView.itemSize = CGSize(width: view.bounds.width * cellPercentWidth, height: view.bounds.height * cellPercentWidth * cellPercentWidth )
 		centeredCollectionView.minimumLineSpacing = 20
 		centeredCollectionView.showsVerticalScrollIndicator = false
 		centeredCollectionView.showsHorizontalScrollIndicator = false
-		centeredCollectionView.scrollToEdgeEnabled = true
+	}
+}
+
+extension ViewController: ControlCenterViewDelegate {
+	func stateChanged(scrollDirection: UICollectionViewScrollDirection) {
+		centeredCollectionView.scrollDirection = scrollDirection
 	}
 
-	// MARK: - Actions
-
-	func controlStateDidChange(sender: UISegmentedControl) {
-		guard let scrollDirection = UICollectionViewScrollDirection(rawValue: sender.selectedSegmentIndex) else { return }
-		centeredCollectionView.scrollDirection = scrollDirection
+	func stateChanged(scrollToEnabled: Bool) {
+		centeredCollectionView.scrollToEdgeEnabled = scrollToEnabled
 	}
 }
 
