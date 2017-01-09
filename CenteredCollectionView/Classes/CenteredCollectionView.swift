@@ -109,10 +109,10 @@ extension CenteredCollectionView: UICollectionViewDelegate {
 
 	// MARK: - Utilized delegate methods
 	public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+		delegateInterceptor?.collectionView?(collectionView, didSelectItemAt: indexPath)
 		if scrollToEdgeEnabled && !collectionView.isDragging && !collectionView.isDecelerating && !collectionView.isTracking && indexPath.row != currentCenteredPage {
 			scrollTo(page: indexPath.row, animated: true)
 		}
-		delegateInterceptor?.collectionView?(collectionView, didSelectItemAt: indexPath)
 	}
 
 	public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
