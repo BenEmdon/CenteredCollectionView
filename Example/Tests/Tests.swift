@@ -29,12 +29,13 @@ class Tests: XCTestCase {
 		collectionView = CenteredCollectionView()
 		collectionView.flowLayout.invalidateLayout()
 		// public
-		XCTAssertEqual(collectionView.scrollDirection, .vertical)
+		XCTAssertEqual(collectionView.scrollDirection, .horizontal)
+		XCTAssertEqual(collectionView.scrollToEdgeEnabled, false)
 		XCTAssertEqual(collectionView.itemSize, CGSize(width: expectedItemDimension, height: expectedItemDimension))
 		XCTAssertEqual(collectionView.minimumLineSpacing, expectedLineSpacing)
 		XCTAssertEqual(collectionView.currentCenteredPage, 0)
 		XCTAssertEqual(collectionView.contentOffset.y, 0)
-		XCTAssertEqual(collectionView.contentOffset.x, 0)
+		XCTAssertEqual(collectionView.contentOffset.x, 25)
 		// internal
 		XCTAssertEqual(collectionView.pageWidth, expectedItemDimension + expectedLineSpacing)
 		XCTAssertEqual(collectionView.currentContentOffset, 0)
@@ -44,12 +45,13 @@ class Tests: XCTestCase {
 	func testDefaultValuesWithFrame() {
 		// public
 		collectionView.flowLayout.invalidateLayout()
-		XCTAssertEqual(collectionView.scrollDirection, .vertical)
+		XCTAssertEqual(collectionView.scrollDirection, .horizontal)
+		XCTAssertEqual(collectionView.scrollToEdgeEnabled, false)
 		XCTAssertEqual(collectionView.itemSize, CGSize(width: expectedItemDimension, height: expectedItemDimension))
 		XCTAssertEqual(collectionView.minimumLineSpacing, expectedLineSpacing)
 		XCTAssertEqual(collectionView.currentCenteredPage, 0)
-		XCTAssertEqual(collectionView.contentOffset.y, -(expectedFrameDimension - expectedItemDimension) / 2)
-		XCTAssertEqual(collectionView.contentOffset.x, 0)
+		XCTAssertEqual(collectionView.contentOffset.y, 0)
+		XCTAssertEqual(collectionView.contentOffset.x, -(expectedFrameDimension - expectedItemDimension) / 2)
 		// internal
 		XCTAssertEqual(collectionView.pageWidth, expectedItemDimension + expectedLineSpacing)
 		XCTAssertEqual(collectionView.currentContentOffset, 0)
