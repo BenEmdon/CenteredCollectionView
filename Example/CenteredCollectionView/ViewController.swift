@@ -27,6 +27,17 @@ class ViewController: UIViewController {
 		centeredCollectionView.delegate = self
 		centeredCollectionView.dataSource = self
 
+		let gradient = CAGradientLayer()
+		gradient.frame = view.bounds
+		gradient.locations = [0, 1]
+		gradient.startPoint = CGPoint(x: 0, y: 0)
+		gradient.endPoint = CGPoint(x: 1, y: 1)
+		gradient.colors = [
+			UIColor(colorLiteralRed: 1, green: 0.5764705882, blue: 0.5843137255, alpha: 1).cgColor,
+			UIColor(colorLiteralRed: 1, green: 0.5764705882, blue: 0.462745098, alpha: 1).cgColor
+		]
+		view.layer.insertSublayer(gradient, at: 0)
+
 		// layout subviews
 		let stackView = UIStackView()
 		stackView.axis = .vertical

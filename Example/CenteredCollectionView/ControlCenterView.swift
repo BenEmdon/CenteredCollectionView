@@ -24,7 +24,7 @@ class ControlCenterView: UIView {
 	override init(frame: CGRect) {
 		super.init(frame: frame)
 
-		backgroundColor = UIColor.darkGray
+		backgroundColor = UIColor.clear
 		segmentedControl.tintColor = UIColor.white
 		scrollToLabel.textColor = UIColor.white
 		scrollToSwitch.tintColor = UIColor.white
