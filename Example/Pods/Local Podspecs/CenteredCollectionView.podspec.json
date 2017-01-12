@@ -1,6 +1,6 @@
 {
   "name": "CenteredCollectionView",
-  "version": "0.9.1",
+  "version": "0.9.3",
   "summary": "A CollectionView that 'pages' and centers it's cells 🎡 written in Swift",
   "description": "A lightweight CollectionView that 'pages' and centers it's cells, creating the carousel effect 🎡 written in Swift.",
   "homepage": "https://github.com/BenEmdon/CenteredCollectionView",
@@ -17,7 +17,7 @@
   },
   "source": {
     "git": "https://github.com/BenEmdon/CenteredCollectionView.git",
-    "tag": "0.9.1"
+    "tag": "0.9.3"
   },
   "source_files": "CenteredCollectionView/Classes/**/*.{swift}",
   "frameworks": "UIKit"

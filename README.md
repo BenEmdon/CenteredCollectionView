@@ -69,12 +69,10 @@ You can use all properties inherited from `UICollectionView`.
   ```
   ![scrollToEdgeEnabled](/GitHub/scrollToEdge.gif)
 
-* **scrollTo(page: animated:)** programatically scrolls to a cell at index.
+* **scrollTo(index: animated:)** programatically scrolls to a cell at a specified index.
   ```Swift
-  func scrollTo(page: Int, animated: Bool)
+  func scrollTo(index: Int, animated: Bool)
   ```
-
-
 
 ## Requirements ✅
 This pod requires a deployment target of iOS 9.0 or greater

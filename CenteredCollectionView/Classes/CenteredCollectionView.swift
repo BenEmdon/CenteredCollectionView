@@ -90,17 +90,17 @@ public class CenteredCollectionView: UICollectionView {
 		fatalError("init(coder:) has not been implemented")
 	}
 
-	public func scrollTo(page: Int, animated: Bool) {
+	public func scrollTo(index: Int, animated: Bool) {
 		let pageOffset: CGFloat
 		switch scrollDirection {
 		case .horizontal:
-			pageOffset = CGFloat(page) * pageWidth - contentInset.left
+			pageOffset = CGFloat(index) * pageWidth - contentInset.left
 			setContentOffset(CGPoint(x: pageOffset, y: 0), animated: animated)
 		case .vertical:
-			pageOffset = CGFloat(page) * pageWidth - contentInset.top
+			pageOffset = CGFloat(index) * pageWidth - contentInset.top
 			setContentOffset(CGPoint(x: 0, y: pageOffset), animated: animated)
 		}
-		_currentCenteredPage = page
+		_currentCenteredPage = index
 		isUserInteractionEnabled = !animated
 	}
 }
@@ -111,7 +111,7 @@ extension CenteredCollectionView: UICollectionViewDelegate {
 	public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 		delegateInterceptor?.collectionView?(collectionView, didSelectItemAt: indexPath)
 		if scrollToEdgeEnabled && !collectionView.isDragging && !collectionView.isDecelerating && !collectionView.isTracking && indexPath.row != currentCenteredPage {
-			scrollTo(page: indexPath.row, animated: true)
+			scrollTo(index: indexPath.row, animated: true)
 		}
 	}
 

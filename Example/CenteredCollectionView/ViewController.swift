@@ -49,11 +49,10 @@ class ViewController: UIViewController {
 		centeredCollectionView.register(CollectionViewCell.self, forCellWithReuseIdentifier: String(describing: CollectionViewCell.self))
 
 		// configure layout
-		centeredCollectionView.itemSize = CGSize(width: view.bounds.width * cellPercentWidth, height: view.bounds.height * cellPercentWidth * cellPercentWidth )
+		centeredCollectionView.itemSize = CGSize(width: view.bounds.width * cellPercentWidth, height: view.bounds.height * cellPercentWidth * cellPercentWidth)
 		centeredCollectionView.minimumLineSpacing = 20
 		centeredCollectionView.showsVerticalScrollIndicator = false
 		centeredCollectionView.showsHorizontalScrollIndicator = false
-		centeredCollectionView.scrollTo(page: <#T##Int#>, animated: <#T##Bool#>)
 	}
 }
 
