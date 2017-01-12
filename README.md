@@ -70,7 +70,7 @@ You can use all properties inherited from `UICollectionView`.
   var scrollToEdgeEnabled: Bool { get set }
   // default: false
   ```
-  ![scrollToEdgeEnabled](/GitHub/scrollToEdge.gif)
+  ![scrollToEdgeEnabled](/GitHub/ScrollToEdge.gif)
 
 * **scrollTo(index: animated:)** programatically scrolls to a cell at a specified index.
   ```Swift
