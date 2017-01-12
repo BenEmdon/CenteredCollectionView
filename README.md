@@ -14,6 +14,34 @@
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
+## Usage 🛠
+Use just as you would use a `UICollectionView`
+```Swift
+let centeredCollectionView = CenteredCollectionView()
+
+override func viewDidLoad() {
+  super.viewDidLoad()
+
+  // delegate & data source
+  centeredCollectionView.delegate = self
+  centeredCollectionView.dataSource = self
+
+  // layout subviews (not shown)
+  ...
+
+  // register collection cells
+  centeredCollectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: String(describing: UICollectionViewCell.self))
+
+  // configure centeredCollectionView layout
+  centeredCollectionView.itemSize = CGSize(width: 100, height: 100)
+  centeredCollectionView.minimumLineSpacing = 20
+  centeredCollectionView.showsVerticalScrollIndicator = false
+  centeredCollectionView.showsHorizontalScrollIndicator = false
+  centeredCollectionView.scrollToEdgeEnabled = true
+}
+```
+
+
 ## Requirements ✅
 This pod requires a deployment target of iOS 9.0 or greater
 
