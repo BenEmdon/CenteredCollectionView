@@ -1,8 +1,8 @@
 {
   "name": "CenteredCollectionView",
-  "version": "0.9.3",
+  "version": "0.9.4",
   "summary": "A CollectionView that 'pages' and centers it's cells 🎡 written in Swift",
-  "description": "A lightweight CollectionView that 'pages' and centers it's cells, creating the carousel effect 🎡 written in Swift.",
+  "description": "`CenteredCollectionView` is a lightweight drop in place `UICollectionView` that pages and keeps its cells centered, resulting in the \"carousel effect\" 🎡",
   "homepage": "https://github.com/BenEmdon/CenteredCollectionView",
   "license": {
     "type": "MIT",
@@ -17,7 +17,7 @@
   },
   "source": {
     "git": "https://github.com/BenEmdon/CenteredCollectionView.git",
-    "tag": "0.9.3"
+    "tag": "0.9.4"
   },
   "source_files": "CenteredCollectionView/Classes/**/*.{swift}",
   "frameworks": "UIKit"

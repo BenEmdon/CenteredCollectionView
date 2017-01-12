@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = 'CenteredCollectionView'
-  s.version      = '0.9.3'
+  s.version      = '0.9.4'
   s.summary      = 'A CollectionView that \'pages\' and centers it\'s cells 🎡 written in Swift'
 
   # This description is used to generate tags and improve search results.
@@ -25,7 +25,7 @@ Pod::Spec.new do |s|
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
   s.description  = <<-DESC
-  A lightweight CollectionView that \'pages\' and centers it\'s cells, creating the carousel effect 🎡 written in Swift.
+  `CenteredCollectionView` is a lightweight drop in place `UICollectionView` that pages and keeps its cells centered, resulting in the "carousel effect" 🎡
                    DESC
 
   s.homepage     = 'https://github.com/BenEmdon/CenteredCollectionView'
