@@ -23,6 +23,7 @@ override func viewDidLoad() {
   super.viewDidLoad()
 
   // delegate & data source
+  // implement the delegate and data source as you would a UICollectionView
   centeredCollectionView.delegate = self
   centeredCollectionView.dataSource = self
 
@@ -32,14 +33,47 @@ override func viewDidLoad() {
   // register collection cells
   centeredCollectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: String(describing: UICollectionViewCell.self))
 
-  // configure centeredCollectionView layout
+  // configure centeredCollectionView properties
   centeredCollectionView.itemSize = CGSize(width: 100, height: 100)
   centeredCollectionView.minimumLineSpacing = 20
+  centeredCollectionView.scrollToEdgeEnabled = true
+
+  // get rid of scrolling indicators
   centeredCollectionView.showsVerticalScrollIndicator = false
   centeredCollectionView.showsHorizontalScrollIndicator = false
-  centeredCollectionView.scrollToEdgeEnabled = true
 }
 ```
+
+## Customize 🖌
+You can use all properties inherited from `UICollectionView`.
+**CenteredCollectionView specific properties**:
+
+* **minimumLineSpacing** amount of space between each cell
+  ```Swift
+  var minimumLineSpacing: CGFloat { get set }
+  ```
+
+* **itemSize** size of each cell (⚠️ required)
+  ```Swift
+  var itemSize: CGSize { get set }
+  ```
+
+* **scrollDirection** direction of scrolling **(supports vertical)**
+  ```Swift
+  var scrollDirection: UICollectionViewScrollDirection { get set }
+  ```
+
+* **scrollToEdgeEnabled** if `true` will scroll on touch to the edge of the cell that is peeking out from a side (wont trigger delegate `didSelectItemAt indexPath:` events)
+  ```Swift
+  var scrollToEdgeEnabled: Bool { get set }
+  ```
+  ![scrollToEdgeEnabled](/GitHub/scrollToEdge.gif)
+
+* **scrollTo(page: animated:)** programatically scrolls to a cell at index.
+  ```Swift
+  func scrollTo(page: Int, animated: Bool)
+  ```
+
 
 
 ## Requirements ✅
