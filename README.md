@@ -51,6 +51,7 @@ You can use all properties inherited from `UICollectionView`.
 * **minimumLineSpacing** amount of space between each cell
   ```Swift
   var minimumLineSpacing: CGFloat { get set }
+  // default: 10
   ```
 
 * **itemSize** size of each cell (⚠️ required)
@@ -61,11 +62,13 @@ You can use all properties inherited from `UICollectionView`.
 * **scrollDirection** direction of scrolling **(supports vertical)**
   ```Swift
   var scrollDirection: UICollectionViewScrollDirection { get set }
+  // default: .horizontal
   ```
 
 * **scrollToEdgeEnabled** if `true` will scroll on touch to the edge of the cell that is peeking out from a side (wont trigger delegate `didSelectItemAt indexPath:` events)
   ```Swift
   var scrollToEdgeEnabled: Bool { get set }
+  // default: false
   ```
   ![scrollToEdgeEnabled](/GitHub/scrollToEdge.gif)
 
