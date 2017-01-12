@@ -21,22 +21,12 @@ class ViewController: UIViewController {
 
 		view.backgroundColor = UIColor.lightGray
 		centeredCollectionView.backgroundColor = UIColor.clear
+		view.applyGradient()
 
 		// delegate & data source
 		controlCenter.delegate = self
 		centeredCollectionView.delegate = self
 		centeredCollectionView.dataSource = self
-
-		let gradient = CAGradientLayer()
-		gradient.frame = view.bounds
-		gradient.locations = [0, 1]
-		gradient.startPoint = CGPoint(x: 0, y: 0)
-		gradient.endPoint = CGPoint(x: 1, y: 1)
-		gradient.colors = [
-			UIColor.peach.cgColor,
-			UIColor.orange.cgColor
-		]
-		view.layer.insertSublayer(gradient, at: 0)
 
 		// layout subviews
 		let stackView = UIStackView()
@@ -63,6 +53,7 @@ class ViewController: UIViewController {
 		centeredCollectionView.minimumLineSpacing = 20
 		centeredCollectionView.showsVerticalScrollIndicator = false
 		centeredCollectionView.showsHorizontalScrollIndicator = false
+		centeredCollectionView.scrollTo(page: <#T##Int#>, animated: <#T##Bool#>)
 	}
 }
 
