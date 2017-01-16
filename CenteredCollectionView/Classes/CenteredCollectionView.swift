@@ -121,7 +121,7 @@ extension CenteredCollectionView: UICollectionViewDelegate {
 	}
 
 	public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-		_currentCenteredPage = Int(ceil(currentContentOffset / pageWidth))
+		_currentCenteredPage = Int((currentContentOffset + 1) / pageWidth)
 		delegateInterceptor?.scrollViewDidEndDecelerating?(scrollView)
 	}
 
