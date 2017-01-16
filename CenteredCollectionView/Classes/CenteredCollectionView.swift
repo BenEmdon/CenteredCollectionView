@@ -85,23 +85,28 @@ public class CenteredCollectionView: UICollectionView {
 	public convenience init() {
 		self.init(frame: CGRect.zero)
 	}
-	
+
 	required public init?(coder aDecoder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
 
 	public func scrollTo(index: Int, animated: Bool) {
 		let pageOffset: CGFloat
+		let proposedContentOffset: CGPoint
+		let shouldAnimate: Bool
 		switch scrollDirection {
 		case .horizontal:
 			pageOffset = CGFloat(index) * pageWidth - contentInset.left
-			setContentOffset(CGPoint(x: pageOffset, y: 0), animated: animated)
+			proposedContentOffset = CGPoint(x: pageOffset, y: 0)
+			shouldAnimate = fabs(contentOffset.x - pageOffset) > 1 ? animated : false
 		case .vertical:
 			pageOffset = CGFloat(index) * pageWidth - contentInset.top
-			setContentOffset(CGPoint(x: 0, y: pageOffset), animated: animated)
+			proposedContentOffset = CGPoint(x: 0, y: pageOffset)
+			shouldAnimate = fabs(contentOffset.y - pageOffset) > 1 ? animated : false
 		}
+		setContentOffset(proposedContentOffset, animated: shouldAnimate)
 		_currentCenteredPage = index
-		isUserInteractionEnabled = !animated
+		isUserInteractionEnabled = !shouldAnimate
 	}
 }
 
@@ -116,7 +121,7 @@ extension CenteredCollectionView: UICollectionViewDelegate {
 	}
 
 	public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-		_currentCenteredPage = Int(currentContentOffset / pageWidth)
+		_currentCenteredPage = Int(ceil(currentContentOffset / pageWidth))
 		delegateInterceptor?.scrollViewDidEndDecelerating?(scrollView)
 	}
 
@@ -125,7 +130,7 @@ extension CenteredCollectionView: UICollectionViewDelegate {
 		delegateInterceptor?.scrollViewDidEndScrollingAnimation?(scrollView)
 	}
 
-	// MARK: - Purely rerouting delegate messages  
+	// MARK: - Purely rerouting delegate messages
 
 	// ScrollViewDelegate
 

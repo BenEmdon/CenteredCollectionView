@@ -46,6 +46,7 @@ override func viewDidLoad() {
 
 ## Customize 🖌
 You can use all properties inherited from `UICollectionView`.
+
 **CenteredCollectionView specific properties**:
 
 * **minimumLineSpacing** amount of space between each cell
