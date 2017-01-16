@@ -34,7 +34,7 @@
 /* Begin PBXFileReference section */
 		0BB542085705BC517182552FCF6EB528 /* Pods-CenteredCollectionView_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-CenteredCollectionView_Example-resources.sh"; sourceTree = "<group>"; };
 		0F436565BA6FA912F7612E508261BC29 /* Pods-CenteredCollectionView_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-CenteredCollectionView_Tests-umbrella.h"; sourceTree = "<group>"; };
-		12198C0B3D56D2252253B9B60522B20F /* CenteredCollectionView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = CenteredCollectionView.framework; path = CenteredCollectionView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		12198C0B3D56D2252253B9B60522B20F /* CenteredCollectionView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CenteredCollectionView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		22FD69D66D01072678EF10BF6AED2B03 /* CenteredCollectionView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CenteredCollectionView.swift; sourceTree = "<group>"; };
 		2B25A7A5B77164AD8627E9105D7EF131 /* CenteredCollectionView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CenteredCollectionView-umbrella.h"; sourceTree = "<group>"; };
 		4805898485D5C840C7159BC358DE080D /* Pods-CenteredCollectionView_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CenteredCollectionView_Example.release.xcconfig"; sourceTree = "<group>"; };
@@ -42,20 +42,20 @@
 		616BEB51ECCAD129BDBCB7A956B56CC6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		6B25C978EFCD2E61E1799A336A8816F1 /* Pods-CenteredCollectionView_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CenteredCollectionView_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		6F693D46F56CD39F0F845B67DED8F2E1 /* Pods-CenteredCollectionView_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-CenteredCollectionView_Tests-dummy.m"; sourceTree = "<group>"; };
-		7ABB74CFAE44B7B2B10F0725CDEF016E /* Pods-CenteredCollectionView_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-CenteredCollectionView_Tests.modulemap"; sourceTree = "<group>"; };
+		7ABB74CFAE44B7B2B10F0725CDEF016E /* Pods-CenteredCollectionView_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-CenteredCollectionView_Tests.modulemap"; sourceTree = "<group>"; };
 		7EC994CDC2D681BA26389F78A7E4B325 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		86F429B41ED4FA1AE6AAAA65654181E0 /* Pods-CenteredCollectionView_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-CenteredCollectionView_Example-dummy.m"; sourceTree = "<group>"; };
 		8DE1EDBF601EAF86E5931EDECDE1399C /* Pods-CenteredCollectionView_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-CenteredCollectionView_Example-frameworks.sh"; sourceTree = "<group>"; };
-		906C23D0378311744084FE0E87352111 /* CenteredCollectionView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = CenteredCollectionView.modulemap; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		906C23D0378311744084FE0E87352111 /* CenteredCollectionView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = CenteredCollectionView.modulemap; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9471DECDA96C9FB9BF6296B0D2025FBB /* CenteredCollectionView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = CenteredCollectionView.xcconfig; sourceTree = "<group>"; };
 		A5C3BC32C2E22523983C82B34CC0BA2F /* Pods-CenteredCollectionView_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-CenteredCollectionView_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		AB13D919EC97E87AA18E403E1DA636C0 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		ABD78912407C33F5B2DF0CBBCE8327E1 /* Pods-CenteredCollectionView_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-CenteredCollectionView_Example.modulemap"; sourceTree = "<group>"; };
+		ABD78912407C33F5B2DF0CBBCE8327E1 /* Pods-CenteredCollectionView_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-CenteredCollectionView_Example.modulemap"; sourceTree = "<group>"; };
 		C03986D147B929C5965BA0C7A31D90EA /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C4305CB20321AA66AF48B0C6B6C608C3 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C4B2518DE2342CFC6851985F0073F51C /* Pods-CenteredCollectionView_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-CenteredCollectionView_Tests-resources.sh"; sourceTree = "<group>"; };
-		C6519D21C6272F9EDCED8598539C327D /* Pods_CenteredCollectionView_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_CenteredCollectionView_Example.framework; path = "Pods-CenteredCollectionView_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C6519D21C6272F9EDCED8598539C327D /* Pods_CenteredCollectionView_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CenteredCollectionView_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCC95E538C810770DCA105E4E97AB3BF /* Pods-CenteredCollectionView_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-CenteredCollectionView_Tests-frameworks.sh"; sourceTree = "<group>"; };
 		CD92116F96453DE8FDEA90ED26A22077 /* Pods-CenteredCollectionView_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CenteredCollectionView_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		D00580B1334979C503A345BD0948A5BF /* Pods-CenteredCollectionView_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CenteredCollectionView_Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -63,7 +63,7 @@
 		E01C090D674F4E542EF441BE27DB7E32 /* Pods-CenteredCollectionView_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CenteredCollectionView_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		E199A26D64CF7B7FD9DFD762D9E67CCD /* Pods-CenteredCollectionView_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CenteredCollectionView_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		E1EC8AF54863BAF661674C956E8A1253 /* Pods-CenteredCollectionView_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-CenteredCollectionView_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		EB8D591394DD46C74EE6BA811112001B /* Pods_CenteredCollectionView_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_CenteredCollectionView_Tests.framework; path = "Pods-CenteredCollectionView_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB8D591394DD46C74EE6BA811112001B /* Pods_CenteredCollectionView_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CenteredCollectionView_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEAE9AE3478456646E6F0AA645761C15 /* Pods-CenteredCollectionView_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-CenteredCollectionView_Example-umbrella.h"; sourceTree = "<group>"; };
 		F1AA8A1932B1D0C1EAD5EF9DD20695ED /* CenteredCollectionView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CenteredCollectionView-prefix.pch"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -102,7 +102,6 @@
 			children = (
 				E38E303567FEF9100EBA7A8DE13028D3 /* Classes */,
 			);
-			name = CenteredCollectionView;
 			path = CenteredCollectionView;
 			sourceTree = "<group>";
 		};
@@ -200,7 +199,6 @@
 				22FD69D66D01072678EF10BF6AED2B03 /* CenteredCollectionView.swift */,
 				D506994EECC79224471C02C587EFA8C2 /* CenteredCollectionViewFlowLayout.swift */,
 			);
-			name = Classes;
 			path = Classes;
 			sourceTree = "<group>";
 		};
