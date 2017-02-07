@@ -10,7 +10,7 @@ import UIKit
 
 protocol ControlCenterViewDelegate: class {
 	func stateChanged(scrollDirection: UICollectionViewScrollDirection)
-	func stateChanged(scrollToEnabled: Bool)
+	func stateChanged(scrollToEdgeEnabled: Bool)
 }
 
 class ControlCenterView: UIView {
@@ -75,7 +75,7 @@ class ControlCenterView: UIView {
 	}
 
 	func switchStateDidChange(sender: UISwitch) {
-		delegate?.stateChanged(scrollToEnabled: sender.isOn)
+		delegate?.stateChanged(scrollToEdgeEnabled: sender.isOn)
 	}
 
 }

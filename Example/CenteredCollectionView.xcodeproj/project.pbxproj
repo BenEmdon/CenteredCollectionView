@@ -75,6 +75,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1DD702551E4A2983005415B1 /* Styles */ = {
+			isa = PBXGroup;
+			children = (
+				1DE24E421E272A3300B79608 /* UIColor+Extensions.swift */,
+				1DE24E441E27442700B79608 /* UIView+Extensions.swift */,
+			);
+			name = Styles;
+			sourceTree = "<group>";
+		};
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
@@ -100,11 +109,10 @@
 			isa = PBXGroup;
 			children = (
 				1D2238AC1E1B4D1800EA4E58 /* AppDelegate.swift */,
-				1DE24E421E272A3300B79608 /* UIColor+Extensions.swift */,
-				1DE24E441E27442700B79608 /* UIView+Extensions.swift */,
 				1D2238AD1E1B4D1800EA4E58 /* CollectionViewCell.swift */,
 				1D2238AE1E1B4D1800EA4E58 /* ViewController.swift */,
 				1D6A72E41E20617E0046D742 /* ControlCenterView.swift */,
+				1DD702551E4A2983005415B1 /* Styles */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
@@ -524,7 +532,7 @@
 				INFOPLIST_FILE = CenteredCollectionView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "io.github.benemdon.CenteredCollectionView-Example";
+				PRODUCT_BUNDLE_IDENTIFIER = "io.github.benemdon.CenteredCollectionView-Example.ben";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -542,7 +550,7 @@
 				INFOPLIST_FILE = CenteredCollectionView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "io.github.benemdon.CenteredCollectionView-Example";
+				PRODUCT_BUNDLE_IDENTIFIER = "io.github.benemdon.CenteredCollectionView-Example.ben";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

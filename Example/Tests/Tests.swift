@@ -30,7 +30,6 @@ class Tests: XCTestCase {
 		collectionView.flowLayout.invalidateLayout()
 		// public
 		XCTAssertEqual(collectionView.scrollDirection, .horizontal)
-		XCTAssertEqual(collectionView.scrollToEdgeEnabled, false)
 		XCTAssertEqual(collectionView.itemSize, CGSize(width: expectedItemDimension, height: expectedItemDimension))
 		XCTAssertEqual(collectionView.minimumLineSpacing, expectedLineSpacing)
 		XCTAssertEqual(collectionView.currentCenteredPage, 0)
@@ -39,14 +38,12 @@ class Tests: XCTestCase {
 		// internal
 		XCTAssertEqual(collectionView.pageWidth, expectedItemDimension + expectedLineSpacing)
 		XCTAssertEqual(collectionView.currentContentOffset, 0)
-		XCTAssertTrue(collectionView.delegateInterceptor == nil)
 	}
 
 	func testDefaultValuesWithFrame() {
 		// public
 		collectionView.flowLayout.invalidateLayout()
 		XCTAssertEqual(collectionView.scrollDirection, .horizontal)
-		XCTAssertEqual(collectionView.scrollToEdgeEnabled, false)
 		XCTAssertEqual(collectionView.itemSize, CGSize(width: expectedItemDimension, height: expectedItemDimension))
 		XCTAssertEqual(collectionView.minimumLineSpacing, expectedLineSpacing)
 		XCTAssertEqual(collectionView.currentCenteredPage, 0)
@@ -55,7 +52,6 @@ class Tests: XCTestCase {
 		// internal
 		XCTAssertEqual(collectionView.pageWidth, expectedItemDimension + expectedLineSpacing)
 		XCTAssertEqual(collectionView.currentContentOffset, 0)
-		XCTAssertTrue(collectionView.delegateInterceptor == nil)
 	}
 
 }

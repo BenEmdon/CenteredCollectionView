@@ -14,6 +14,7 @@ class ViewController: UIViewController {
 	let centeredCollectionView = CenteredCollectionView()
 	let controlCenter = ControlCenterView()
 	let cellPercentWidth: CGFloat = 0.7
+	var scrollToEdgeEnabled = false
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -31,13 +32,10 @@ class ViewController: UIViewController {
 		// layout subviews
 		let stackView = UIStackView()
 		stackView.axis = .vertical
-
 		stackView.addArrangedSubview(centeredCollectionView)
 		stackView.addArrangedSubview(controlCenter)
-
 		view.addSubview(stackView)
 		stackView.translatesAutoresizingMaskIntoConstraints = false
-
 		NSLayoutConstraint.activate([
 			stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
 			stackView.topAnchor.constraint(equalTo: view.topAnchor),
@@ -61,14 +59,17 @@ extension ViewController: ControlCenterViewDelegate {
 		centeredCollectionView.scrollDirection = scrollDirection
 	}
 
-	func stateChanged(scrollToEnabled: Bool) {
-		centeredCollectionView.scrollToEdgeEnabled = scrollToEnabled
+	func stateChanged(scrollToEdgeEnabled: Bool) {
+		self.scrollToEdgeEnabled = scrollToEdgeEnabled
 	}
 }
 
 extension ViewController: UICollectionViewDelegate {
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 		print("Selected Cell #\(indexPath.row)")
+		if scrollToEdgeEnabled, let currentCenteredPage = centeredCollectionView.currentCenteredPage, currentCenteredPage != indexPath.row {
+			centeredCollectionView.scrollTo(index: indexPath.row, animated: true)
+		}
 	}
 }
 
@@ -81,6 +82,14 @@ extension ViewController: UICollectionViewDataSource {
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: CollectionViewCell.self), for: indexPath) as! CollectionViewCell
 		cell.titleLabel.text = "Cell #\(indexPath.row)"
 		return cell
+	}
+
+	func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+		print("Current centered index: \(centeredCollectionView.currentCenteredPage ?? nil)")
+	}
+
+	func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+		print("Current centered index: \(centeredCollectionView.currentCenteredPage ?? nil)")
 	}
 }
 
