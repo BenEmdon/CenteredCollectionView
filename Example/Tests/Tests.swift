@@ -32,7 +32,7 @@ class Tests: XCTestCase {
 		XCTAssertEqual(collectionView.scrollDirection, .horizontal)
 		XCTAssertEqual(collectionView.itemSize, CGSize(width: expectedItemDimension, height: expectedItemDimension))
 		XCTAssertEqual(collectionView.minimumLineSpacing, expectedLineSpacing)
-		XCTAssertEqual(collectionView.currentCenteredPage, 0)
+		XCTAssertEqual(collectionView.currentCenteredPage, nil)
 		XCTAssertEqual(collectionView.contentOffset.y, 0)
 		XCTAssertEqual(collectionView.contentOffset.x, 25)
 		// internal
@@ -46,7 +46,7 @@ class Tests: XCTestCase {
 		XCTAssertEqual(collectionView.scrollDirection, .horizontal)
 		XCTAssertEqual(collectionView.itemSize, CGSize(width: expectedItemDimension, height: expectedItemDimension))
 		XCTAssertEqual(collectionView.minimumLineSpacing, expectedLineSpacing)
-		XCTAssertEqual(collectionView.currentCenteredPage, 0)
+		XCTAssertEqual(collectionView.currentCenteredPage, nil)
 		XCTAssertEqual(collectionView.contentOffset.y, 0)
 		XCTAssertEqual(collectionView.contentOffset.x, -(expectedFrameDimension - expectedItemDimension) / 2)
 		// internal
