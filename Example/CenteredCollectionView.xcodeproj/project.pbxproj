@@ -233,7 +233,6 @@
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
-						DevelopmentTeam = E299TDEV8Z;
 						LastSwiftMigration = 0820;
 					};
 					607FACE41AFB9204008FA782 = {
@@ -528,11 +527,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = E299TDEV8Z;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = CenteredCollectionView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "io.github.benemdon.CenteredCollectionView-Example.ben";
+				PRODUCT_BUNDLE_IDENTIFIER = "io.github.benemdon.CenteredCollectionView-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -546,11 +545,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = E299TDEV8Z;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = CenteredCollectionView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "io.github.benemdon.CenteredCollectionView-Example.ben";
+				PRODUCT_BUNDLE_IDENTIFIER = "io.github.benemdon.CenteredCollectionView-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
