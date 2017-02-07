@@ -36,11 +36,35 @@ override func viewDidLoad() {
   // configure centeredCollectionView properties
   centeredCollectionView.itemSize = CGSize(width: 100, height: 100)
   centeredCollectionView.minimumLineSpacing = 20
-  centeredCollectionView.scrollToEdgeEnabled = true
 
   // get rid of scrolling indicators
   centeredCollectionView.showsVerticalScrollIndicator = false
   centeredCollectionView.showsHorizontalScrollIndicator = false
+}
+
+// delegate and datasource extensions
+...
+
+```
+
+## Scrolling to an Edge on Touch 🎡
+![scrollToEdgeEnabled](/GitHub/ScrollToEdge.gif)
+
+Heres how you could trigger a scroll animation when a touch happens on an item that isn't the `currentCenteredPage`:
+
+```swift
+extension ViewController: UICollectionViewDelegate {
+  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+
+    // if the currentCenteredPage isn't the one that was touched
+    if scrollToEdgeEnabled,
+    let currentCenteredPage = centeredCollectionView.currentCenteredPage,
+    currentCenteredPage != indexPath.row {
+
+      // trigger a scrollTo(index: animated:)
+      centeredCollectionView.scrollTo(index: indexPath.row, animated: true)
+    }
+  }
 }
 ```
 
@@ -49,31 +73,29 @@ You can use all properties inherited from `UICollectionView`.
 
 **CenteredCollectionView specific properties**:
 
-* **minimumLineSpacing** amount of space between each cell
+* **`minimumLineSpacing`** amount of space between each cell
   ```Swift
   var minimumLineSpacing: CGFloat { get set }
   // default: 10
   ```
 
-* **itemSize** size of each cell (⚠️ required)
+* **`itemSize`** size of each cell. **⚠️ required for use**
   ```Swift
   var itemSize: CGSize { get set }
   ```
 
-* **scrollDirection** direction of scrolling **(supports vertical)**
+* **`currentCenteredPage`** calculates the current centred page/item
+  ```Swift
+  var currentCenteredPage: Int? { get }
+  ```
+
+* **`scrollDirection`** direction of scrolling **(supports vertical)**
   ```Swift
   var scrollDirection: UICollectionViewScrollDirection { get set }
   // default: .horizontal
   ```
 
-* **scrollToEdgeEnabled** if `true` will scroll on touch to the edge of the cell that is peeking out from a side (wont trigger delegate `didSelectItemAt indexPath:` events)
-  ```Swift
-  var scrollToEdgeEnabled: Bool { get set }
-  // default: false
-  ```
-  ![scrollToEdgeEnabled](/GitHub/ScrollToEdge.gif)
-
-* **scrollTo(index: animated:)** programatically scrolls to a cell at a specified index.
+* **`scrollTo(index: animated:)`** programatically scrolls to a cell at a specified index.
   ```Swift
   func scrollTo(index: Int, animated: Bool)
   ```
