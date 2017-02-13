@@ -1,5 +1,5 @@
 # CenteredCollectionView
-
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![CI Status](http://img.shields.io/travis/BenEmdon/CenteredCollectionView.svg?style=flat)](https://travis-ci.org/BenEmdon/CenteredCollectionView)
 [![Version](https://img.shields.io/cocoapods/v/CenteredCollectionView.svg?style=flat)](http://cocoapods.org/pods/CenteredCollectionView)
 [![codebeat badge](https://codebeat.co/badges/51a89000-13ac-45d7-a468-6edf741d8ce4)](https://codebeat.co/projects/github-com-benemdon-centeredcollectionview)
@@ -85,7 +85,7 @@ You can use all properties inherited from `UICollectionView`.
   var itemSize: CGSize { get set }
   ```
 
-* **`currentCenteredPage`** calculates the current centred page/item
+* **`currentCenteredPage`** calculates the current centered page/item
   ```Swift
   var currentCenteredPage: Int? { get }
   ```
@@ -106,12 +106,20 @@ This pod requires a deployment target of iOS 9.0 or greater
 
 ## Installation 📲
 
-CenteredCollectionView is available through [CocoaPods](http://cocoapods.org). To install
-it, simply add the following line to your Podfile:
-
+CenteredCollectionView is available through [CocoaPods](http://cocoapods.org) and [Carthage](https://github.com/Carthage/Carthage).
+To install it with **Cocoapods**, add the following line to your `Podfile`:
 ```ruby
 pod "CenteredCollectionView"
 ```
+
+To install it with **Carthage**, add the following line to your `Cartfile`:
+```
+github "BenEmdon/CenteredCollectionView"
+```
+
+## Contributing 💡
+
+All contributions are welcome! If you make a pull request or an issue, you're likely to get a _swift_ response!
 
 ## Author 👨‍💻
 
