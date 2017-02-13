@@ -107,6 +107,7 @@ This pod requires a deployment target of iOS 9.0 or greater
 ## Installation 📲
 
 CenteredCollectionView is available through [CocoaPods](http://cocoapods.org) and [Carthage](https://github.com/Carthage/Carthage).
+
 To install it with **Cocoapods**, add the following line to your `Podfile`:
 ```ruby
 pod "CenteredCollectionView"
