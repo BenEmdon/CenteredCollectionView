@@ -14,7 +14,6 @@ public class CenteredCollectionView: UICollectionView {
 
 	public var currentCenteredPage: Int? {
 		let currentCenteredPoint = CGPoint(x: contentOffset.x + bounds.width/2, y: contentOffset.y + bounds.height/2)
-		print("currentCenteredPoint \(currentCenteredPoint)")
 		let indexPath = indexPathForItem(at: currentCenteredPoint)
 		return indexPath?.row
 	}
