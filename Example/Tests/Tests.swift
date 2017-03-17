@@ -12,7 +12,14 @@ class Tests: XCTestCase {
 	override func setUp() {
 		super.setUp()
 		// This method is called before the invocation of each test method in the class.
-		collectionView = CenteredCollectionView(frame: CGRect(x: 0, y: 0, width: expectedFrameDimension, height: expectedFrameDimension))
+		collectionView = CenteredCollectionView(
+			frame: CGRect(
+				x: 0,
+				y: 0,
+				width: expectedFrameDimension,
+				height: expectedFrameDimension
+			)
+		)
 		collectionView.itemSize = CGSize(width: expectedItemDimension, height: expectedItemDimension)
 		collectionView.minimumLineSpacing = expectedLineSpacing
 	}
@@ -51,5 +58,4 @@ class Tests: XCTestCase {
 		XCTAssertEqual(collectionView.pageWidth, expectedItemDimension + expectedLineSpacing)
 		XCTAssertEqual(collectionView.currentContentOffset, 0)
 	}
-
 }

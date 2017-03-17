@@ -40,14 +40,20 @@ class ViewController: UIViewController {
 			stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
 			stackView.topAnchor.constraint(equalTo: view.topAnchor),
 			stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-			stackView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+			stackView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
 			])
 
 		// register collection cells
-		centeredCollectionView.register(CollectionViewCell.self, forCellWithReuseIdentifier: String(describing: CollectionViewCell.self))
+		centeredCollectionView.register(
+			CollectionViewCell.self,
+			forCellWithReuseIdentifier: String(describing: CollectionViewCell.self)
+		)
 
 		// configure layout
-		centeredCollectionView.itemSize = CGSize(width: view.bounds.width * cellPercentWidth, height: view.bounds.height * cellPercentWidth * cellPercentWidth)
+		centeredCollectionView.itemSize = CGSize(
+			width: view.bounds.width * cellPercentWidth,
+			height: view.bounds.height * cellPercentWidth * cellPercentWidth
+		)
 		centeredCollectionView.minimumLineSpacing = 20
 		centeredCollectionView.showsVerticalScrollIndicator = false
 		centeredCollectionView.showsHorizontalScrollIndicator = false
@@ -67,7 +73,9 @@ extension ViewController: ControlCenterViewDelegate {
 extension ViewController: UICollectionViewDelegate {
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 		print("Selected Cell #\(indexPath.row)")
-		if scrollToEdgeEnabled, let currentCenteredPage = centeredCollectionView.currentCenteredPage, currentCenteredPage != indexPath.row {
+		if scrollToEdgeEnabled,
+			let currentCenteredPage = centeredCollectionView.currentCenteredPage,
+			currentCenteredPage != indexPath.row {
 			centeredCollectionView.scrollTo(index: indexPath.row, animated: true)
 		}
 	}
@@ -79,6 +87,7 @@ extension ViewController: UICollectionViewDataSource {
 	}
 
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+		// swiftlint:disable:next force_cast line_length
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: CollectionViewCell.self), for: indexPath) as! CollectionViewCell
 		cell.titleLabel.text = "Cell #\(indexPath.row)"
 		return cell
@@ -92,4 +101,3 @@ extension ViewController: UICollectionViewDataSource {
 		print("Current centered index: \(centeredCollectionView.currentCenteredPage ?? nil)")
 	}
 }
-
