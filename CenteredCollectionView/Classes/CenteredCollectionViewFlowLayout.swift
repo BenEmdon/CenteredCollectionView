@@ -9,7 +9,7 @@
 import UIKit
 
 class CenteredCollectionViewFlowLayout: UICollectionViewFlowLayout {
-	
+
 	fileprivate var lastCollectionViewSize: CGSize = CGSize.zero
 	fileprivate var lastScrollDirection: UICollectionViewScrollDirection!
 
@@ -17,16 +17,16 @@ class CenteredCollectionViewFlowLayout: UICollectionViewFlowLayout {
 		super.init()
 		lastScrollDirection = scrollDirection
 	}
-	
+
 	required init?(coder aDecoder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
-	
+
 	override func invalidateLayout(with context: UICollectionViewLayoutInvalidationContext) {
 		super.invalidateLayout(with: context)
 		guard let collectionView = collectionView else { return }
 		// invalidate layout to center first and last
-		
+
 		let currentCollectionViewSize = collectionView.bounds.size
 		if !currentCollectionViewSize.equalTo(lastCollectionViewSize) || lastScrollDirection != scrollDirection {
 			let inset: CGFloat
@@ -45,7 +45,7 @@ class CenteredCollectionViewFlowLayout: UICollectionViewFlowLayout {
 		}
 	}
 
-	private func determineProposedRect(fromCollectionView collectionView: UICollectionView, proposedContentOffset: CGPoint) -> CGRect {
+	private func determineProposedRect(collectionView: UICollectionView, proposedContentOffset: CGPoint) -> CGRect {
 		let size = collectionView.bounds.size
 		let origin: CGPoint
 		switch scrollDirection {
@@ -57,7 +57,12 @@ class CenteredCollectionViewFlowLayout: UICollectionViewFlowLayout {
 		return CGRect(origin: origin, size: size)
 	}
 
-	private func attributesForRect(collectionView: UICollectionView, layoutAttributes: [UICollectionViewLayoutAttributes], proposedContentOffset: CGPoint) -> UICollectionViewLayoutAttributes? {
+	private func attributesForRect(
+		collectionView: UICollectionView,
+		layoutAttributes: [UICollectionViewLayoutAttributes],
+		proposedContentOffset: CGPoint
+		) -> UICollectionViewLayoutAttributes? {
+
 		var candidateAttributes: UICollectionViewLayoutAttributes?
 		let proposedCenterOffset: CGFloat
 
@@ -88,14 +93,20 @@ class CenteredCollectionViewFlowLayout: UICollectionViewFlowLayout {
 		}
 		return candidateAttributes
 	}
-	
+
+	// swiftlint:disable line_length
 	override func targetContentOffset(forProposedContentOffset proposedContentOffset: CGPoint, withScrollingVelocity velocity: CGPoint) -> CGPoint {
 		guard let collectionView = collectionView else { return proposedContentOffset }
 
-		let proposedRect: CGRect = determineProposedRect(fromCollectionView: collectionView, proposedContentOffset: proposedContentOffset)
-		
-		guard let layoutAttributes = layoutAttributesForElements(in: proposedRect), let candidateAttributesForRect = attributesForRect(collectionView: collectionView, layoutAttributes: layoutAttributes, proposedContentOffset: proposedContentOffset) else { return proposedContentOffset }
-		
+		let proposedRect: CGRect = determineProposedRect(collectionView: collectionView, proposedContentOffset: proposedContentOffset)
+
+		guard let layoutAttributes = layoutAttributesForElements(in: proposedRect),
+			let candidateAttributesForRect = attributesForRect(
+				collectionView: collectionView,
+				layoutAttributes: layoutAttributes,
+				proposedContentOffset: proposedContentOffset
+			) else { return proposedContentOffset }
+
 		var newOffset: CGFloat
 		let offset: CGFloat
 		switch scrollDirection {
