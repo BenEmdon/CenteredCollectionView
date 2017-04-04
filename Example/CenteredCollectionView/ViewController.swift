@@ -94,10 +94,10 @@ extension ViewController: UICollectionViewDataSource {
 	}
 
 	func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-		print("Current centered index: \(centeredCollectionView.currentCenteredPage ?? nil)")
+		print("Current centered index: \(String(describing: centeredCollectionView.currentCenteredPage ?? nil))")
 	}
 
 	func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
-		print("Current centered index: \(centeredCollectionView.currentCenteredPage ?? nil)")
+		print("Current centered index: \(String(describing: centeredCollectionView.currentCenteredPage ?? nil))")
 	}
 }
