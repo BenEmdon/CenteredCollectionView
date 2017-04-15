@@ -189,6 +189,7 @@
 				607FACCE1AFB9204008FA782 /* Resources */,
 				39D0FF8D388A8889DF3098D1 /* [CP] Embed Pods Frameworks */,
 				EA42857C4511C684599C6E58 /* [CP] Copy Pods Resources */,
+				1D3641FE1E7B95AA00295532 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -294,6 +295,19 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "find ${TARGET_BUILD_DIR} -type d -name \"*.framework\" -exec cp -Rf {} ${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ \\;";
+		};
+		1D3641FE1E7B95AA00295532 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
 		};
 		315358585CA0D43273A0D73F /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;

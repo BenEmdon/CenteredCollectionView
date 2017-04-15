@@ -59,10 +59,10 @@ class ControlCenterView: UIView {
 			scrollToStackView.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor, constant: 15),
 			scrollToStackView.topAnchor.constraint(equalTo: segmentedControl.bottomAnchor, constant: 15),
 			scrollToStackView.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor, constant: -15),
-			scrollToStackView.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor, constant: -15),
+			scrollToStackView.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor, constant: -15)
 			])
 	}
-	
+
 	required init?(coder aDecoder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}

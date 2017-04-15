@@ -31,7 +31,7 @@ public class CenteredCollectionView: UICollectionView {
 		get {
 			return flowLayout.itemSize
 		}
-		set(newValue)  {
+		set(newValue) {
 			flowLayout.itemSize = newValue
 		}
 	}
