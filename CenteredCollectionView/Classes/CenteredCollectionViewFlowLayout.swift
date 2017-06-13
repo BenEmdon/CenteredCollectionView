@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CenteredCollectionViewFlowLayout: UICollectionViewFlowLayout {
+open class CenteredCollectionViewFlowLayout: UICollectionViewFlowLayout {
 
 	fileprivate var lastCollectionViewSize: CGSize = CGSize.zero
 	fileprivate var lastScrollDirection: UICollectionViewScrollDirection!
