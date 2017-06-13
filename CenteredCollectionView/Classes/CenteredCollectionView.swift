@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class CenteredCollectionView: UICollectionView {
+open class CenteredCollectionView: UICollectionView {
 
 	let flowLayout = CenteredCollectionViewFlowLayout()
 
