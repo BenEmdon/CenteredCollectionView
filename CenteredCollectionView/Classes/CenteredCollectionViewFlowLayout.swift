@@ -8,13 +8,23 @@
 
 import UIKit
 
+extension UICollectionView {
+	public static func CenteredCollectionView() -> (UICollectionView, CenteredCollectionViewFlowLayout) {
+		let centeredCollectionViewFlowLayout = CenteredCollectionViewFlowLayout()
+		let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: centeredCollectionViewFlowLayout)
+		collectionView.decelerationRate = UIScrollViewDecelerationRateFast
+		return (collectionView, centeredCollectionViewFlowLayout)
+	}
+}
+
 open class CenteredCollectionViewFlowLayout: UICollectionViewFlowLayout {
 	
-	fileprivate var lastCollectionViewSize: CGSize = CGSize.zero
-	fileprivate var lastScrollDirection: UICollectionViewScrollDirection!
+	private var lastCollectionViewSize: CGSize = CGSize.zero
+	private var lastScrollDirection: UICollectionViewScrollDirection!
 	
-	override init() {
+	public override init() {
 		super.init()
+		scrollDirection = .horizontal
 		lastScrollDirection = scrollDirection
 	}
 	
@@ -160,7 +170,7 @@ open class CenteredCollectionViewFlowLayout: UICollectionViewFlowLayout {
 		collectionView.setContentOffset(proposedContentOffset, animated: shouldAnimate)
 	}
 	
-	public var currentCeneteredPage: Int? {
+	public var currentCenteredPage: Int? {
 		guard let collectionView = collectionView else { return nil }
 		let currentCenteredPoint = CGPoint(x: collectionView.contentOffset.x + collectionView.bounds.width/2, y: collectionView.contentOffset.y + collectionView.bounds.height/2)
 		let indexPath = collectionView.indexPathForItem(at: currentCenteredPoint)
