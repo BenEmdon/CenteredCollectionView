@@ -3,7 +3,7 @@
 //  Example
 //
 //  Created by Benjamin Emdon on 2016-12-28.
-//  Copyright © 2016 Benjamin Emdon. 
+//  Copyright © 2016 Benjamin Emdon.
 //
 
 import UIKit
@@ -11,28 +11,39 @@ import CenteredCollectionView
 
 class ViewController: UIViewController {
 
-	let centeredCollectionView = CenteredCollectionView()
+	let centeredCollectionViewFlowLayout = CenteredCollectionViewFlowLayout()
+	let collectionView: UICollectionView
+
 	let controlCenter = ControlCenterView()
 	let cellPercentWidth: CGFloat = 0.7
 	var scrollToEdgeEnabled = false
+
+	override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+		collectionView = UICollectionView(centeredCollectionViewFlowLayout: centeredCollectionViewFlowLayout)
+		super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+	}
+
+	required init?(coder aDecoder: NSCoder) {
+		fatalError("init(coder:) has not been implemented")
+	}
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		title = "CenteredCollectionView"
 
 		view.backgroundColor = UIColor.lightGray
-		centeredCollectionView.backgroundColor = UIColor.clear
+		collectionView.backgroundColor = UIColor.clear
 		view.applyGradient()
 
 		// delegate & data source
 		controlCenter.delegate = self
-		centeredCollectionView.delegate = self
-		centeredCollectionView.dataSource = self
+		collectionView.delegate = self
+		collectionView.dataSource = self
 
 		// layout subviews
 		let stackView = UIStackView()
 		stackView.axis = .vertical
-		stackView.addArrangedSubview(centeredCollectionView)
+		stackView.addArrangedSubview(collectionView)
 		stackView.addArrangedSubview(controlCenter)
 		view.addSubview(stackView)
 		stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -44,25 +55,25 @@ class ViewController: UIViewController {
 			])
 
 		// register collection cells
-		centeredCollectionView.register(
+		collectionView.register(
 			CollectionViewCell.self,
 			forCellWithReuseIdentifier: String(describing: CollectionViewCell.self)
 		)
 
 		// configure layout
-		centeredCollectionView.itemSize = CGSize(
+		centeredCollectionViewFlowLayout.itemSize = CGSize(
 			width: view.bounds.width * cellPercentWidth,
 			height: view.bounds.height * cellPercentWidth * cellPercentWidth
 		)
-		centeredCollectionView.minimumLineSpacing = 20
-		centeredCollectionView.showsVerticalScrollIndicator = false
-		centeredCollectionView.showsHorizontalScrollIndicator = false
+		centeredCollectionViewFlowLayout.minimumLineSpacing = 20
+		collectionView.showsVerticalScrollIndicator = false
+		collectionView.showsHorizontalScrollIndicator = false
 	}
 }
 
 extension ViewController: ControlCenterViewDelegate {
 	func stateChanged(scrollDirection: UICollectionViewScrollDirection) {
-		centeredCollectionView.scrollDirection = scrollDirection
+		centeredCollectionViewFlowLayout.scrollDirection = scrollDirection
 	}
 
 	func stateChanged(scrollToEdgeEnabled: Bool) {
@@ -74,9 +85,9 @@ extension ViewController: UICollectionViewDelegate {
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 		print("Selected Cell #\(indexPath.row)")
 		if scrollToEdgeEnabled,
-			let currentCenteredPage = centeredCollectionView.currentCenteredPage,
+			let currentCenteredPage = centeredCollectionViewFlowLayout.currentCenteredPage,
 			currentCenteredPage != indexPath.row {
-			centeredCollectionView.scrollTo(index: indexPath.row, animated: true)
+			centeredCollectionViewFlowLayout.scrollToPage(index: indexPath.row, animated: true)
 		}
 	}
 }
@@ -94,10 +105,10 @@ extension ViewController: UICollectionViewDataSource {
 	}
 
 	func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-		print("Current centered index: \(String(describing: centeredCollectionView.currentCenteredPage ?? nil))")
+		print("Current centered index: \(String(describing: centeredCollectionViewFlowLayout.currentCenteredPage ?? nil))")
 	}
 
 	func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
-		print("Current centered index: \(String(describing: centeredCollectionView.currentCenteredPage ?? nil))")
+		print("Current centered index: \(String(describing: centeredCollectionViewFlowLayout.currentCenteredPage ?? nil))")
 	}
 }
