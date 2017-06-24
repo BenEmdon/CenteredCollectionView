@@ -4,7 +4,8 @@ import XCTest
 
 class Tests: XCTestCase {
 
-	var collectionView: CenteredCollectionView!
+	var collectionView: UICollectionView!
+	var centeredCollectionViewFlowLayout: CenteredCollectionViewFlowLayout!
 	let expectedItemDimension: CGFloat = 80
 	let expectedLineSpacing: CGFloat = 20
 	let expectedFrameDimension: CGFloat = 300
@@ -12,7 +13,7 @@ class Tests: XCTestCase {
 	override func setUp() {
 		super.setUp()
 		// This method is called before the invocation of each test method in the class.
-		collectionView = CenteredCollectionView(
+		let (collectionView, centeredCollectionViewFlowLayout) = UICollectionView.centeredCollectionView(
 			frame: CGRect(
 				x: 0,
 				y: 0,
@@ -20,42 +21,57 @@ class Tests: XCTestCase {
 				height: expectedFrameDimension
 			)
 		)
-		collectionView.itemSize = CGSize(width: expectedItemDimension, height: expectedItemDimension)
-		collectionView.minimumLineSpacing = expectedLineSpacing
-	}
 
-	override func tearDown() {
-		// Put teardown code here. This method is called after the invocation of each test method in the class.
-		collectionView = nil
-		super.tearDown()
+		centeredCollectionViewFlowLayout.itemSize = CGSize(width: expectedItemDimension, height: expectedItemDimension)
+		centeredCollectionViewFlowLayout.minimumLineSpacing = expectedLineSpacing
+
+		self.collectionView = collectionView
+		self.centeredCollectionViewFlowLayout = centeredCollectionViewFlowLayout
 	}
 
 	func testDefaultValuesNoFrame() {
 		let expectedItemDimension: CGFloat = 50
 		let expectedLineSpacing: CGFloat = 10
-		collectionView = CenteredCollectionView()
-		collectionView.flowLayout.invalidateLayout()
+		let (collectionView, centeredCollectionViewFlowLayout) = UICollectionView.centeredCollectionView()
+		centeredCollectionViewFlowLayout.invalidateLayout()
 		// public
-		XCTAssertEqual(collectionView.scrollDirection, .horizontal)
-		XCTAssertEqual(collectionView.itemSize, CGSize(width: expectedItemDimension, height: expectedItemDimension))
-		XCTAssertEqual(collectionView.minimumLineSpacing, expectedLineSpacing)
+		XCTAssertEqual(centeredCollectionViewFlowLayout.scrollDirection, .horizontal)
+		XCTAssertEqual(
+			centeredCollectionViewFlowLayout.itemSize, CGSize(width: expectedItemDimension, height: expectedItemDimension)
+		)
+		XCTAssertEqual(centeredCollectionViewFlowLayout.minimumLineSpacing, expectedLineSpacing)
 		XCTAssertEqual(collectionView.contentOffset.y, 0)
-		XCTAssertEqual(collectionView.contentOffset.x, 25)
+		XCTAssertEqual(collectionView.contentOffset.x, 0)
 		// internal
-		XCTAssertEqual(collectionView.pageWidth, expectedItemDimension + expectedLineSpacing)
-		XCTAssertEqual(collectionView.currentContentOffset, 0)
+		XCTAssertEqual(centeredCollectionViewFlowLayout.pageWidth, expectedItemDimension + expectedLineSpacing)
 	}
 
-	func testDefaultValuesWithFrame() {
+	func testDefaultValuesWithFrameHorizontal() {
 		// public
-		collectionView.flowLayout.invalidateLayout()
-		XCTAssertEqual(collectionView.scrollDirection, .horizontal)
-		XCTAssertEqual(collectionView.itemSize, CGSize(width: expectedItemDimension, height: expectedItemDimension))
-		XCTAssertEqual(collectionView.minimumLineSpacing, expectedLineSpacing)
+		centeredCollectionViewFlowLayout.invalidateLayout()
+		XCTAssertEqual(centeredCollectionViewFlowLayout.scrollDirection, .horizontal)
+		XCTAssertEqual(
+			centeredCollectionViewFlowLayout.itemSize, CGSize(width: expectedItemDimension, height: expectedItemDimension)
+		)
+		XCTAssertEqual(centeredCollectionViewFlowLayout.minimumLineSpacing, expectedLineSpacing)
 		XCTAssertEqual(collectionView.contentOffset.y, 0)
 		XCTAssertEqual(collectionView.contentOffset.x, -(expectedFrameDimension - expectedItemDimension) / 2)
 		// internal
-		XCTAssertEqual(collectionView.pageWidth, expectedItemDimension + expectedLineSpacing)
-		XCTAssertEqual(collectionView.currentContentOffset, 0)
+		XCTAssertEqual(centeredCollectionViewFlowLayout.pageWidth, expectedItemDimension + expectedLineSpacing)
+	}
+
+	func testDefaultValuesWithFrameVertical() {
+		// public
+		centeredCollectionViewFlowLayout.scrollDirection = .vertical
+		centeredCollectionViewFlowLayout.invalidateLayout()
+		XCTAssertEqual(centeredCollectionViewFlowLayout.scrollDirection, .vertical)
+		XCTAssertEqual(
+			centeredCollectionViewFlowLayout.itemSize, CGSize(width: expectedItemDimension, height: expectedItemDimension)
+		)
+		XCTAssertEqual(centeredCollectionViewFlowLayout.minimumLineSpacing, expectedLineSpacing)
+		XCTAssertEqual(collectionView.contentOffset.y, -(expectedFrameDimension - expectedItemDimension) / 2)
+		XCTAssertEqual(collectionView.contentOffset.x, 0)
+		// internal
+		XCTAssertEqual(centeredCollectionViewFlowLayout.pageWidth, expectedItemDimension + expectedLineSpacing)
 	}
 }
