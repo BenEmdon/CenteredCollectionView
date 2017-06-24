@@ -11,11 +11,21 @@ import CenteredCollectionView
 
 class ViewController: UIViewController {
 
-	let (collectionView, centeredCollectionViewFlowLayout) = UICollectionView.centeredCollectionView()
+	let centeredCollectionViewFlowLayout = CenteredCollectionViewFlowLayout()
+	let collectionView: UICollectionView
 
 	let controlCenter = ControlCenterView()
 	let cellPercentWidth: CGFloat = 0.7
 	var scrollToEdgeEnabled = false
+
+	override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+		collectionView = UICollectionView(centeredCollectionViewFlowLayout: centeredCollectionViewFlowLayout)
+		super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+	}
+
+	required init?(coder aDecoder: NSCoder) {
+		fatalError("init(coder:) has not been implemented")
+	}
 
 	override func viewDidLoad() {
 		super.viewDidLoad()

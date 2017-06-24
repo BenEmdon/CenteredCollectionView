@@ -4,8 +4,8 @@ import XCTest
 
 class Tests: XCTestCase {
 
+	let centeredCollectionViewFlowLayout = CenteredCollectionViewFlowLayout()
 	var collectionView: UICollectionView!
-	var centeredCollectionViewFlowLayout: CenteredCollectionViewFlowLayout!
 	let expectedItemDimension: CGFloat = 80
 	let expectedLineSpacing: CGFloat = 20
 	let expectedFrameDimension: CGFloat = 300
@@ -13,26 +13,25 @@ class Tests: XCTestCase {
 	override func setUp() {
 		super.setUp()
 		// This method is called before the invocation of each test method in the class.
-		let (collectionView, centeredCollectionViewFlowLayout) = UICollectionView.centeredCollectionView(
+		collectionView = UICollectionView(
 			frame: CGRect(
 				x: 0,
 				y: 0,
 				width: expectedFrameDimension,
 				height: expectedFrameDimension
-			)
+			),
+			centeredCollectionViewFlowLayout: centeredCollectionViewFlowLayout
 		)
 
 		centeredCollectionViewFlowLayout.itemSize = CGSize(width: expectedItemDimension, height: expectedItemDimension)
 		centeredCollectionViewFlowLayout.minimumLineSpacing = expectedLineSpacing
-
-		self.collectionView = collectionView
-		self.centeredCollectionViewFlowLayout = centeredCollectionViewFlowLayout
 	}
 
 	func testDefaultValuesNoFrame() {
 		let expectedItemDimension: CGFloat = 50
 		let expectedLineSpacing: CGFloat = 10
-		let (collectionView, centeredCollectionViewFlowLayout) = UICollectionView.centeredCollectionView()
+		let centeredCollectionViewFlowLayout = CenteredCollectionViewFlowLayout()
+		let collectionView = UICollectionView(centeredCollectionViewFlowLayout: centeredCollectionViewFlowLayout)
 		centeredCollectionViewFlowLayout.invalidateLayout()
 		// public
 		XCTAssertEqual(centeredCollectionViewFlowLayout.scrollDirection, .horizontal)

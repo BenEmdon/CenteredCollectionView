@@ -8,12 +8,15 @@
 
 import UIKit
 
-extension UICollectionView {
-	public static func centeredCollectionView(frame: CGRect = CGRect.zero) -> (UICollectionView, CenteredCollectionViewFlowLayout) {
-		let centeredCollectionViewFlowLayout = CenteredCollectionViewFlowLayout()
-		let collectionView = UICollectionView(frame: frame, collectionViewLayout: centeredCollectionViewFlowLayout)
-		collectionView.decelerationRate = UIScrollViewDecelerationRateFast
-		return (collectionView, centeredCollectionViewFlowLayout)
+public extension UICollectionView {
+	/// A convenient way to create and configue a UICollectionView with a CenteredCollectionViewFlowLayout.
+	///
+	///
+	/// - Parameter frame: <#frame description#>
+	/// - Returns: <#return value description#>
+	public convenience init(frame: CGRect = .zero, centeredCollectionViewFlowLayout: CenteredCollectionViewFlowLayout) {
+		self.init(frame: frame, collectionViewLayout: centeredCollectionViewFlowLayout)
+		decelerationRate = UIScrollViewDecelerationRateFast
 	}
 }
 
