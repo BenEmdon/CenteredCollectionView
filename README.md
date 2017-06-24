@@ -7,40 +7,50 @@
 [![Swift 3](https://img.shields.io/badge/Swift-3.0.x-orange.svg?style=flat)](https://swift.org)
 [![License](https://img.shields.io/cocoapods/l/CenteredCollectionView.svg?style=flat)](http://cocoapods.org/pods/CenteredCollectionView)
 
-`CenteredCollectionView` is a lightweight drop in place `UICollectionView` that _pages_ and keeps its cells centered, resulting in the _"carousel effect"_ 🎡
+`CenteredCollectionView` is a lightweight drop in place `UICollectionViewFlowLayout` that _pages_ and keeps its cells centered, resulting in the _"carousel effect"_ 🎡
 
 ## Example 📱
 
 ![Demo](/GitHub/demo.gif)
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
+To try the example using Cocoapods:
+```bash
+pod try CenteredCollectionView
+```
 
 ## Usage 🛠
-Use just as you would use a `UICollectionView`
 ```Swift
-let centeredCollectionView = CenteredCollectionView()
+let centeredCollectionViewFlowLayout = CenteredCollectionViewFlowLayout()
+let collectionView: UICollectionView
+
+override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+  collectionView = UICollectionView(centeredCollectionViewFlowLayout: centeredCollectionViewFlowLayout)
+  super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+}
+
+...
 
 override func viewDidLoad() {
   super.viewDidLoad()
 
   // delegate & data source
   // implement the delegate and data source as you would a UICollectionView
-  centeredCollectionView.delegate = self
-  centeredCollectionView.dataSource = self
+  collectionView.delegate = self
+  collectionView.dataSource = self
 
   // layout subviews (not shown)
   ...
 
   // register collection cells
-  centeredCollectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: String(describing: UICollectionViewCell.self))
+  collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: String(describing: UICollectionViewCell.self))
 
-  // configure centeredCollectionView properties
-  centeredCollectionView.itemSize = CGSize(width: 100, height: 100)
-  centeredCollectionView.minimumLineSpacing = 20
+  // configure CenteredCollectionViewFlowLayout properties
+  centeredCollectionViewFlowLayout.itemSize = CGSize(width: 100, height: 100)
+  centeredCollectionViewFlowLayout.minimumLineSpacing = 20
 
   // get rid of scrolling indicators
-  centeredCollectionView.showsVerticalScrollIndicator = false
-  centeredCollectionView.showsHorizontalScrollIndicator = false
+  collectionView.showsVerticalScrollIndicator = false
+  collectionView.showsHorizontalScrollIndicator = false
 }
 
 // delegate and datasource extensions
@@ -57,11 +67,8 @@ Heres how you could trigger a scroll animation when a touch happens on an item t
 extension ViewController: UICollectionViewDelegate {
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 
-    // if the currentCenteredPage isn't the one that was touched
-    if scrollToEdgeEnabled,
-    let currentCenteredPage = centeredCollectionView.currentCenteredPage,
-    currentCenteredPage != indexPath.row {
-
+    let currentCenteredPage = centeredCollectionViewFlowLayout.currentCenteredPage,
+    			currentCenteredPage != indexPath.row {
       // trigger a scrollTo(index: animated:)
       centeredCollectionView.scrollTo(index: indexPath.row, animated: true)
     }
@@ -72,7 +79,7 @@ extension ViewController: UICollectionViewDelegate {
 ## Customize 🖌
 You can use all properties inherited from `UICollectionView`.
 
-**CenteredCollectionView specific properties**:
+**CenteredCollectionViewFlowLayout specific properties**:
 
 * **`minimumLineSpacing`** amount of space between each cell
   ```Swift
@@ -85,7 +92,7 @@ You can use all properties inherited from `UICollectionView`.
   var itemSize: CGSize { get set }
   ```
 
-* **`currentCenteredPage`** calculates the current centered page/item
+* **`currentCenteredPage`** calculates the current centered page
   ```Swift
   var currentCenteredPage: Int? { get }
   ```
