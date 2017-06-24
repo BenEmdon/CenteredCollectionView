@@ -1,10 +1,9 @@
 # CenteredCollectionView
 [![CI Status](http://img.shields.io/travis/BenEmdon/CenteredCollectionView.svg?style=flat)](https://travis-ci.org/BenEmdon/CenteredCollectionView)
 [![Version](https://img.shields.io/cocoapods/v/CenteredCollectionView.svg?style=flat)](http://cocoapods.org/pods/CenteredCollectionView)
-[![codebeat badge](https://codebeat.co/badges/51a89000-13ac-45d7-a468-6edf741d8ce4)](https://codebeat.co/projects/github-com-benemdon-centeredcollectionview)
 [![Platform](https://img.shields.io/cocoapods/p/CenteredCollectionView.svg?style=flat)](http://cocoapods.org/pods/CenteredCollectionView)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
-[![Swift 3](https://img.shields.io/badge/Swift-3.0.x-orange.svg?style=flat)](https://swift.org)
+[![Swift 3](https://img.shields.io/badge/Swift-3.X-orange.svg?style=flat)](https://swift.org)
 [![License](https://img.shields.io/cocoapods/l/CenteredCollectionView.svg?style=flat)](http://cocoapods.org/pods/CenteredCollectionView)
 
 `CenteredCollectionView` is a lightweight drop in place `UICollectionViewFlowLayout` that _pages_ and keeps its cells centered, resulting in the _"carousel effect"_ 🎡
@@ -33,8 +32,7 @@ override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
 override func viewDidLoad() {
   super.viewDidLoad()
 
-  // delegate & data source
-  // implement the delegate and data source as you would a UICollectionView
+  // implement the delegate and dataSource
   collectionView.delegate = self
   collectionView.dataSource = self
 
@@ -67,6 +65,7 @@ Heres how you could trigger a scroll animation when a touch happens on an item t
 extension ViewController: UICollectionViewDelegate {
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 
+    // check if the currentCenteredPage is not the page that was touched
     let currentCenteredPage = centeredCollectionViewFlowLayout.currentCenteredPage,
     			currentCenteredPage != indexPath.row {
       // trigger a scrollTo(index: animated:)
