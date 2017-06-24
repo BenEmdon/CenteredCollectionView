@@ -11,7 +11,7 @@ import CenteredCollectionView
 
 class ViewController: UIViewController {
 
-	let (collectionView, centeredCollectionViewFlowLayout) = UICollectionView.CenteredCollectionView()
+	let (collectionView, centeredCollectionViewFlowLayout) = UICollectionView.centeredCollectionView()
 
 	let controlCenter = ControlCenterView()
 	let cellPercentWidth: CGFloat = 0.7

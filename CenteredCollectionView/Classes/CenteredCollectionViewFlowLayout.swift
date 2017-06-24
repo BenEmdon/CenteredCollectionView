@@ -9,9 +9,9 @@
 import UIKit
 
 extension UICollectionView {
-	public static func CenteredCollectionView() -> (UICollectionView, CenteredCollectionViewFlowLayout) {
+	public static func centeredCollectionView(frame: CGRect = CGRect.zero) -> (UICollectionView, CenteredCollectionViewFlowLayout) {
 		let centeredCollectionViewFlowLayout = CenteredCollectionViewFlowLayout()
-		let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: centeredCollectionViewFlowLayout)
+		let collectionView = UICollectionView(frame: frame, collectionViewLayout: centeredCollectionViewFlowLayout)
 		collectionView.decelerationRate = UIScrollViewDecelerationRateFast
 		return (collectionView, centeredCollectionViewFlowLayout)
 	}
@@ -142,7 +142,7 @@ open class CenteredCollectionViewFlowLayout: UICollectionViewFlowLayout {
 		}
 	}
 	
-	private var pageWidth: CGFloat {
+	var pageWidth: CGFloat {
 		switch scrollDirection {
 		case .horizontal:
 			return itemSize.width + minimumLineSpacing
