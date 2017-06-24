@@ -9,17 +9,18 @@
 import UIKit
 
 public extension UICollectionView {
-	/// A convenient way to create and configue a UICollectionView with a CenteredCollectionViewFlowLayout.
+	/// A convenient way to create a UICollectionView and configue it with a CenteredCollectionViewFlowLayout.
 	///
-	///
-	/// - Parameter frame: <#frame description#>
-	/// - Returns: <#return value description#>
+	/// - Parameters:
+	///   - frame: The frame rectangle for the collection view, measured in points. The origin of the frame is relative to the superview in which you plan to add it. This frame is passed to the superclass during initialization.
+	///   - centeredCollectionViewFlowLayout: The `CenteredCollectionViewFlowLayout` for the `UICollectionView` to be configured with.
 	public convenience init(frame: CGRect = .zero, centeredCollectionViewFlowLayout: CenteredCollectionViewFlowLayout) {
 		self.init(frame: frame, collectionViewLayout: centeredCollectionViewFlowLayout)
 		decelerationRate = UIScrollViewDecelerationRateFast
 	}
 }
 
+/// A `UICollectionViewFlowLayout` that _pages_ and keeps its cells centered, resulting in the _"carousel effect"_ 🎡
 open class CenteredCollectionViewFlowLayout: UICollectionViewFlowLayout {
 	
 	private var lastCollectionViewSize: CGSize = CGSize.zero
@@ -38,8 +39,8 @@ open class CenteredCollectionViewFlowLayout: UICollectionViewFlowLayout {
 	override open func invalidateLayout(with context: UICollectionViewLayoutInvalidationContext) {
 		super.invalidateLayout(with: context)
 		guard let collectionView = collectionView else { return }
+
 		// invalidate layout to center first and last
-		
 		let currentCollectionViewSize = collectionView.bounds.size
 		if !currentCollectionViewSize.equalTo(lastCollectionViewSize) || lastScrollDirection != scrollDirection {
 			let inset: CGFloat
@@ -154,6 +155,11 @@ open class CenteredCollectionViewFlowLayout: UICollectionViewFlowLayout {
 		}
 	}
 	
+	/// Programatically scrolls to a page at a specified index.
+	///
+	/// - Parameters:
+	///   - index: The index of the page to scroll to.
+	///   - animated: Whether the scroll should be performed animated.
 	public func scrollToPage(index: Int, animated: Bool) {
 		guard let collectionView = collectionView else { return }
 		
@@ -173,6 +179,7 @@ open class CenteredCollectionViewFlowLayout: UICollectionViewFlowLayout {
 		collectionView.setContentOffset(proposedContentOffset, animated: shouldAnimate)
 	}
 	
+	/// Calculates the current centered page.
 	public var currentCenteredPage: Int? {
 		guard let collectionView = collectionView else { return nil }
 		let currentCenteredPoint = CGPoint(x: collectionView.contentOffset.x + collectionView.bounds.width/2, y: collectionView.contentOffset.y + collectionView.bounds.height/2)
