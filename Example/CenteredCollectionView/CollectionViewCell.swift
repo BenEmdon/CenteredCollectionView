@@ -10,8 +10,8 @@ import UIKit
 
 class CollectionViewCell: UICollectionViewCell {
 
-	let titleLabel = UILabel()
-	let mainView = UIView()
+	@objc let titleLabel = UILabel()
+	@objc let mainView = UIView()
 
 	override init(frame: CGRect) {
 		super.init(frame: frame)

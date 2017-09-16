@@ -8,7 +8,7 @@
 import UIKit
 
 extension UIView {
-	func applyGradient() {
+	@objc func applyGradient() {
 		let gradient = CAGradientLayer()
 		gradient.frame = bounds
 		gradient.locations = [0, 1]
