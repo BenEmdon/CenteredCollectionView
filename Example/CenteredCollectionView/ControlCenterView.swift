@@ -15,9 +15,9 @@ protocol ControlCenterViewDelegate: class {
 
 class ControlCenterView: UIView {
 
-	let segmentedControl = UISegmentedControl()
-	let scrollToLabel = UILabel()
-	let scrollToSwitch = UISwitch()
+	@objc let segmentedControl = UISegmentedControl()
+	@objc let scrollToLabel = UILabel()
+	@objc let scrollToSwitch = UISwitch()
 
 	weak var delegate: ControlCenterViewDelegate?
 
@@ -69,12 +69,12 @@ class ControlCenterView: UIView {
 
 	// MARK: - Actions
 
-	func controlStateDidChange(sender: UISegmentedControl) {
+	@objc func controlStateDidChange(sender: UISegmentedControl) {
 		guard let scrollDirection = UICollectionViewScrollDirection(rawValue: sender.selectedSegmentIndex) else { return }
 		delegate?.stateChanged(scrollDirection: scrollDirection)
 	}
 
-	func switchStateDidChange(sender: UISwitch) {
+	@objc func switchStateDidChange(sender: UISwitch) {
 		delegate?.stateChanged(scrollToEdgeEnabled: sender.isOn)
 	}
 

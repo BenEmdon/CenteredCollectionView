@@ -11,12 +11,12 @@ import CenteredCollectionView
 
 class ViewController: UIViewController {
 
-	let centeredCollectionViewFlowLayout = CenteredCollectionViewFlowLayout()
-	let collectionView: UICollectionView
+	@objc let centeredCollectionViewFlowLayout = CenteredCollectionViewFlowLayout()
+	@objc let collectionView: UICollectionView
 
-	let controlCenter = ControlCenterView()
-	let cellPercentWidth: CGFloat = 0.7
-	var scrollToEdgeEnabled = false
+	@objc let controlCenter = ControlCenterView()
+	@objc let cellPercentWidth: CGFloat = 0.7
+	@objc var scrollToEdgeEnabled = false
 
 	override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
 		collectionView = UICollectionView(centeredCollectionViewFlowLayout: centeredCollectionViewFlowLayout)
@@ -72,11 +72,11 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: ControlCenterViewDelegate {
-	func stateChanged(scrollDirection: UICollectionViewScrollDirection) {
+	@objc func stateChanged(scrollDirection: UICollectionViewScrollDirection) {
 		centeredCollectionViewFlowLayout.scrollDirection = scrollDirection
 	}
 
-	func stateChanged(scrollToEdgeEnabled: Bool) {
+	@objc func stateChanged(scrollToEdgeEnabled: Bool) {
 		self.scrollToEdgeEnabled = scrollToEdgeEnabled
 	}
 }

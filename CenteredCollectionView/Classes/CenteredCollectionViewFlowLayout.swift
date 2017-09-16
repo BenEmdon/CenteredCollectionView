@@ -14,7 +14,7 @@ public extension UICollectionView {
 	/// - Parameters:
 	///   - frame: The frame rectangle for the collection view, measured in points. The origin of the frame is relative to the superview in which you plan to add it. This frame is passed to the superclass during initialization.
 	///   - centeredCollectionViewFlowLayout: The `CenteredCollectionViewFlowLayout` for the `UICollectionView` to be configured with.
-	public convenience init(frame: CGRect = .zero, centeredCollectionViewFlowLayout: CenteredCollectionViewFlowLayout) {
+	@objc public convenience init(frame: CGRect = .zero, centeredCollectionViewFlowLayout: CenteredCollectionViewFlowLayout) {
 		self.init(frame: frame, collectionViewLayout: centeredCollectionViewFlowLayout)
 		decelerationRate = UIScrollViewDecelerationRateFast
 	}
@@ -146,7 +146,7 @@ open class CenteredCollectionViewFlowLayout: UICollectionViewFlowLayout {
 		}
 	}
 	
-	var pageWidth: CGFloat {
+	@objc var pageWidth: CGFloat {
 		switch scrollDirection {
 		case .horizontal:
 			return itemSize.width + minimumLineSpacing
@@ -160,7 +160,7 @@ open class CenteredCollectionViewFlowLayout: UICollectionViewFlowLayout {
 	/// - Parameters:
 	///   - index: The index of the page to scroll to.
 	///   - animated: Whether the scroll should be performed animated.
-	public func scrollToPage(index: Int, animated: Bool) {
+	@objc public func scrollToPage(index: Int, animated: Bool) {
 		guard let collectionView = collectionView else { return }
 		
 		let pageOffset: CGFloat
