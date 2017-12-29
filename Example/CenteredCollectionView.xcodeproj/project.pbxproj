@@ -236,11 +236,6 @@
 						CreatedOnToolsVersion = 6.3.1;
 						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
-						SystemCapabilities = {
-							com.apple.Maps.iOS = {
-								enabled = 0;
-							};
-						};
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
