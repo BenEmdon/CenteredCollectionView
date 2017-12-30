@@ -130,7 +130,7 @@ All contributions are welcome! If you make a pull request or an issue, you're li
 
 ## Author 👨‍💻
 
-[@BenEmdon](https://twitter.com/BenEmdon), benjaminemdon@gmail.com
+[@BenEmdon](https://twitter.com/BenEmdon)
 
 ## License 📄
 
