@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = 'CenteredCollectionView'
-  s.version      = '1.0'
+  s.version      = '1.1'
   s.summary      = 'A `CollectionViewFlowLayout` that \'pages\' and centers it\'s cells 🎡 written in Swift'
 
   # This description is used to generate tags and improve search results.
@@ -26,7 +26,7 @@ Pod::Spec.new do |s|
   #   * Finally, don't worry about the indent, CocoaPods strips it!
   s.description  = <<-DESC
   `CenteredCollectionView` is a lightweight drop in place `UICollectionViewFlowLayout` that pages and keeps its cells centered, resulting in the "carousel effect" 🎡
-                   DESC
+  DESC
 
   s.homepage     = 'https://github.com/BenEmdon/CenteredCollectionView'
   # s.screenshots  = 'www.example.com/screenshots_1.gif', 'www.example.com/screenshots_2.gif'
