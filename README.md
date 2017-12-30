@@ -1,5 +1,5 @@
 # CenteredCollectionView
-[![CI Status](http://img.shields.io/travis/BenEmdon/CenteredCollectionView.svg?style=flat)](https://travis-ci.org/BenEmdon/CenteredCollectionView.svg?branch=master)
+[![Build Status](https://travis-ci.org/BenEmdon/CenteredCollectionView.svg?branch=master)](https://travis-ci.org/BenEmdon/CenteredCollectionView)
 [![Version](https://img.shields.io/cocoapods/v/CenteredCollectionView.svg?style=flat)](http://cocoapods.org/pods/CenteredCollectionView)
 [![Platform](https://img.shields.io/cocoapods/p/CenteredCollectionView.svg?style=flat)](http://cocoapods.org/pods/CenteredCollectionView)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
@@ -8,16 +8,33 @@
 
 `CenteredCollectionView` is a lightweight drop in place `UICollectionViewFlowLayout` that _pages_ and keeps its cells centered, resulting in the _"carousel effect"_ 🎡
 
-## Example 📱
+## Example
 
-![Demo](/GitHub/demo.gif)
+![Demo](/.github/demo.gif)
 
 To try the example using Cocoapods:
 ```bash
 pod try CenteredCollectionView
 ```
 
-## Usage 🛠
+## Requirements
+This pod requires a deployment target of iOS 9.0 or greater
+
+## Installation
+
+CenteredCollectionView is available through [CocoaPods](http://cocoapods.org) and [Carthage](https://github.com/Carthage/Carthage).
+
+To install it with **Cocoapods**, add the following line to your `Podfile`:
+```ruby
+pod "CenteredCollectionView"
+```
+
+To install it with **Carthage**, add the following line to your `Cartfile`:
+```
+github "BenEmdon/CenteredCollectionView"
+```
+
+## Usage
 ```Swift
 let centeredCollectionViewFlowLayout = CenteredCollectionViewFlowLayout()
 let collectionView: UICollectionView
@@ -57,7 +74,7 @@ override func viewDidLoad() {
 ```
 
 ## Scrolling to an Edge on Touch 🎡
-![scrollToEdgeEnabled](/GitHub/ScrollToEdge.gif)
+![scrollToEdgeEnabled](/.github/ScrollToEdge.gif)
 
 Heres how you could trigger a scroll animation when a touch happens on an item that isn't the `currentCenteredPage`:
 
@@ -75,7 +92,7 @@ extension ViewController: UICollectionViewDelegate {
 }
 ```
 
-## Customize 🖌
+## Customize
 You can use all properties inherited from `UICollectionView`.
 
 **CenteredCollectionViewFlowLayout specific properties**:
@@ -107,31 +124,14 @@ You can use all properties inherited from `UICollectionView`.
   func scrollTo(index: Int, animated: Bool)
   ```
 
-## Requirements ✅
-This pod requires a deployment target of iOS 9.0 or greater
-
-## Installation 📲
-
-CenteredCollectionView is available through [CocoaPods](http://cocoapods.org) and [Carthage](https://github.com/Carthage/Carthage).
-
-To install it with **Cocoapods**, add the following line to your `Podfile`:
-```ruby
-pod "CenteredCollectionView"
-```
-
-To install it with **Carthage**, add the following line to your `Cartfile`:
-```
-github "BenEmdon/CenteredCollectionView"
-```
-
-## Contributing 💡
+## Contributing
 
 All contributions are welcome! If you make a pull request or an issue, you're likely to get a _swift_ response!
 
-## Author 👨‍💻
+## Author
 
-[@BenEmdon](https://twitter.com/BenEmdon)
+[@BenEmdon 👨‍💻](https://twitter.com/BenEmdon)
 
-## License 📄
+## License
 
 CenteredCollectionView is available under the MIT license. See the LICENSE file for more info.
