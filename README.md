@@ -1,10 +1,8 @@
 # CenteredCollectionView
 [![Build Status](https://travis-ci.org/BenEmdon/CenteredCollectionView.svg?branch=master)](https://travis-ci.org/BenEmdon/CenteredCollectionView)
 [![Version](https://img.shields.io/cocoapods/v/CenteredCollectionView.svg?style=flat)](http://cocoapods.org/pods/CenteredCollectionView)
-[![Platform](https://img.shields.io/cocoapods/p/CenteredCollectionView.svg?style=flat)](http://cocoapods.org/pods/CenteredCollectionView)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
-[![Swift 3](https://img.shields.io/badge/Swift-4-orange.svg?style=flat)](https://swift.org)
-[![License](https://img.shields.io/cocoapods/l/CenteredCollectionView.svg?style=flat)](http://cocoapods.org/pods/CenteredCollectionView)
+[![Swift 4](https://img.shields.io/badge/Swift-4-orange.svg?style=flat)](https://swift.org)
 
 `CenteredCollectionView` is a lightweight drop in place `UICollectionViewFlowLayout` that _pages_ and keeps its cells centered, resulting in the _"carousel effect"_ 🎡
 
