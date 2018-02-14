@@ -1,0 +1,3 @@
+*.sh linguist-detectable=false
+Podfile linguist-detectable=false
+*.podspec linguist-generated=true
