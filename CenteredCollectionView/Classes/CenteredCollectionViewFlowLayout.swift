@@ -137,6 +137,7 @@ open class CenteredCollectionViewFlowLayout: UICollectionViewFlowLayout {
 }
 
 private extension CenteredCollectionViewFlowLayout {
+    
     func determineProposedRect(collectionView: UICollectionView, proposedContentOffset: CGPoint) -> CGRect {
         let size = collectionView.bounds.size
         let origin: CGPoint
