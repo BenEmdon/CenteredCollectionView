@@ -16,8 +16,8 @@ Pod::Spec.new do |s|
   #
 
   s.name         = 'CenteredCollectionView'
-  s.version      = '1.1'
-  s.summary      = 'A `CollectionViewFlowLayout` that \'pages\' and centers it\'s cells 🎡 written in Swift'
+  s.version      = '1.2'
+  s.summary      = 'A `CollectionViewFlowLayout` that \'pages\' and centers its cells 🎡 written in Swift'
 
   # This description is used to generate tags and improve search results.
   #   * Think: What does it do? Why did you write it? What is the focus?
