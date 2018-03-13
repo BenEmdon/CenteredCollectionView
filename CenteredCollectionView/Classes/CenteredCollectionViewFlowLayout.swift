@@ -25,6 +25,7 @@ open class CenteredCollectionViewFlowLayout: UICollectionViewFlowLayout {
 	
 	private var lastCollectionViewSize: CGSize = CGSize.zero
 	private var lastScrollDirection: UICollectionViewScrollDirection!
+	private var lastItemSize: CGSize = CGSize.zero
 	var pageWidth: CGFloat {
 		switch scrollDirection {
 		case .horizontal:
@@ -58,7 +59,7 @@ open class CenteredCollectionViewFlowLayout: UICollectionViewFlowLayout {
 		
 		// invalidate layout to center first and last
 		let currentCollectionViewSize = collectionView.bounds.size
-		if !currentCollectionViewSize.equalTo(lastCollectionViewSize) || lastScrollDirection != scrollDirection {
+		if !currentCollectionViewSize.equalTo(lastCollectionViewSize) || lastScrollDirection != scrollDirection || lastItemSize != itemSize {
 			switch scrollDirection {
 			case .horizontal:
 				let inset = (currentCollectionViewSize.width - itemSize.width) / 2
@@ -71,6 +72,7 @@ open class CenteredCollectionViewFlowLayout: UICollectionViewFlowLayout {
 			}
 			lastCollectionViewSize = currentCollectionViewSize
 			lastScrollDirection = scrollDirection
+            lastItemSize = itemSize
 		}
 	}
 	
