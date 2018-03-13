@@ -25,7 +25,23 @@ open class CenteredCollectionViewFlowLayout: UICollectionViewFlowLayout {
 	
 	private var lastCollectionViewSize: CGSize = CGSize.zero
 	private var lastScrollDirection: UICollectionViewScrollDirection!
-    private var lastItemSize: CGSize = CGSize.zero
+	private var lastItemSize: CGSize = CGSize.zero
+	var pageWidth: CGFloat {
+		switch scrollDirection {
+		case .horizontal:
+			return itemSize.width + minimumLineSpacing
+		case .vertical:
+			return itemSize.height + minimumLineSpacing
+		}
+	}
+	
+	/// Calculates the current centered page.
+	public var currentCenteredPage: Int? {
+		guard let collectionView = collectionView else { return nil }
+		let currentCenteredPoint = CGPoint(x: collectionView.contentOffset.x + collectionView.bounds.width/2, y: collectionView.contentOffset.y + collectionView.bounds.height/2)
+		
+		return collectionView.indexPathForItem(at: currentCenteredPoint)?.row
+	}
 	
 	public override init() {
 		super.init()
@@ -40,18 +56,17 @@ open class CenteredCollectionViewFlowLayout: UICollectionViewFlowLayout {
 	override open func invalidateLayout(with context: UICollectionViewLayoutInvalidationContext) {
 		super.invalidateLayout(with: context)
 		guard let collectionView = collectionView else { return }
-
+		
 		// invalidate layout to center first and last
 		let currentCollectionViewSize = collectionView.bounds.size
 		if !currentCollectionViewSize.equalTo(lastCollectionViewSize) || lastScrollDirection != scrollDirection || lastItemSize != itemSize {
-			let inset: CGFloat
 			switch scrollDirection {
 			case .horizontal:
-				inset = (collectionView.bounds.size.width - itemSize.width) / 2
+				let inset = (currentCollectionViewSize.width - itemSize.width) / 2
 				collectionView.contentInset = UIEdgeInsets(top: 0, left: inset, bottom: 0, right: inset)
 				collectionView.contentOffset = CGPoint(x: -inset, y: 0)
 			case .vertical:
-				inset = (collectionView.bounds.size.height - itemSize.height) / 2
+				let inset = (currentCollectionViewSize.height - itemSize.height) / 2
 				collectionView.contentInset = UIEdgeInsets(top: inset, left: 0, bottom: inset, right: 0)
 				collectionView.contentOffset = CGPoint(x: 0, y: -inset)
 			}
@@ -59,55 +74,6 @@ open class CenteredCollectionViewFlowLayout: UICollectionViewFlowLayout {
 			lastScrollDirection = scrollDirection
             lastItemSize = itemSize
 		}
-	}
-	
-	private func determineProposedRect(collectionView: UICollectionView, proposedContentOffset: CGPoint) -> CGRect {
-		let size = collectionView.bounds.size
-		let origin: CGPoint
-		switch scrollDirection {
-		case .horizontal:
-			origin = CGPoint(x: proposedContentOffset.x, y: 0)
-		case .vertical:
-			origin = CGPoint(x: 0, y: proposedContentOffset.y)
-		}
-		return CGRect(origin: origin, size: size)
-	}
-	
-	private func attributesForRect(
-		collectionView: UICollectionView,
-		layoutAttributes: [UICollectionViewLayoutAttributes],
-		proposedContentOffset: CGPoint
-		) -> UICollectionViewLayoutAttributes? {
-		
-		var candidateAttributes: UICollectionViewLayoutAttributes?
-		let proposedCenterOffset: CGFloat
-		
-		switch scrollDirection {
-		case .horizontal:
-			proposedCenterOffset = proposedContentOffset.x + collectionView.bounds.size.width / 2
-		case .vertical:
-			proposedCenterOffset = proposedContentOffset.y + collectionView.bounds.size.height / 2
-		}
-		
-		for attributes: UICollectionViewLayoutAttributes in layoutAttributes {
-			guard attributes.representedElementCategory == .cell else { continue }
-			guard candidateAttributes != nil else {
-				candidateAttributes = attributes
-				continue
-			}
-			
-			switch scrollDirection {
-			case .horizontal:
-				if fabs(attributes.center.x - proposedCenterOffset) < fabs(candidateAttributes!.center.x - proposedCenterOffset) {
-					candidateAttributes = attributes
-				}
-			case .vertical:
-				if fabs(attributes.center.y - proposedCenterOffset) < fabs(candidateAttributes!.center.y - proposedCenterOffset) {
-					candidateAttributes = attributes
-				}
-			}
-		}
-		return candidateAttributes
 	}
 	
 	// swiftlint:disable line_length
@@ -148,16 +114,7 @@ open class CenteredCollectionViewFlowLayout: UICollectionViewFlowLayout {
 		}
 	}
 	
-	var pageWidth: CGFloat {
-		switch scrollDirection {
-		case .horizontal:
-			return itemSize.width + minimumLineSpacing
-		case .vertical:
-			return itemSize.height + minimumLineSpacing
-		}
-	}
-	
-	/// Programatically scrolls to a page at a specified index.
+	/// Programmatically scrolls to a page at a specified index.
 	///
 	/// - Parameters:
 	///   - index: The index of the page to scroll to.
@@ -165,27 +122,68 @@ open class CenteredCollectionViewFlowLayout: UICollectionViewFlowLayout {
 	public func scrollToPage(index: Int, animated: Bool) {
 		guard let collectionView = collectionView else { return }
 		
-		let pageOffset: CGFloat
 		let proposedContentOffset: CGPoint
 		let shouldAnimate: Bool
 		switch scrollDirection {
 		case .horizontal:
-			pageOffset = CGFloat(index) * pageWidth - collectionView.contentInset.left
+			let pageOffset = CGFloat(index) * pageWidth - collectionView.contentInset.left
 			proposedContentOffset = CGPoint(x: pageOffset, y: 0)
 			shouldAnimate = fabs(collectionView.contentOffset.x - pageOffset) > 1 ? animated : false
 		case .vertical:
-			pageOffset = CGFloat(index) * pageWidth - collectionView.contentInset.top
+			let pageOffset = CGFloat(index) * pageWidth - collectionView.contentInset.top
 			proposedContentOffset = CGPoint(x: 0, y: pageOffset)
 			shouldAnimate = fabs(collectionView.contentOffset.y - pageOffset) > 1 ? animated : false
 		}
 		collectionView.setContentOffset(proposedContentOffset, animated: shouldAnimate)
 	}
+}
+
+private extension CenteredCollectionViewFlowLayout {
 	
-	/// Calculates the current centered page.
-	public var currentCenteredPage: Int? {
-		guard let collectionView = collectionView else { return nil }
-		let currentCenteredPoint = CGPoint(x: collectionView.contentOffset.x + collectionView.bounds.width/2, y: collectionView.contentOffset.y + collectionView.bounds.height/2)
-		let indexPath = collectionView.indexPathForItem(at: currentCenteredPoint)
-		return indexPath?.row
+	func determineProposedRect(collectionView: UICollectionView, proposedContentOffset: CGPoint) -> CGRect {
+		let size = collectionView.bounds.size
+		let origin: CGPoint
+		switch scrollDirection {
+		case .horizontal:
+			origin = CGPoint(x: proposedContentOffset.x, y: 0)
+		case .vertical:
+			origin = CGPoint(x: 0, y: proposedContentOffset.y)
+		}
+		return CGRect(origin: origin, size: size)
+	}
+	
+	func attributesForRect(
+		collectionView: UICollectionView,
+		layoutAttributes: [UICollectionViewLayoutAttributes],
+		proposedContentOffset: CGPoint
+		) -> UICollectionViewLayoutAttributes? {
+		
+		var candidateAttributes: UICollectionViewLayoutAttributes?
+		let proposedCenterOffset: CGFloat
+		
+		switch scrollDirection {
+		case .horizontal:
+			proposedCenterOffset = proposedContentOffset.x + collectionView.bounds.size.width / 2
+		case .vertical:
+			proposedCenterOffset = proposedContentOffset.y + collectionView.bounds.size.height / 2
+		}
+		
+		for attributes in layoutAttributes {
+			guard attributes.representedElementCategory == .cell else { continue }
+			guard candidateAttributes != nil else {
+				candidateAttributes = attributes
+				continue
+			}
+			
+			switch scrollDirection {
+			case .horizontal where fabs(attributes.center.x - proposedCenterOffset) < fabs(candidateAttributes!.center.x - proposedCenterOffset):
+				candidateAttributes = attributes
+			case .vertical where fabs(attributes.center.y - proposedCenterOffset) < fabs(candidateAttributes!.center.y - proposedCenterOffset):
+				candidateAttributes = attributes
+			default:
+				continue
+			}
+		}
+		return candidateAttributes
 	}
 }

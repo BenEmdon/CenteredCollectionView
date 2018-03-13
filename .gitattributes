@@ -1,0 +1,3 @@
+*.sh linguist-vendored
+Podfile linguist-vendored
+*.podspec linguist-vendored
