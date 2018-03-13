@@ -72,7 +72,7 @@ open class CenteredCollectionViewFlowLayout: UICollectionViewFlowLayout {
 			}
 			lastCollectionViewSize = currentCollectionViewSize
 			lastScrollDirection = scrollDirection
-            lastItemSize = itemSize
+			lastItemSize = itemSize
 		}
 	}
 	
