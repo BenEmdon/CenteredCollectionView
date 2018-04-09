@@ -22,7 +22,6 @@ public extension UICollectionView {
 
 /// A `UICollectionViewFlowLayout` that _pages_ and keeps its cells centered, resulting in the _"carousel effect"_ 🎡
 open class CenteredCollectionViewFlowLayout: UICollectionViewFlowLayout {
-	
 	private var lastCollectionViewSize: CGSize = CGSize.zero
 	private var lastScrollDirection: UICollectionViewScrollDirection!
 	private var lastItemSize: CGSize = CGSize.zero
@@ -50,9 +49,11 @@ open class CenteredCollectionViewFlowLayout: UICollectionViewFlowLayout {
 	}
 	
 	required public init?(coder aDecoder: NSCoder) {
-		fatalError("init(coder:) has not been implemented")
+		super.init(coder: aDecoder)
+		scrollDirection = .horizontal
+		lastScrollDirection = scrollDirection
 	}
-	
+
 	override open func invalidateLayout(with context: UICollectionViewLayoutInvalidationContext) {
 		super.invalidateLayout(with: context)
 		guard let collectionView = collectionView else { return }
