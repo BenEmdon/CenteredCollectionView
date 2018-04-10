@@ -128,11 +128,11 @@ open class CenteredCollectionViewFlowLayout: UICollectionViewFlowLayout {
 		switch scrollDirection {
 		case .horizontal:
 			let pageOffset = CGFloat(index) * pageWidth - collectionView.contentInset.left
-			proposedContentOffset = CGPoint(x: pageOffset, y: 0)
+			proposedContentOffset = CGPoint(x: pageOffset, y: collectionView.contentOffset.y)
 			shouldAnimate = fabs(collectionView.contentOffset.x - pageOffset) > 1 ? animated : false
 		case .vertical:
 			let pageOffset = CGFloat(index) * pageWidth - collectionView.contentInset.top
-			proposedContentOffset = CGPoint(x: 0, y: pageOffset)
+			proposedContentOffset = CGPoint(x: collectionView.contentOffset.x, y: pageOffset)
 			shouldAnimate = fabs(collectionView.contentOffset.y - pageOffset) > 1 ? animated : false
 		}
 		collectionView.setContentOffset(proposedContentOffset, animated: shouldAnimate)
@@ -146,9 +146,9 @@ private extension CenteredCollectionViewFlowLayout {
 		let origin: CGPoint
 		switch scrollDirection {
 		case .horizontal:
-			origin = CGPoint(x: proposedContentOffset.x, y: 0)
+			origin = CGPoint(x: proposedContentOffset.x, y: collectionView.contentOffset.y)
 		case .vertical:
-			origin = CGPoint(x: 0, y: proposedContentOffset.y)
+			origin = CGPoint(x: collectionView.contentOffset.x, y: proposedContentOffset.y)
 		}
 		return CGRect(origin: origin, size: size)
 	}
