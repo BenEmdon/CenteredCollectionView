@@ -10,26 +10,20 @@ import UIKit
 
 class StoryboardViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+	@IBOutlet weak var collectionView: UICollectionView!
+	let cellPercentWidth: CGFloat = 0.7
 
-        // Do any additional setup after loading the view.
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		title = "CenteredCollectionView"
+
+		view.backgroundColor = UIColor.lightGray
+		collectionView.backgroundColor = UIColor.clear
+		view.applyGradient()
+
+		// delegate & data source
+//		collectionView.delegate = self
+//		collectionView.dataSource = self
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

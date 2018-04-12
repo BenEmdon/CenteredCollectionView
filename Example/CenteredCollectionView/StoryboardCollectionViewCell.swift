@@ -9,5 +9,5 @@
 import UIKit
 
 class StoryboardCollectionViewCell: UICollectionViewCell {
-    
+	@IBOutlet weak var label: UILabel!
 }
