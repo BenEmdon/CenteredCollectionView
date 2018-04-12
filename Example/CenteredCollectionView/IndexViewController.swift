@@ -36,7 +36,7 @@ class IndexViewController: UITableViewController {
 	}
 
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let cell = tableView.dequeueReusableCell(withIdentifier: "cell")!
+		let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell")!
 		cell.textLabel?.text = ExamplePage.allCases[indexPath.row].rawValue
 		return cell
 	}
@@ -46,7 +46,10 @@ class IndexViewController: UITableViewController {
 		case .programmatic:
 			let programmaticViewController = ProgrammaticViewController()
 			show(programmaticViewController, sender: self)
-		case .storyboard: break
+		case .storyboard:
+			let storyboard = UIStoryboard(name: "Main", bundle: nil)
+			let storyboardViewController = storyboard.instantiateViewController(withIdentifier: "StoryboardExampleViewController")
+			show(storyboardViewController, sender: self)
 		}
 	}
 }

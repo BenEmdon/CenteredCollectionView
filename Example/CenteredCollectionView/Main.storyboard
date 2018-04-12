@@ -20,7 +20,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="ZxT-1w-QHc" style="IBUITableViewCellStyleDefault" id="Hld-tg-azB">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TableViewCell" textLabel="ZxT-1w-QHc" style="IBUITableViewCellStyleDefault" id="Hld-tg-azB">
                                 <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Hld-tg-azB" id="y0L-Uq-PkM">
@@ -53,7 +53,7 @@
         <!--Storyboard View Controller-->
         <scene sceneID="hQM-b3-9so">
             <objects>
-                <viewController storyboardIdentifier="StoryboardExampleController" id="4UZ-Lo-50h" customClass="StoryboardViewController" customModule="CenteredCollectionView_Example" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="StoryboardExampleViewController" id="4UZ-Lo-50h" customClass="StoryboardViewController" customModule="CenteredCollectionView_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ESx-NW-73g">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -78,6 +78,7 @@
                                                 </label>
                                             </subviews>
                                         </view>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="vxa-6t-Xuy" firstAttribute="leading" secondItem="129-Ox-7TG" secondAttribute="leadingMargin" constant="12" id="70h-60-n9L"/>
                                             <constraint firstAttribute="bottomMargin" secondItem="vxa-6t-Xuy" secondAttribute="bottom" constant="12" id="IqR-TH-R7a"/>

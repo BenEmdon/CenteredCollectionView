@@ -31,7 +31,7 @@ class ProgrammaticViewController: UIViewController {
 		super.viewDidLoad()
 		title = "CenteredCollectionView"
 
-		view.backgroundColor = UIColor.lightGray
+		// Just to make the example pretty ✨
 		collectionView.backgroundColor = UIColor.clear
 		view.applyGradient()
 
@@ -98,7 +98,6 @@ extension ProgrammaticViewController: UICollectionViewDataSource {
 	}
 
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-		// swiftlint:disable:next force_cast line_length
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: ProgrammaticCollectionViewCell.self), for: indexPath) as! ProgrammaticCollectionViewCell
 		cell.titleLabel.text = "Cell #\(indexPath.row)"
 		return cell
