@@ -56,8 +56,8 @@ class ProgrammaticViewController: UIViewController {
 
 		// register collection cells
 		collectionView.register(
-			CollectionViewCell.self,
-			forCellWithReuseIdentifier: String(describing: CollectionViewCell.self)
+			ProgrammaticCollectionViewCell.self,
+			forCellWithReuseIdentifier: String(describing: ProgrammaticCollectionViewCell.self)
 		)
 
 		// configure layout
@@ -99,7 +99,7 @@ extension ProgrammaticViewController: UICollectionViewDataSource {
 
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		// swiftlint:disable:next force_cast line_length
-		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: CollectionViewCell.self), for: indexPath) as! CollectionViewCell
+		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: ProgrammaticCollectionViewCell.self), for: indexPath) as! ProgrammaticCollectionViewCell
 		cell.titleLabel.text = "Cell #\(indexPath.row)"
 		return cell
 	}

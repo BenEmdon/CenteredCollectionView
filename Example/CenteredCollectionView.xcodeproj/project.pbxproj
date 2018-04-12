@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1D2238AF1E1B4D1800EA4E58 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2238AC1E1B4D1800EA4E58 /* AppDelegate.swift */; };
-		1D2238B01E1B4D1800EA4E58 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2238AD1E1B4D1800EA4E58 /* CollectionViewCell.swift */; };
+		1D2238B01E1B4D1800EA4E58 /* ProgrammaticCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2238AD1E1B4D1800EA4E58 /* ProgrammaticCollectionViewCell.swift */; };
 		1D2238B11E1B4D1800EA4E58 /* ProgrammaticViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2238AE1E1B4D1800EA4E58 /* ProgrammaticViewController.swift */; };
 		1D3E428E207D3090005037CF /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D3E428D207D3090005037CF /* Storyboard.storyboard */; };
 		1D3E4290207D3208005037CF /* StoryboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3E428F207D3208005037CF /* StoryboardViewController.swift */; };
@@ -16,6 +16,7 @@
 		1D6A72E51E20617E0046D742 /* ControlCenterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6A72E41E20617E0046D742 /* ControlCenterView.swift */; };
 		1DE24E431E272A3300B79608 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE24E421E272A3300B79608 /* UIColor+Extensions.swift */; };
 		1DE24E451E27442700B79608 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE24E441E27442700B79608 /* UIView+Extensions.swift */; };
+		1DEABC47207FFC57003F2202 /* StoryboardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEABC46207FFC57003F2202 /* StoryboardCollectionViewCell.swift */; };
 		406AD4B0CF60D9DF0C20C2D1 /* Pods_CenteredCollectionView_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D90966D25F05AD1A1634B9B7 /* Pods_CenteredCollectionView_Example.framework */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
@@ -35,7 +36,7 @@
 
 /* Begin PBXFileReference section */
 		1D2238AC1E1B4D1800EA4E58 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1D2238AD1E1B4D1800EA4E58 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		1D2238AD1E1B4D1800EA4E58 /* ProgrammaticCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgrammaticCollectionViewCell.swift; sourceTree = "<group>"; };
 		1D2238AE1E1B4D1800EA4E58 /* ProgrammaticViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgrammaticViewController.swift; sourceTree = "<group>"; };
 		1D3E428D207D3090005037CF /* Storyboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		1D3E428F207D3208005037CF /* StoryboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardViewController.swift; sourceTree = "<group>"; };
@@ -43,6 +44,7 @@
 		1D6A72E41E20617E0046D742 /* ControlCenterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlCenterView.swift; sourceTree = "<group>"; };
 		1DE24E421E272A3300B79608 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		1DE24E441E27442700B79608 /* UIView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		1DEABC46207FFC57003F2202 /* StoryboardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardCollectionViewCell.swift; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* CenteredCollectionView_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CenteredCollectionView_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACDC1AFB9204008FA782 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -90,6 +92,25 @@
 			name = Styles;
 			sourceTree = "<group>";
 		};
+		1DEABC44207FFC18003F2202 /* Programmatic Example */ = {
+			isa = PBXGroup;
+			children = (
+				1D2238AD1E1B4D1800EA4E58 /* ProgrammaticCollectionViewCell.swift */,
+				1D2238AE1E1B4D1800EA4E58 /* ProgrammaticViewController.swift */,
+				1D6A72E41E20617E0046D742 /* ControlCenterView.swift */,
+			);
+			name = "Programmatic Example";
+			sourceTree = "<group>";
+		};
+		1DEABC45207FFC2D003F2202 /* Storyboard Example */ = {
+			isa = PBXGroup;
+			children = (
+				1D3E428F207D3208005037CF /* StoryboardViewController.swift */,
+				1DEABC46207FFC57003F2202 /* StoryboardCollectionViewCell.swift */,
+			);
+			name = "Storyboard Example";
+			sourceTree = "<group>";
+		};
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
@@ -115,11 +136,9 @@
 			isa = PBXGroup;
 			children = (
 				1D2238AC1E1B4D1800EA4E58 /* AppDelegate.swift */,
-				1D2238AD1E1B4D1800EA4E58 /* CollectionViewCell.swift */,
-				1D2238AE1E1B4D1800EA4E58 /* ProgrammaticViewController.swift */,
-				1D3E428F207D3208005037CF /* StoryboardViewController.swift */,
+				1DEABC44207FFC18003F2202 /* Programmatic Example */,
+				1DEABC45207FFC2D003F2202 /* Storyboard Example */,
 				1D3E4291207D32E7005037CF /* IndexViewController.swift */,
-				1D6A72E41E20617E0046D742 /* ControlCenterView.swift */,
 				1D3E428D207D3090005037CF /* Storyboard.storyboard */,
 				1DD702551E4A2983005415B1 /* Styles */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
@@ -419,8 +438,9 @@
 				1DE24E451E27442700B79608 /* UIView+Extensions.swift in Sources */,
 				1D2238B11E1B4D1800EA4E58 /* ProgrammaticViewController.swift in Sources */,
 				1DE24E431E272A3300B79608 /* UIColor+Extensions.swift in Sources */,
+				1DEABC47207FFC57003F2202 /* StoryboardCollectionViewCell.swift in Sources */,
 				1D3E4292207D32E7005037CF /* IndexViewController.swift in Sources */,
-				1D2238B01E1B4D1800EA4E58 /* CollectionViewCell.swift in Sources */,
+				1D2238B01E1B4D1800EA4E58 /* ProgrammaticCollectionViewCell.swift in Sources */,
 				1D2238AF1E1B4D1800EA4E58 /* AppDelegate.swift in Sources */,
 				1D3E4290207D3208005037CF /* StoryboardViewController.swift in Sources */,
 				1D6A72E51E20617E0046D742 /* ControlCenterView.swift in Sources */,

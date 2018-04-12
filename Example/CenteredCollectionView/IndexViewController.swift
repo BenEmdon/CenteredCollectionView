@@ -28,6 +28,7 @@ class IndexViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+		title = "CenteredCollectionView Examples"
     }
 
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
