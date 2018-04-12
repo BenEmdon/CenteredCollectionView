@@ -1,5 +1,5 @@
 //
-//  CollectionViewCell.swift
+//  ProgrammaticCollectionViewCell.swift
 //  Example
 //
 //  Created by Benjamin Emdon on 2016-12-28.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CollectionViewCell: UICollectionViewCell {
+class ProgrammaticCollectionViewCell: UICollectionViewCell {
 
 	let titleLabel = UILabel()
 	let mainView = UIView()

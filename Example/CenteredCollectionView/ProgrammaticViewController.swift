@@ -9,7 +9,7 @@
 import UIKit
 import CenteredCollectionView
 
-class ViewController: UIViewController {
+class ProgrammaticViewController: UIViewController {
 
 	let centeredCollectionViewFlowLayout = CenteredCollectionViewFlowLayout()
 	let collectionView: UICollectionView
@@ -31,7 +31,7 @@ class ViewController: UIViewController {
 		super.viewDidLoad()
 		title = "CenteredCollectionView"
 
-		view.backgroundColor = UIColor.lightGray
+		// Just to make the example pretty ✨
 		collectionView.backgroundColor = UIColor.clear
 		view.applyGradient()
 
@@ -56,8 +56,8 @@ class ViewController: UIViewController {
 
 		// register collection cells
 		collectionView.register(
-			CollectionViewCell.self,
-			forCellWithReuseIdentifier: String(describing: CollectionViewCell.self)
+			ProgrammaticCollectionViewCell.self,
+			forCellWithReuseIdentifier: String(describing: ProgrammaticCollectionViewCell.self)
 		)
 
 		// configure layout
@@ -71,7 +71,7 @@ class ViewController: UIViewController {
 	}
 }
 
-extension ViewController: ControlCenterViewDelegate {
+extension ProgrammaticViewController: ControlCenterViewDelegate {
 	func stateChanged(scrollDirection: UICollectionViewScrollDirection) {
 		centeredCollectionViewFlowLayout.scrollDirection = scrollDirection
 	}
@@ -81,7 +81,7 @@ extension ViewController: ControlCenterViewDelegate {
 	}
 }
 
-extension ViewController: UICollectionViewDelegate {
+extension ProgrammaticViewController: UICollectionViewDelegate {
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 		print("Selected Cell #\(indexPath.row)")
 		if scrollToEdgeEnabled,
@@ -92,14 +92,13 @@ extension ViewController: UICollectionViewDelegate {
 	}
 }
 
-extension ViewController: UICollectionViewDataSource {
+extension ProgrammaticViewController: UICollectionViewDataSource {
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 		return 6
 	}
 
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-		// swiftlint:disable:next force_cast line_length
-		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: CollectionViewCell.self), for: indexPath) as! CollectionViewCell
+		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: ProgrammaticCollectionViewCell.self), for: indexPath) as! ProgrammaticCollectionViewCell
 		cell.titleLabel.text = "Cell #\(indexPath.row)"
 		return cell
 	}
