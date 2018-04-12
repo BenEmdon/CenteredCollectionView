@@ -10,7 +10,7 @@
 		1D2238AF1E1B4D1800EA4E58 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2238AC1E1B4D1800EA4E58 /* AppDelegate.swift */; };
 		1D2238B01E1B4D1800EA4E58 /* ProgrammaticCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2238AD1E1B4D1800EA4E58 /* ProgrammaticCollectionViewCell.swift */; };
 		1D2238B11E1B4D1800EA4E58 /* ProgrammaticViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2238AE1E1B4D1800EA4E58 /* ProgrammaticViewController.swift */; };
-		1D3E428E207D3090005037CF /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D3E428D207D3090005037CF /* Storyboard.storyboard */; };
+		1D3E428E207D3090005037CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D3E428D207D3090005037CF /* Main.storyboard */; };
 		1D3E4290207D3208005037CF /* StoryboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3E428F207D3208005037CF /* StoryboardViewController.swift */; };
 		1D3E4292207D32E7005037CF /* IndexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3E4291207D32E7005037CF /* IndexViewController.swift */; };
 		1D6A72E51E20617E0046D742 /* ControlCenterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6A72E41E20617E0046D742 /* ControlCenterView.swift */; };
@@ -38,7 +38,7 @@
 		1D2238AC1E1B4D1800EA4E58 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1D2238AD1E1B4D1800EA4E58 /* ProgrammaticCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgrammaticCollectionViewCell.swift; sourceTree = "<group>"; };
 		1D2238AE1E1B4D1800EA4E58 /* ProgrammaticViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgrammaticViewController.swift; sourceTree = "<group>"; };
-		1D3E428D207D3090005037CF /* Storyboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
+		1D3E428D207D3090005037CF /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		1D3E428F207D3208005037CF /* StoryboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardViewController.swift; sourceTree = "<group>"; };
 		1D3E4291207D32E7005037CF /* IndexViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexViewController.swift; sourceTree = "<group>"; };
 		1D6A72E41E20617E0046D742 /* ControlCenterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlCenterView.swift; sourceTree = "<group>"; };
@@ -139,7 +139,7 @@
 				1DEABC44207FFC18003F2202 /* Programmatic Example */,
 				1DEABC45207FFC2D003F2202 /* Storyboard Example */,
 				1D3E4291207D32E7005037CF /* IndexViewController.swift */,
-				1D3E428D207D3090005037CF /* Storyboard.storyboard */,
+				1D3E428D207D3090005037CF /* Main.storyboard */,
 				1DD702551E4A2983005415B1 /* Styles */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
@@ -298,7 +298,7 @@
 			files = (
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
-				1D3E428E207D3090005037CF /* Storyboard.storyboard in Resources */,
+				1D3E428E207D3090005037CF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -336,7 +336,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+			shellScript = "";
 		};
 		315358585CA0D43273A0D73F /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
