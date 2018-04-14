@@ -33,94 +33,10 @@ github "BenEmdon/CenteredCollectionView"
 ```
 
 ## Usage
-```Swift
-let centeredCollectionViewFlowLayout = CenteredCollectionViewFlowLayout()
-let collectionView: UICollectionView
+Checkout [`USAGE.md`](/USAGE.md)
 
-override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-  collectionView = UICollectionView(centeredCollectionViewFlowLayout: centeredCollectionViewFlowLayout)
-  super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-}
-
-...
-
-override func viewDidLoad() {
-  super.viewDidLoad()
-
-  // implement the delegate and dataSource
-  collectionView.delegate = self
-  collectionView.dataSource = self
-
-  // layout subviews (not shown)
-  ...
-
-  // register collection cells
-  collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: String(describing: UICollectionViewCell.self))
-
-  // configure CenteredCollectionViewFlowLayout properties
-  centeredCollectionViewFlowLayout.itemSize = CGSize(width: 100, height: 100)
-  centeredCollectionViewFlowLayout.minimumLineSpacing = 20
-
-  // get rid of scrolling indicators
-  collectionView.showsVerticalScrollIndicator = false
-  collectionView.showsHorizontalScrollIndicator = false
-}
-
-// delegate and datasource extensions
-...
-
-```
-
-## Scrolling to an Edge on Touch 🎡
-![scrollToEdgeEnabled](/.github/ScrollToEdge.gif)
-
-Heres how you could trigger a scroll animation when a touch happens on an item that isn't the `currentCenteredPage`:
-
-```swift
-extension ViewController: UICollectionViewDelegate {
-  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-
-    // check if the currentCenteredPage is not the page that was touched
-    let currentCenteredPage = centeredCollectionViewFlowLayout.currentCenteredPage,
-    			currentCenteredPage != indexPath.row {
-      // trigger a scrollTo(index: animated:)
-      centeredCollectionView.scrollTo(index: indexPath.row, animated: true)
-    }
-  }
-}
-```
-
-## Customize
-You can use all properties inherited from `UICollectionView`.
-
-**CenteredCollectionViewFlowLayout specific properties**:
-
-* **`minimumLineSpacing`** amount of space between each cell
-  ```Swift
-  var minimumLineSpacing: CGFloat { get set }
-  // default: 10
-  ```
-
-* **`itemSize`** size of each cell. **⚠️ required for use**
-  ```Swift
-  var itemSize: CGSize { get set }
-  ```
-
-* **`currentCenteredPage`** calculates the current centered page
-  ```Swift
-  var currentCenteredPage: Int? { get }
-  ```
-
-* **`scrollDirection`** direction of scrolling **(supports vertical)**
-  ```Swift
-  var scrollDirection: UICollectionViewScrollDirection { get set }
-  // default: .horizontal
-  ```
-
-* **`scrollTo(index: animated:)`** programmatically scrolls to a cell at a specified index.
-  ```Swift
-  func scrollTo(index: Int, animated: Bool)
-  ```
+## API
+Checkout [`API.md`](/API.md)
 
 ## Contributing
 
