@@ -40,7 +40,8 @@ Checkout [`API.md`](/API.md)
 
 ## Contributing
 
-Have a suggestion? All contributions are welcome! 
+Have a suggestion? All contributions are welcome!
+
 If you make a pull request or an issue, you're likely to get a _swift_ response!
 
 ## Author
