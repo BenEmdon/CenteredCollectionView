@@ -63,7 +63,7 @@ open class CenteredCollectionViewFlowLayout: UICollectionViewFlowLayout {
 		if !currentCollectionViewSize.equalTo(lastCollectionViewSize) || lastScrollDirection != scrollDirection || lastItemSize != itemSize {
 			switch scrollDirection {
 			case .horizontal:
-				let inset = (currentCollectionViewSize.width - itemSize.width) / 2
+				let inset = self.minimumLineSpacing / 2
 				collectionView.contentInset = UIEdgeInsets(top: 0, left: inset, bottom: 0, right: inset)
 				collectionView.contentOffset = CGPoint(x: -inset, y: 0)
 			case .vertical:
