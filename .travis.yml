@@ -1,6 +1,7 @@
 language: swift
 xcode_project: Example/CenteredCollectionView.xcworkspace
 xcode_schema: CenteredCollectionView_Tests
-
-env:
-  - PLATFORM=iOS NAME='iPhone SE'
+notifications:
+  disabled: true
+script:
+  - xcodebuild test -scheme CenteredCollectionView -destination "OS=11.3,name=iPhone SE" -sdk iphonesimulator11.3 | xcpretty -c
