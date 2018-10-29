@@ -3,8 +3,9 @@
 How to install and use this module.
 
 1. [Installation](#installation)
-1. [Storyboard Usage](#storyboard-usage)
-1. [Programmatic Usage](#programmatic-usage)
+1. Usage
+    - [Storyboard Usage](#storyboard-usage)
+    - [Programmatic Usage](#programmatic-usage)
 1. [Scroll to Edge Effect](#scroll-to-edge-effect)
 
 
