@@ -24,27 +24,19 @@ github "BenEmdon/CenteredCollectionView"
 
 ## Storyboard Usage
 1. To start off lets add a `UICollectionView` to our controller, and lay it out however you want it.
-
   ![AddCollectionView](/.github/AddCollectionView.gif)
-
 1. Next lets set the `UICollectionView`'s custom layout to be `CenteredCollectionViewFlowLayout`.
-
   ![GiveFlowLayout](/.github/GiveFlowLayout.gif)
-
 1. Next we can optionally layout the prototype item. **Note that this doesn't determine the item's size.**
-
   ![MakeItemBig](/.github/MakeItemBig.gif)
 
 1. Make sure the collection view cell reuse identifier is set.
-
   ![CellIdentifier](/.github/CellIdentifier.png)
 
 1. Create an `IBOutlet` for the collection view.
-
   ![IBOutlet](/.github/IBOutlet.gif)
 
 1. Next lets dive in to the code use:
-
   ```swift
   class ViewController: UIViewController {
 
