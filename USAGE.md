@@ -128,7 +128,8 @@ class ViewController: UIViewController {
 
 ## Scroll to Edge Effect
 ![scrollToEdgeEnabled](/.github/ScrollToEdge.gif)
-Scrolling to an Edge on Touch 🎡
+
+_Scrolling to an Edge on Touch 🎡_
 
 Heres how you could trigger a scroll animation when a touch happens on an item that isn't the `currentCenteredPage`:
 
