@@ -138,8 +138,8 @@ extension ViewController: UICollectionViewDelegate {
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 
     // check if the currentCenteredPage is not the page that was touched
-    let currentCenteredPage = centeredCollectionViewFlowLayout.currentCenteredPage,
-    			currentCenteredPage != indexPath.row {
+    let currentCenteredPage = centeredCollectionViewFlowLayout.currentCenteredPage
+    if currentCenteredPage != indexPath.row {
       // trigger a scrollTo(index: animated:)
       centeredCollectionView.scrollTo(index: indexPath.row, animated: true)
     }
