@@ -16,14 +16,14 @@ public extension UICollectionView {
 	///   - centeredCollectionViewFlowLayout: The `CenteredCollectionViewFlowLayout` for the `UICollectionView` to be configured with.
 	public convenience init(frame: CGRect = .zero, centeredCollectionViewFlowLayout: CenteredCollectionViewFlowLayout) {
 		self.init(frame: frame, collectionViewLayout: centeredCollectionViewFlowLayout)
-		decelerationRate = UIScrollViewDecelerationRateFast
+		decelerationRate = UIScrollView.DecelerationRate.fast
 	}
 }
 
 /// A `UICollectionViewFlowLayout` that _pages_ and keeps its cells centered, resulting in the _"carousel effect"_ 🎡
 open class CenteredCollectionViewFlowLayout: UICollectionViewFlowLayout {
 	private var lastCollectionViewSize: CGSize = CGSize.zero
-	private var lastScrollDirection: UICollectionViewScrollDirection!
+	private var lastScrollDirection: UICollectionView.ScrollDirection!
 	private var lastItemSize: CGSize = CGSize.zero
 	var pageWidth: CGFloat {
 		switch scrollDirection {
