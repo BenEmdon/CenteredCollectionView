@@ -128,11 +128,11 @@ open class CenteredCollectionViewFlowLayout: UICollectionViewFlowLayout {
 		case .horizontal:
 			let pageOffset = CGFloat(index) * pageWidth - collectionView.contentInset.left
 			proposedContentOffset = CGPoint(x: pageOffset, y: collectionView.contentOffset.y)
-			shouldAnimate = fabs(collectionView.contentOffset.x - pageOffset) > 1 ? animated : false
+			shouldAnimate = abs(collectionView.contentOffset.x - pageOffset) > 1 ? animated : false
 		case .vertical:
 			let pageOffset = CGFloat(index) * pageWidth - collectionView.contentInset.top
 			proposedContentOffset = CGPoint(x: collectionView.contentOffset.x, y: pageOffset)
-			shouldAnimate = fabs(collectionView.contentOffset.y - pageOffset) > 1 ? animated : false
+			shouldAnimate = abs(collectionView.contentOffset.y - pageOffset) > 1 ? animated : false
 		}
 		collectionView.setContentOffset(proposedContentOffset, animated: shouldAnimate)
 	}
@@ -176,9 +176,9 @@ private extension CenteredCollectionViewFlowLayout {
 			}
 
 			switch scrollDirection {
-			case .horizontal where fabs(attributes.center.x - proposedCenterOffset) < fabs(candidateAttributes!.center.x - proposedCenterOffset):
+			case .horizontal where abs(attributes.center.x - proposedCenterOffset) < abs(candidateAttributes!.center.x - proposedCenterOffset):
 				candidateAttributes = attributes
-			case .vertical where fabs(attributes.center.y - proposedCenterOffset) < fabs(candidateAttributes!.center.y - proposedCenterOffset):
+			case .vertical where abs(attributes.center.y - proposedCenterOffset) < abs(candidateAttributes!.center.y - proposedCenterOffset):
 				candidateAttributes = attributes
 			default:
 				continue
