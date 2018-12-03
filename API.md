@@ -14,7 +14,7 @@ You can use all properties inherited from `UICollectionViewFlowLayout`.
   // default: .horizontal
   ```
 
-* **`scrollTo(index: animated:)`** programmatically scrolls to a cell at a specified index.
+* **`scrollTo(index: animated:)`** programmatically scrolls to a item at a specified index.
   ```Swift
   func scrollTo(index: Int, animated: Bool)
   ```
