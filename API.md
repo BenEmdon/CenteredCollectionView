@@ -10,7 +10,7 @@ You can use all properties inherited from `UICollectionViewFlowLayout`.
 
 * **`scrollDirection`** direction of scrolling **(supports vertical)**
   ```Swift
-  var scrollDirection: UICollectionViewScrollDirection { get set }
+  var scrollDirection: UICollectionView.ScrollDirection { get set }
   // default: .horizontal
   ```
 
