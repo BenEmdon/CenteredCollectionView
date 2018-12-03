@@ -21,7 +21,7 @@ class StoryboardViewController: UIViewController {
 		title = "CenteredCollectionView"
 
 		// Get the reference to the CenteredCollectionViewFlowLayout (REQURED)
-		centeredCollectionViewFlowLayout = collectionView.collectionViewLayout as! CenteredCollectionViewFlowLayout
+        centeredCollectionViewFlowLayout = (collectionView.collectionViewLayout as! CenteredCollectionViewFlowLayout)
 
 		// Modify the collectionView's decelerationRate (REQURED)
 		collectionView.decelerationRate = UIScrollViewDecelerationRateFast
