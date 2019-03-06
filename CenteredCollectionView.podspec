@@ -1,4 +1,3 @@
-# coding: utf-8
 #
 #  Be sure to run `pod spec lint CenteredCollectionView.podspec' to ensure this is a
 #  valid spec and to remove all comments including this before submitting the spec.
