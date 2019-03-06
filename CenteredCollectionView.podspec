@@ -1,3 +1,4 @@
+# coding: utf-8
 #
 #  Be sure to run `pod spec lint CenteredCollectionView.podspec' to ensure this is a
 #  valid spec and to remove all comments including this before submitting the spec.
@@ -70,7 +71,7 @@ Pod::Spec.new do |s|
   # s.ios.deployment_target = '5.0'
   # s.osx.deployment_target = '10.7'
   # s.watchos.deployment_target = '2.0'
-  # s.tvos.deployment_target = '9.0'
+  s.tvos.deployment_target = '9.0'
 
 
   # ――― Source Location ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
