@@ -72,7 +72,7 @@ class ProgrammaticViewController: UIViewController {
 }
 
 extension ProgrammaticViewController: ControlCenterViewDelegate {
-	func stateChanged(scrollDirection: UICollectionViewScrollDirection) {
+	func stateChanged(scrollDirection: UICollectionView.ScrollDirection) {
 		centeredCollectionViewFlowLayout.scrollDirection = scrollDirection
 	}
 

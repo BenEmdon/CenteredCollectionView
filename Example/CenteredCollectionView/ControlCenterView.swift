@@ -9,7 +9,7 @@
 import UIKit
 
 protocol ControlCenterViewDelegate: class {
-	func stateChanged(scrollDirection: UICollectionViewScrollDirection)
+	func stateChanged(scrollDirection: UICollectionView.ScrollDirection)
 	func stateChanged(scrollToEdgeEnabled: Bool)
 }
 
@@ -70,7 +70,7 @@ class ControlCenterView: UIView {
 	// MARK: - Actions
 
 	@objc func controlStateDidChange(sender: UISegmentedControl) {
-		guard let scrollDirection = UICollectionViewScrollDirection(rawValue: sender.selectedSegmentIndex) else { return }
+		guard let scrollDirection = UICollectionView.ScrollDirection(rawValue: sender.selectedSegmentIndex) else { return }
 		delegate?.stateChanged(scrollDirection: scrollDirection)
 	}
 
