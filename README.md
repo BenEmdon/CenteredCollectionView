@@ -2,7 +2,7 @@
 [![Build Status](https://travis-ci.org/BenEmdon/CenteredCollectionView.svg?branch=master)](https://travis-ci.org/BenEmdon/CenteredCollectionView)
 [![Version](https://img.shields.io/cocoapods/v/CenteredCollectionView.svg?style=flat)](http://cocoapods.org/pods/CenteredCollectionView)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
-[![Swift 4.2](https://img.shields.io/badge/Swift-4.2-orange.svg?style=flat)](https://swift.org)
+[![Swift 5.0](https://img.shields.io/badge/Swift-5.0-orange.svg?style=flat)](https://swift.org)
 [![Platform](https://img.shields.io/badge/platforms-iOS%20%7C%20tvOS-orange.svg)](http://cocoapods.org/pods/CenteredCollectionView)
 [![Backers on Open Collective](https://opencollective.com/CenteredCollectionView/backers/badge.svg?style=flat)](#backers) 
 [![Sponsors on Open Collective](https://opencollective.com/CenteredCollectionView/sponsors/badge.svg?style=flat)](#sponsors) 

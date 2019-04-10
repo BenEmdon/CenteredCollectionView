@@ -24,7 +24,7 @@ class StoryboardViewController: UIViewController {
         centeredCollectionViewFlowLayout = (collectionView.collectionViewLayout as! CenteredCollectionViewFlowLayout)
 
 		// Modify the collectionView's decelerationRate (REQURED)
-		collectionView.decelerationRate = UIScrollViewDecelerationRateFast
+		collectionView.decelerationRate = UIScrollView.DecelerationRate.fast
 
 		// Make the example pretty ✨
 		view.applyGradient()
