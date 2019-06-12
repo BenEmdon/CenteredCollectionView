@@ -25,6 +25,7 @@ open class CenteredCollectionViewFlowLayout: UICollectionViewFlowLayout {
     private var lastCollectionViewSize: CGSize = CGSize.zero
     private var lastScrollDirection: UICollectionView.ScrollDirection!
     private var lastItemSize: CGSize = CGSize.zero
+    private var isFirstCellCentered: Bool!
     var pageWidth: CGFloat {
         switch scrollDirection {
         case .horizontal:
@@ -44,16 +45,18 @@ open class CenteredCollectionViewFlowLayout: UICollectionViewFlowLayout {
         return collectionView.indexPathForItem(at: currentCenteredPoint)?.row
     }
     
-    public override init() {
+    required public init(isFirstCellCentered: Bool = true) {
         super.init()
         scrollDirection = .horizontal
         lastScrollDirection = scrollDirection
+        self.isFirstCellCentered = isFirstCellCentered
     }
     
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         scrollDirection = .horizontal
         lastScrollDirection = scrollDirection
+        isFirstCellCentered = true
     }
     
     override open func invalidateLayout(with context: UICollectionViewLayoutInvalidationContext) {
@@ -65,9 +68,11 @@ open class CenteredCollectionViewFlowLayout: UICollectionViewFlowLayout {
         if !currentCollectionViewSize.equalTo(lastCollectionViewSize) || lastScrollDirection != scrollDirection || lastItemSize != itemSize {
             switch scrollDirection {
             case .horizontal:
-                let inset = (currentCollectionViewSize.width - itemSize.width) / 2
-                collectionView.contentInset = UIEdgeInsets(top: 0, left: inset, bottom: 0, right: inset)
-                collectionView.contentOffset = CGPoint(x: -inset, y: 0)
+                if isFirstCellCentered {
+                    let inset = (currentCollectionViewSize.width - itemSize.width) / 2
+                    collectionView.contentInset = UIEdgeInsets(top: 0, left: inset, bottom: 0, right: inset)
+                    collectionView.contentOffset = CGPoint(x: -inset, y: 0)
+                }
             case .vertical:
                 let inset = (currentCollectionViewSize.height - itemSize.height) / 2
                 collectionView.contentInset = UIEdgeInsets(top: inset, left: 0, bottom: inset, right: 0)
