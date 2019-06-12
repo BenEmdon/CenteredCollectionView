@@ -80,6 +80,62 @@ github "BenEmdon/CenteredCollectionView"
   }
   ```
 
+  As with any `UICollectionView`, you'll also need to conform to the `UICollectionViewDelegate` and `UICollectionViewDataSource` protocols, as follows:
+
+  ```swift
+
+  // Here's an example model we'll use.
+  struct User {
+  	var name: String
+  }
+
+  class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+
+  	// ... properties as before
+
+  	// Instance of our example data model
+  	var users = [User]()
+
+
+  	override func viewDidLoad() {
+
+  		// ...
+
+  		// Flush the model with some example data
+  		users.append(User("User1"))
+  		users.append(User("User2"))
+  		users.append(User("User3"))
+  	}
+
+
+  	// MARK: UICollectionViewDelegate
+
+  	// Now, we'll conform to the delegates that we promised in the viewDidLoad earlier
+
+  	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+  		return users.count
+  	}
+
+  	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+
+  		// Grab our cell from dequeueReusableCell
+  		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "userCell", for: indexPath) as? UserCollectionViewCell
+
+  		// Error checking, if our cell is somehow not able to be cast
+  		guard let userCell = cell else {
+  			print("Unable to instantiate user cell at index \(indexPath.row)")
+  			return cell
+  		}
+
+  		// Give the current cell the corresponding data it needs from our model
+  		userCell.label.text = users[indexPath.row].name
+  		return userCell
+  	}
+
+  }
+
+  ```
+
 ## Programmatic Usage
 ```Swift
 class ViewController: UIViewController {
