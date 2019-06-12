@@ -31,7 +31,21 @@ github "BenEmdon/CenteredCollectionView"
 1. Next we can optionally layout the prototype item. **Note that this doesn't determine the item's size.**
   ![MakeItemBig](/.github/MakeItemBig.gif)
 
-1. Make sure the collection view cell reuse identifier is set.
+1. Let's create an example cell subclass that contains the views we want to present.
+	Create a new file named "UserCollectionViewCell", with the following code:
+	```swift
+	class FriendCollectionViewCell: UICollectionViewCell {
+
+	}
+	```
+
+	Next, set the prototype item in the Storyboard to subclass from here:
+	![User Cell Subclass](/.github/usercellsubclass.gif)
+
+	Finally, add a label to the cell and create a corresponding outlet in the FriendCollectionViewCell.
+	(no gif for brevity)
+
+  (Additionally, Make sure the collection view cell reuse identifier is set.)
   ![CellIdentifier](/.github/CellIdentifier.png)
 
 1. Create an `IBOutlet` for the collection view.
@@ -118,8 +132,8 @@ github "BenEmdon/CenteredCollectionView"
 
   	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
-  		// Grab our cell from dequeueReusableCell
-  		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "userCell", for: indexPath) as? UserCollectionViewCell
+  		// Grab our cell from dequeueReusableCell, wtih the same identifier we set in our storyboard.
+  		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? UserCollectionViewCell
 
   		// Error checking, if our cell is somehow not able to be cast
   		guard let userCell = cell else {
