@@ -45,10 +45,11 @@ github "BenEmdon/CenteredCollectionView"
 	![User Cell Subclass](/.github/usercellsubclass.gif)
 
 	Finally, add a label to the cell and create a corresponding outlet in the `UserCollectionViewCell` subclass.
-	![User Label](/.github/userlabel.gif)
+	![User Label](/.github/userlabel.gif)  
 	
-	Don't forget to add a cell identifier!
+	Don't forget to add a cell identifier!<br>
 	![CellIdentifier](/.github/CellIdentifier.png)
+
 
 1. Create an `IBOutlet` for the collection view.
   ![IBOutlet](/.github/IBOutlet.gif)
