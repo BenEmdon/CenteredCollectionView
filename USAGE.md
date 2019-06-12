@@ -34,7 +34,9 @@ github "BenEmdon/CenteredCollectionView"
 1. Let's create an example cell subclass that contains the views we want to present.
 	Create a new file named "UserCollectionViewCell", with the following code:
 	```swift
-	class FriendCollectionViewCell: UICollectionViewCell {
+
+	import UIKit
+	class UserCollectionViewCell: UICollectionViewCell {
 
 	}
 	```
@@ -42,11 +44,11 @@ github "BenEmdon/CenteredCollectionView"
 	Next, set the prototype item in the Storyboard to subclass from here:
 	![User Cell Subclass](/.github/usercellsubclass.gif)
 
-	Finally, add a label to the cell and create a corresponding outlet in the FriendCollectionViewCell.
-	(no gif for brevity)
-
-  (Additionally, Make sure the collection view cell reuse identifier is set.)
-  ![CellIdentifier](/.github/CellIdentifier.png)
+	Finally, add a label to the cell and create a corresponding outlet in the `UserCollectionViewCell` subclass.
+	![User Label](/.github/userlabel.gif)
+	
+	Don't forget to add a cell identifier!
+	![CellIdentifier](/.github/CellIdentifier.png)
 
 1. Create an `IBOutlet` for the collection view.
   ![IBOutlet](/.github/IBOutlet.gif)
