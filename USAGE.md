@@ -53,6 +53,9 @@ github "BenEmdon/CenteredCollectionView"
 
 1. Next lets dive in to the code use:
   ```swift
+
+  import CenteredCollectionView
+
   class ViewController: UIViewController {
 
   	@IBOutlet weak var collectionView: UICollectionView!
