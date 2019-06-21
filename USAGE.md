@@ -54,17 +54,17 @@ github "BenEmdon/CenteredCollectionView"
   	override func viewDidLoad() {
   		super.viewDidLoad()
 
-  		// Get the reference to the `CenteredCollectionViewFlowLayout` (REQURED STEP)
+  		// Get the reference to the `CenteredCollectionViewFlowLayout` (REQUIRED STEP)
   		centeredCollectionViewFlowLayout = collectionView.collectionViewLayout as! CenteredCollectionViewFlowLayout
 
-  		// Modify the collectionView's decelerationRate (REQURED STEP)
+  		// Modify the collectionView's decelerationRate (REQUIRED STEP)
   		collectionView.decelerationRate = UIScrollViewDecelerationRateFast
 
   		// Assign delegate and data source
   		collectionView.delegate = self
   		collectionView.dataSource = self
 
-  		// Configure the required item size (REQURED STEP)
+  		// Configure the required item size (REQUIRED STEP)
   		centeredCollectionViewFlowLayout.itemSize = CGSize(
   			width: view.bounds.width * cellPercentWidth,
   			height: view.bounds.height * cellPercentWidth * cellPercentWidth
@@ -106,7 +106,7 @@ class ViewController: UIViewController {
     // Register collection cells (REQUIRED STEP)
     collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: String(describing: UICollectionViewCell.self))
 
-    // Configure the required item size (REQURED STEP)
+    // Configure the required item size (REQUIRED STEP)
     centeredCollectionViewFlowLayout.itemSize = CGSize(
       width: view.bounds.width * cellPercentWidth,
       height: view.bounds.height * cellPercentWidth * cellPercentWidth
