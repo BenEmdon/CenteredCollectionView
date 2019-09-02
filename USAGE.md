@@ -31,14 +31,34 @@ github "BenEmdon/CenteredCollectionView"
 1. Next we can optionally layout the prototype item. **Note that this doesn't determine the item's size.**
   ![MakeItemBig](/.github/MakeItemBig.gif)
 
-1. Make sure the collection view cell reuse identifier is set.
-  ![CellIdentifier](/.github/CellIdentifier.png)
+1. Let's create an example cell subclass that contains the views we want to present.
+	Create a new file named "UserCollectionViewCell", with the following code:
+	```swift
+
+	import UIKit
+	class UserCollectionViewCell: UICollectionViewCell {
+
+	}
+	```
+
+	Next, set the prototype item in the Storyboard to subclass from here:
+	![User Cell Subclass](/.github/usercellsubclass.gif)
+
+	Finally, add a label to the cell and create a corresponding outlet in the `UserCollectionViewCell` subclass.
+	![User Label](/.github/userlabel.gif)  
+	
+	Don't forget to add a cell identifier!<br>
+	![CellIdentifier](/.github/CellIdentifier.png)
+
 
 1. Create an `IBOutlet` for the collection view.
   ![IBOutlet](/.github/IBOutlet.gif)
 
 1. Next lets dive in to the code use:
   ```swift
+
+  import CenteredCollectionView
+
   class ViewController: UIViewController {
 
   	@IBOutlet weak var collectionView: UICollectionView!
@@ -78,6 +98,62 @@ github "BenEmdon/CenteredCollectionView"
   		collectionView.showsHorizontalScrollIndicator = false
   	}
   }
+  ```
+
+  As with any `UICollectionView`, you'll also need to conform to the `UICollectionViewDelegate` and `UICollectionViewDataSource` protocols, as follows:
+
+  ```swift
+
+  // Here's an example model we'll use.
+  struct User {
+  	var name: String
+  }
+
+  class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+
+  	// ... properties as before
+
+  	// Instance of our example data model
+  	var users = [User]()
+
+
+  	override func viewDidLoad() {
+
+  		// ...
+
+  		// Flush the model with some example data
+  		users.append(User("User1"))
+  		users.append(User("User2"))
+  		users.append(User("User3"))
+  	}
+
+
+  	// MARK: UICollectionViewDelegate
+
+  	// Now, we'll conform to the delegates that we promised in the viewDidLoad earlier
+
+  	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+  		return users.count
+  	}
+
+  	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+
+  		// Grab our cell from dequeueReusableCell, wtih the same identifier we set in our storyboard.
+  		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? UserCollectionViewCell
+
+  		// Error checking, if our cell is somehow not able to be cast
+  		guard let userCell = cell else {
+  			print("Unable to instantiate user cell at index \(indexPath.row)")
+  			return cell
+  		}
+
+  		// Give the current cell the corresponding data it needs from our model
+  		userCell.label.text = users[indexPath.row].name
+  		return userCell
+  	}
+
+  }
+
   ```
 
 ## Programmatic Usage
