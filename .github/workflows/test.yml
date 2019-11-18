@@ -10,4 +10,4 @@ jobs:
       uses: actions/checkout@v1
     - name: Run a one-line script
       run: |
-        xcodebuild clean test -workspace Example/CenteredCollectionView.xcworkspace -scheme CenteredCollectionView_Tests CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
+        xcodebuild clean test -workspace Example/CenteredCollectionView.xcworkspace -scheme CenteredCollectionView CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
