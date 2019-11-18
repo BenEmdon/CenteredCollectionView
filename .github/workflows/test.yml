@@ -10,7 +10,7 @@ jobs:
         destination: ['platform=iOS Simulator,OS=12.2,name=iPhone X']
     steps:
     - name: Checkout Actions
-    - uses: actions/checkout@v1
+      uses: actions/checkout@v1
     - name: Run a one-line script
       run: |
         xcodebuild clean test -scheme CenteredCollectionView -destination "${destination}" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
