@@ -11,7 +11,14 @@ How to install and use this module.
 
 ## Installation
 
-CenteredCollectionView is available through [CocoaPods](http://cocoapods.org) and [Carthage](https://github.com/Carthage/Carthage).
+CenteredCollectionView is available through [Swift Package Manager](https://swift.org/package-manager/), [CocoaPods](http://cocoapods.org) and [Carthage](https://github.com/Carthage/Carthage).
+
+To install it with **Swift Package Manager**, add the URL `https://github.com/BenEmdon/CenteredCollectionView` in Xcode Add Package Dependency assistant ; or add to your own `Package.swift`:
+```swift
+dependencies: [
+  .package(url: "https://github.com/BenEmdon/CenteredCollectionView", from: "2.2.1")
+]
+```
 
 To install it with **Cocoapods**, add the following line to your `Podfile`:
 ```ruby
