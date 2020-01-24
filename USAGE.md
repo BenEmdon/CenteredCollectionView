@@ -16,7 +16,7 @@ CenteredCollectionView is available through [Swift Package Manager](https://swif
 To install it with **Swift Package Manager**, add the URL `https://github.com/BenEmdon/CenteredCollectionView` in Xcode Add Package Dependency assistant ; or add to your own `Package.swift`:
 ```swift
 dependencies: [
-  .package(url: "https://github.com/BenEmdon/CenteredCollectionView", from: "2.2.1")
+  .package(url: "https://github.com/BenEmdon/CenteredCollectionView", from: "2.2.2")
 ]
 ```
 
