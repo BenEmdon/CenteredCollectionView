@@ -25,7 +25,7 @@ open class CenteredCollectionViewFlowLayout: UICollectionViewFlowLayout {
     private var lastCollectionViewSize: CGSize = CGSize.zero
     private var lastScrollDirection: UICollectionView.ScrollDirection!
     private var lastItemSize: CGSize = CGSize.zero
-    var pageWidth: CGFloat {
+    var pageWidth: CGFloat
         switch scrollDirection {
         case .horizontal:
             return itemSize.width + minimumLineSpacing
