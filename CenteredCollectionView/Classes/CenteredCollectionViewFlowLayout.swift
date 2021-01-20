@@ -43,6 +43,7 @@ open class CenteredCollectionViewFlowLayout: UICollectionViewFlowLayout {
         
         return collectionView.indexPathForItem(at: currentCenteredPoint)?.row
     }
+    public var lastCenteredPage: Int = 0
     
     public override init() {
         super.init()
@@ -67,11 +68,11 @@ open class CenteredCollectionViewFlowLayout: UICollectionViewFlowLayout {
             case .horizontal:
                 let inset = (currentCollectionViewSize.width - itemSize.width) / 2
                 collectionView.contentInset = UIEdgeInsets(top: 0, left: inset, bottom: 0, right: inset)
-                collectionView.contentOffset = CGPoint(x: -inset, y: 0)
+                collectionView.contentOffset = CGPoint(x: (pageWidth * CGFloat(lastCenteredPage) - inset), y: 0)
             case .vertical:
                 let inset = (currentCollectionViewSize.height - itemSize.height) / 2
                 collectionView.contentInset = UIEdgeInsets(top: inset, left: 0, bottom: inset, right: 0)
-                collectionView.contentOffset = CGPoint(x: 0, y: -inset)
+                collectionView.contentOffset = CGPoint(x: 0, y: (pageWidth * CGFloat(lastCenteredPage) - inset))
             default:
                 collectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
                 collectionView.contentOffset = .zero
