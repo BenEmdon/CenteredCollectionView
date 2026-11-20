@@ -1,6 +1,6 @@
 # Changelog
 
-## 2.3.0 (unreleased)
+## 2.3.0 (2026-11-19)
 
 - Raised the minimum deployment target from iOS 9.0 / tvOS 9.0 to iOS 13.0 / tvOS 13.0.
 - Raised the Swift tools and language floor to Swift 5.9.
