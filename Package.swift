@@ -1,11 +1,11 @@
-// swift-tools-version:5.0
+// swift-tools-version:5.9
 import PackageDescription
 
 let package = Package(
     name: "CenteredCollectionView",
     platforms: [
-        .iOS(.v9),
-        .tvOS(.v9)
+        .iOS(.v13),
+        .tvOS(.v13)
     ],
     products: [
         .library(name: "CenteredCollectionView", targets: ["CenteredCollectionView"]),

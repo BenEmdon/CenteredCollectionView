@@ -1,9 +1,9 @@
 # CenteredCollectionView
-[![Build Status](https://travis-ci.org/BenEmdon/CenteredCollectionView.svg?branch=master)](https://travis-ci.org/BenEmdon/CenteredCollectionView)
+[![CI](https://github.com/BenEmdon/CenteredCollectionView/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/BenEmdon/CenteredCollectionView/actions/workflows/ci.yml)
 [![Version](https://img.shields.io/cocoapods/v/CenteredCollectionView.svg?style=flat)](http://cocoapods.org/pods/CenteredCollectionView)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![SwiftPM compatible](https://img.shields.io/badge/SwiftPM-compatible-brightgreen.svg)](https://github.com/apple/swift-package-manager)
-[![Swift 5.0](https://img.shields.io/badge/Swift-5.0-orange.svg?style=flat)](https://swift.org)
+[![Swift 5.9](https://img.shields.io/badge/Swift-5.9-orange.svg?style=flat)](https://swift.org)
 [![Platform](https://img.shields.io/badge/platforms-iOS%20%7C%20tvOS-orange.svg)](http://cocoapods.org/pods/CenteredCollectionView)
 
 `CenteredCollectionView` is a lightweight drop in place `UICollectionViewFlowLayout` that _pages_ and keeps its cells centered, resulting in the _"carousel effect"_ 🎡
@@ -18,7 +18,7 @@ pod try CenteredCollectionView
 ```
 
 ## Requirements
-This pod requires a deployment target of iOS 9.0 or greater
+This pod requires a deployment target of iOS 13.0 or greater
 
 ## Installation
 
@@ -27,7 +27,7 @@ CenteredCollectionView is available through [Swift Package Manager](https://swif
 To install it with **Swift Package Manager**, add the URL `https://github.com/BenEmdon/CenteredCollectionView` in Xcode Add Package Dependency assistant ; or add to your own `Package.swift`:
 ```swift
 dependencies: [
-  .package(url: "https://github.com/BenEmdon/CenteredCollectionView", from: "2.2.2")
+  .package(url: "https://github.com/BenEmdon/CenteredCollectionView", from: "2.3.0")
 ]
 ```
 
@@ -51,7 +51,7 @@ Checkout [`API.md`](/API.md)
 
 Have a suggestion? All contributions are welcome!
 
-If you make a pull request or an issue, you're likely to get a _swift_ response!
+Issues and pull requests are triaged on a best effort basis, usually once a week. There is no stale bot here: a report from a real person stays open until a person answers it.
 
 ## Author
 

@@ -1,0 +1,41 @@
+name: CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  spm:
+    name: Swift Package Manager build
+    runs-on: macos-14
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build package for iOS
+        run: >-
+          xcodebuild build
+          -scheme CenteredCollectionView
+          -destination 'generic/platform=iOS'
+          CODE_SIGNING_ALLOWED=NO
+
+  example:
+    name: Example app build
+    runs-on: macos-14
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build example workspace
+        run: >-
+          xcodebuild build
+          -workspace Example/CenteredCollectionView.xcworkspace
+          -scheme CenteredCollectionView-Example
+          -destination 'generic/platform=iOS'
+          CODE_SIGNING_ALLOWED=NO
+
+  pod-lint:
+    name: CocoaPods spec lint
+    runs-on: macos-14
+    steps:
+      - uses: actions/checkout@v4
+      - name: Lint podspec
+        run: pod lib lint CenteredCollectionView.podspec --allow-warnings
