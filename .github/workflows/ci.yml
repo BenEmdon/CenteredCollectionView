@@ -11,15 +11,35 @@ jobs:
     name: Swift Package Manager build (${{ matrix.platform }})
     runs-on: macos-15
     strategy:
+      fail-fast: false
       matrix:
         platform: [iOS, tvOS]
     steps:
       - uses: actions/checkout@v7
+      - name: Resolve build destination
+        run: |
+          if [ "${{ matrix.platform }}" = "iOS" ]; then
+            echo "DEST=generic/platform=iOS" >> "$GITHUB_ENV"
+          else
+            SIM_ID=$(xcrun simctl list devices available -j | python3 -c '
+          import json, sys
+          data = json.load(sys.stdin)
+          for runtime, devices in data["devices"].items():
+              if "tvOS" not in runtime:
+                  continue
+              for d in devices:
+                  if d.get("isAvailable") and d["name"].startswith("Apple TV"):
+                      print(d["udid"]); sys.exit(0)
+          sys.exit(1)
+          ')
+            echo "DEST=platform=tvOS Simulator,id=$SIM_ID" >> "$GITHUB_ENV"
+          fi
+          echo "Destination: $DEST"
       - name: Build package for ${{ matrix.platform }}
         run: >-
           xcodebuild build
           -scheme CenteredCollectionView
-          -destination 'generic/platform=${{ matrix.platform }}'
+          -destination '${{ env.DEST }}'
           CODE_SIGNING_ALLOWED=NO
 
   example:
