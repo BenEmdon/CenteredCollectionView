@@ -11,7 +11,7 @@ jobs:
     name: Swift Package Manager build
     runs-on: macos-15
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
       - name: Build package for iOS
         run: >-
           xcodebuild build
@@ -23,7 +23,7 @@ jobs:
     name: Example app build
     runs-on: macos-15
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
       - name: Build example workspace
         run: >-
           xcodebuild build
@@ -36,7 +36,7 @@ jobs:
     name: CocoaPods spec lint
     runs-on: macos-15
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
       - name: Lint podspec
         run: pod lib lint CenteredCollectionView.podspec --allow-warnings
 
@@ -44,7 +44,7 @@ jobs:
     name: Unit tests
     runs-on: macos-15
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
       - name: Pick an available iPhone simulator
         run: |
           SIM_ID=$(xcrun simctl list devices available -j | python3 -c '
