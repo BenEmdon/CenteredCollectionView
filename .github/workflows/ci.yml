@@ -48,5 +48,6 @@ jobs:
       - name: Run tests on iOS Simulator
         run: >-
           xcodebuild test
-          -scheme CenteredCollectionView
+          -workspace Example/CenteredCollectionView.xcworkspace
+          -scheme CenteredCollectionView-Example
           -destination 'platform=iOS Simulator,name=iPhone 16,OS=latest'
