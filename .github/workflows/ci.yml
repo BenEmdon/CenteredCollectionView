@@ -9,7 +9,7 @@ on:
 jobs:
   spm:
     name: Swift Package Manager build
-    runs-on: macos-14
+    runs-on: macos-15
     steps:
       - uses: actions/checkout@v4
       - name: Build package for iOS
@@ -21,7 +21,7 @@ jobs:
 
   example:
     name: Example app build
-    runs-on: macos-14
+    runs-on: macos-15
     steps:
       - uses: actions/checkout@v4
       - name: Build example workspace
@@ -34,7 +34,7 @@ jobs:
 
   pod-lint:
     name: CocoaPods spec lint
-    runs-on: macos-14
+    runs-on: macos-15
     steps:
       - uses: actions/checkout@v4
       - name: Lint podspec
