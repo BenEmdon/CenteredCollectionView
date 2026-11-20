@@ -11,7 +11,13 @@ let package = Package(
         .library(name: "CenteredCollectionView", targets: ["CenteredCollectionView"]),
     ],
     targets: [
-        .target(name: "CenteredCollectionView", path: "CenteredCollectionView/Classes")
+        .target(name: "CenteredCollectionView", path: "CenteredCollectionView/Classes"),
+        .testTarget(
+            name: "CenteredCollectionViewTests",
+            dependencies: ["CenteredCollectionView"],
+            path: "Example/Tests",
+            exclude: ["Info.plist"]
+        )
     ],
     swiftLanguageVersions: [
         .v5

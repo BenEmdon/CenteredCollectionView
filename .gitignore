@@ -28,6 +28,6 @@ Carthage
 # http://guides.cocoapods.org/using/using-cocoapods.html#should-i-ignore-the-pods-directory-in-source-control
 # 
 # Note: if you ignore the Pods directory, make sure to uncomment
-# `pod install` in .travis.yml
+# `pod install` in CI
 #
 # Pods/

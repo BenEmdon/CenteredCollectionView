@@ -4,7 +4,7 @@
 
 - Raised the minimum deployment target from iOS 9.0 / tvOS 9.0 to iOS 13.0 / tvOS 13.0.
 - Raised the Swift tools and language floor to Swift 5.9.
-- Replaced the dead Travis CI setup with GitHub Actions: SPM build, example app build, and podspec lint.
+- Replaced the dead Travis CI setup with GitHub Actions: SPM build, example app build, podspec lint, and the unit tests, now wired into the Swift package and run on an iOS Simulator in CI.
 - Removed the stale bot. Issues and PRs are no longer auto-closed without a human reply.
 - No API changes. `CenteredCollectionViewFlowLayout` and the `UICollectionView` convenience initializer are unchanged.
 
