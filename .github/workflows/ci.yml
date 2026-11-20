@@ -8,15 +8,18 @@ on:
 
 jobs:
   spm:
-    name: Swift Package Manager build
+    name: Swift Package Manager build (${{ matrix.platform }})
     runs-on: macos-15
+    strategy:
+      matrix:
+        platform: [iOS, tvOS]
     steps:
       - uses: actions/checkout@v7
-      - name: Build package for iOS
+      - name: Build package for ${{ matrix.platform }}
         run: >-
           xcodebuild build
           -scheme CenteredCollectionView
-          -destination 'generic/platform=iOS'
+          -destination 'generic/platform=${{ matrix.platform }}'
           CODE_SIGNING_ALLOWED=NO
 
   example:
