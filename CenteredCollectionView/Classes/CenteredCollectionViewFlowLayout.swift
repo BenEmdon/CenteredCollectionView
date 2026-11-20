@@ -65,11 +65,12 @@ open class CenteredCollectionViewFlowLayout: UICollectionViewFlowLayout {
         if !currentCollectionViewSize.equalTo(lastCollectionViewSize) || lastScrollDirection != scrollDirection || lastItemSize != itemSize {
             switch scrollDirection {
             case .horizontal:
-                let inset = (currentCollectionViewSize.width - itemSize.width) / 2
+                // Clamp at 0: a negative inset (zero-size or oversized cell) pushed the content offset to a wrong value, e.g. 25 for a zero-frame collection view.
+                let inset = max(0, (currentCollectionViewSize.width - itemSize.width) / 2)
                 collectionView.contentInset = UIEdgeInsets(top: 0, left: inset, bottom: 0, right: inset)
                 collectionView.contentOffset = CGPoint(x: -inset, y: 0)
             case .vertical:
-                let inset = (currentCollectionViewSize.height - itemSize.height) / 2
+                let inset = max(0, (currentCollectionViewSize.height - itemSize.height) / 2)
                 collectionView.contentInset = UIEdgeInsets(top: inset, left: 0, bottom: inset, right: 0)
                 collectionView.contentOffset = CGPoint(x: 0, y: -inset)
             default:
