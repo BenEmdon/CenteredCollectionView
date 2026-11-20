@@ -16,6 +16,14 @@ jobs:
         platform: [iOS, tvOS]
     steps:
       - uses: actions/checkout@v7
+      - name: Select newest Xcode (tvOS SDK lives there)
+        if: matrix.platform == 'tvOS'
+        run: |
+          NEWEST=$(ls -d /Applications/Xcode_*.app | sort -V | tail -1)
+          echo "Selecting $NEWEST"
+          sudo xcode-select -s "$NEWEST"
+          xcodebuild -version
+          xcodebuild -showsdks | grep -i tvos || true
       - name: Resolve build destination
         run: |
           if [ "${{ matrix.platform }}" = "iOS" ]; then
