@@ -45,9 +45,24 @@ jobs:
     runs-on: macos-15
     steps:
       - uses: actions/checkout@v5
+      - name: Pick an available iPhone simulator
+        run: |
+          SIM_ID=$(xcrun simctl list devices available -j | python3 -c '
+          import json, sys
+          data = json.load(sys.stdin)
+          for runtime, devices in data["devices"].items():
+              if "iOS" not in runtime:
+                  continue
+              for d in devices:
+                  if d.get("isAvailable") and d["name"].startswith("iPhone"):
+                      print(d["udid"]); sys.exit(0)
+          sys.exit(1)
+          ')
+          echo "Using simulator $SIM_ID"
+          echo "SIM_ID=$SIM_ID" >> "$GITHUB_ENV"
       - name: Run tests on iOS Simulator
         run: >-
           xcodebuild test
           -workspace Example/CenteredCollectionView.xcworkspace
           -scheme CenteredCollectionView-Example
-          -destination 'platform=iOS Simulator,name=iPhone 16,OS=latest'
+          -destination 'platform=iOS Simulator,id=${{ env.SIM_ID }}'
